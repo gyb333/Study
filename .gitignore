@@ -2,3 +2,5 @@
 .recommenders
 */target/
 */.settings/
+/target/
+/bin/
