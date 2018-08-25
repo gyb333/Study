@@ -23,17 +23,16 @@ public class ConfigUtil {
 	
 	static{
 		try{		 
-			String path =System.getProperty("user.dir")+"\\Resources\\";
-			PropertyConfigurator.configure(path+"log4j.properties");
+			 
 			//config = new PropertiesConfiguration("hdfs.properties");
 	
 			config = new PropertiesConfiguration();
 			config.setEncoding("UTF-8");
 			config.load(HDFS_FILEPATH);
 			
-			 //文件修改之后自动加载
+			 //鏂囦欢淇敼涔嬪悗鑷姩鍔犺浇
             config.setReloadingStrategy(new FileChangedReloadingStrategy());
-            //配置文件自动保存
+            //閰嶇疆鏂囦欢鑷姩淇濆瓨
             config.setAutoSave(true);
 			
 		}catch(Exception ex){
@@ -117,9 +116,9 @@ public class ConfigUtil {
 	
 	
  
-//	 配置文件使用ResourceBundle读取
+//	 閰嶇疆鏂囦欢浣跨敤ResourceBundle璇诲彇
 	
-	// 读取配置文件
+	// 璇诲彇閰嶇疆鏂囦欢
 		private static ResourceBundle cache = null;
 	 
 		static {
@@ -131,9 +130,9 @@ public class ConfigUtil {
 		}
 	 
 		/**
-		 * 功能描述：获取配置文件参数值
+		 * 鍔熻兘鎻忚堪锛氳幏鍙栭厤缃枃浠跺弬鏁板��
 		 * 
-		 * @param str(参数KEY值)
+		 * @param str(鍙傛暟KEY鍊�)
 		 * @return
 		 */
 		public static String getValue(String str) {
@@ -146,10 +145,10 @@ public class ConfigUtil {
 			return s;
 		}
 		/**
-		 * 功能描述：获取指定配置文件参数的值
+		 * 鍔熻兘鎻忚堪锛氳幏鍙栨寚瀹氶厤缃枃浠跺弬鏁扮殑鍊�
 		 * 
-		 * @param strPropertiesFile(配置文件名称)
-		 * @param strItem(参数名称)
+		 * @param strPropertiesFile(閰嶇疆鏂囦欢鍚嶇О)
+		 * @param strItem(鍙傛暟鍚嶇О)
 		 * @return
 		 */
 		public String getPropertiesValue(String strPropertiesFile, String strItem) {

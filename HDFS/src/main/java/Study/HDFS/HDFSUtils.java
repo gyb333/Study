@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
- 
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.BlockLocation;
@@ -20,12 +19,16 @@ import org.apache.hadoop.io.IOUtils;
 import org.apache.log4j.Logger;
 
 import com.jcraft.jsch.ChannelSftp.LsEntry;
- 
+
 public class HDFSUtils {
 
 	private static final Logger logger = Logger.getLogger(ConfigUtil.class);
 
 	private static Configuration conf = null;
+
+	public static void setConf(Configuration conf) {
+		HDFSUtils.conf = conf;
+	}
 
 	static {
 		try {
@@ -48,25 +51,26 @@ public class HDFSUtils {
 
 	public static synchronized Configuration getConfiguration() throws MalformedURLException {
 		Configuration conf = new Configuration();
-		String path=HDFSUtils.class.getResource("/").getPath();  
-	
-		path =System.getProperty("user.dir")+"\\Resources\\";
-		 
-		
-		conf.addResource(path+"core-site.xml");
-		conf.addResource(path+"hdfs-site.xml");
-		conf.addResource(path+"yarn-site.xml");
+		String path = HDFSUtils.class.getResource("/").getPath();
+
+		path = System.getProperty("user.dir") + "\\Resources\\";
+		conf.addResource("core-site.xml");
+		conf.addResource("hdfs-site.xml");
+		conf.addResource("yarn-site.xml");
 		return conf;
 	}
 
 	public static void CreateFolder(String strPath) throws IOException {
 		FileSystem fs = null;
+
 		try {
 			fs = FileSystem.get(conf);
 			Path path = new Path(strPath);
+
 			if (!fs.exists(path)) {
 				fs.mkdirs(path);
 			}
+
 		} finally {
 			if (fs != null) {
 				fs.close();
@@ -141,7 +145,7 @@ public class HDFSUtils {
 	}
 
 	/**
-	 * HDFS之间文件的复制
+	 * HDFS涔嬮棿鏂囦欢鐨勫鍒�
 	 * 
 	 * @param strPath
 	 * @param strFolder
@@ -164,7 +168,7 @@ public class HDFSUtils {
 		}
 	}
 
-	// 查看某个文件在HDFS集群中的位置
+	// 鏌ョ湅鏌愪釜鏂囦欢鍦℉DFS闆嗙兢涓殑浣嶇疆
 	/**
 	 * 
 	 * @throws IOException
@@ -178,11 +182,11 @@ public class HDFSUtils {
 			Path path = new Path(strPath);
 			FileStatus fsFileStatus = fs.getFileStatus(path);
 
-			// 获得所有的块所在的位置信息包括：主机名，块名称、块大小etc
+			// 鑾峰緱鎵�鏈夌殑鍧楁墍鍦ㄧ殑浣嶇疆淇℃伅鍖呮嫭锛氫富鏈哄悕锛屽潡鍚嶇О銆佸潡澶у皬etc
 			BlockLocation[] blockLocations = fs.getFileBlockLocations(fsFileStatus, 0, fsFileStatus.getLen());
 
 			for (BlockLocation blockLocation : blockLocations) {
-				String[] hostStrings = blockLocation.getHosts();// 获取所在的主机
+				String[] hostStrings = blockLocation.getHosts();// 鑾峰彇鎵�鍦ㄧ殑涓绘満
 				for (String host : hostStrings)
 					System.out.println(host);
 			}
@@ -195,7 +199,7 @@ public class HDFSUtils {
 	}
 
 	/**
-	 * 获取集群中所有的节点的名称信息
+	 * 鑾峰彇闆嗙兢涓墍鏈夌殑鑺傜偣鐨勫悕绉颁俊鎭�
 	 * 
 	 * @return
 	 * @throws IOException
@@ -205,9 +209,9 @@ public class HDFSUtils {
 		FileSystem fs = null;
 		try {
 			fs = FileSystem.get(conf);
-			// 将文件系统强制转换为分布式文件系统
+			// 灏嗘枃浠剁郴缁熷己鍒惰浆鎹负鍒嗗竷寮忔枃浠剁郴缁�
 			DistributedFileSystem dfs = (DistributedFileSystem) fs;
-			// 获取文件系统中数据状态信息
+			// 鑾峰彇鏂囦欢绯荤粺涓暟鎹姸鎬佷俊鎭�
 			DatanodeInfo[] datanodeInfos = dfs.getDataNodeStats();
 			return datanodeInfos;
 		} finally {
