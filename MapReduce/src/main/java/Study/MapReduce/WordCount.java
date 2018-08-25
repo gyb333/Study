@@ -1,4 +1,4 @@
-package Hadoop.MapReduce;
+package Study.MapReduce;
 
 import java.io.IOException;
 
@@ -9,18 +9,26 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.log4j.PropertyConfigurator;
+
+import Study.HDFS.HDFSUtils;
+
+
  
 
 public class WordCount {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+//		String path =System.getProperty("user.dir")+"\\Resources\\";
+//		PropertyConfigurator.configure(path+"log4j.properties");
 		
-		Configuration conf =new Configuration();
+		
+		Configuration conf =HDFSUtils.getConfiguration();
 		//设置job运行要访问的默认文件系统
-		conf.set("fs.defaultFS", "hdfs://Master:9000");
+
 		//设置job提交到哪运行
 		conf.set("mapreduce.framework.name", "yarn");
-		conf.set("yarn.resourcemanager.hostname", "Master");
+		 
 		
 		
 		

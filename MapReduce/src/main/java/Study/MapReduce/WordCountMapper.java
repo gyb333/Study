@@ -1,4 +1,4 @@
-package Hadoop.MapReduce;
+package Study.MapReduce;
 
 import java.io.IOException;
 
