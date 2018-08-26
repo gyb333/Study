@@ -3,6 +3,7 @@ package Study.MapReduce;
 import java.io.IOException;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -11,7 +12,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.log4j.PropertyConfigurator;
 
-import Study.HDFS.HDFSUtils;
+ 
 
  
 
@@ -27,13 +28,8 @@ public class WordCount {
 		conf.set("dfs.client.failover.proxy.provider.ns",
 				"org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider");
 
-//		conf.set("mapreduce.framework.name", "yarn");
-//		conf.set("yarn.resourcemanager.cluster-id", "yrc");
-//		conf.set("yarn.resourcemanager.ha.rm-ids", "rm1,rm2");
 
-//		conf.set("yarn.resourcemanager.hostname.rm1", "Master");
-//		conf.set("yarn.resourcemanager.hostname.rm2", "Master");
-//		conf.set("yarn.client.failover-proxy-provider", "org.apache.hadoop.yarn.client.ConfiguredRMFailoverProxyProvider");
+//		conf.set("mapred.remote.os", "Linux");
 
 		return conf;
 	}
@@ -66,9 +62,9 @@ public class WordCount {
 
 		Job job = Job.getInstance(conf);
 
-		// job.setJar("D:\\work\\Hadoop\\target\\Hadoop-0.0.1-SNAPSHOT.jar");
+		job.setJar("D:\\work\\Study\\MapReduce\\target\\MapReduce-0.0.1-SNAPSHOT.jar");
 
-		job.setJarByClass(WordCount.class);
+		//job.setJarByClass(WordCount.class);
 
 		job.setMapperClass(WordCountMapper.class);
 		job.setReducerClass(WordCountReducer.class);
@@ -79,8 +75,17 @@ public class WordCount {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 
+		
+		FileSystem fs =FileSystem.get(conf);
+		String strOutput="/wordcount/output";
+		Path path=new Path(strOutput);
+		if(fs.exists(path)) {
+			fs.delete(path);
+		}
+		
+		
 		FileInputFormat.setInputPaths(job, new Path("/wordcount/input"));
-		FileOutputFormat.setOutputPath(job, new Path("/wordcount/output/2"));
+		FileOutputFormat.setOutputPath(job, path);
 
 		job.setNumReduceTasks(3);
 
