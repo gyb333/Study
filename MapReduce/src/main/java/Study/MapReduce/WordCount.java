@@ -39,7 +39,7 @@ public class WordCount {
 			String path = System.getProperty("user.dir") + "\\Resources\\";
 			PropertyConfigurator.configure(path + "log4j.properties");
 			
-			System.load("D:\\work\\hadoop-3.0.0\\bin\\hadoop.dll");
+			System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
 		} catch (UnsatisfiedLinkError e) {
 			System.err.println("Native code library failed to load.\n" + e);
 			System.exit(1);
@@ -48,7 +48,7 @@ public class WordCount {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
-		System.setProperty("hadoop.home.dir", "D:\\work\\hadoop-3.0.0");
+		System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
 
 		Configuration conf = getConfiguration();
 
@@ -64,7 +64,7 @@ public class WordCount {
 
 		job.setJar("D:\\work\\Study\\MapReduce\\target\\MapReduce-0.0.1-SNAPSHOT.jar");
 
-		//job.setJarByClass(WordCount.class);
+//		job.setJarByClass(WordCount.class);
 
 		job.setMapperClass(WordCountMapper.class);
 		job.setReducerClass(WordCountReducer.class);

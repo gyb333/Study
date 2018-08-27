@@ -44,8 +44,8 @@ public class FlowCount {
 	
 	
 	public static void main(String[] args) throws Exception {
-		String path = System.getProperty("user.dir") + "\\Resources\\";
-		PropertyConfigurator.configure(path + "log4j.properties");
+		String path = System.getProperty("user.dir") ;
+		PropertyConfigurator.configure(path + "\\Resources\\log4j.properties");
 		
 		Configuration conf = new Configuration();
  
@@ -66,15 +66,16 @@ public class FlowCount {
 		
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(FlowBean.class);
+		Path baseDir =new Path(path).getParent();
 		
-		Path output=new Path("\\HadoopData\\output\\FlowCount");
+		Path output=new Path(baseDir.toString()+"\\HadoopData\\output\\FlowCount");
 		FileSystem fs=FileSystem.get(conf);
 		if(fs.exists(output))
 			fs.delete(output);
 		//fs.deleteOnExit(output);
 		 
 		
-		FileInputFormat.setInputPaths(job, new Path("\\HadoopData\\input\\flow.log"));
+		FileInputFormat.setInputPaths(job, new Path(baseDir.toString()+"\\HadoopData\\input\\flow.log"));
 		FileOutputFormat.setOutputPath(job, output);
 		job.waitForCompletion(true);
 		
