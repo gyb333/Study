@@ -122,8 +122,8 @@ public class PageTopn {
 	
 	
 	public static void main(String[] args) throws Exception {
-		String path = System.getProperty("user.dir") + "\\Resources\\";
-		PropertyConfigurator.configure(path + "log4j.properties");
+		String path = System.getProperty("user.dir");
+		PropertyConfigurator.configure(path + "\\Resources\\log4j.properties");
 		
 		Configuration conf = new Configuration();
  
@@ -144,15 +144,16 @@ public class PageTopn {
 		
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
+		Path baseDir =new Path(path).getParent();
 		
-		Path output=new Path("\\HadoopData\\output\\PageTopn");
+		Path output=new Path(baseDir.toString()+"\\HadoopData\\output\\PageTopn");
 		FileSystem fs=FileSystem.get(conf);
 		if(fs.exists(output))
 			fs.delete(output);
 		//fs.deleteOnExit(output);
 		 
 		
-		FileInputFormat.setInputPaths(job, new Path("\\HadoopData\\input\\request.dat"));
+		FileInputFormat.setInputPaths(job, new Path(baseDir.toString()+"\\HadoopData\\input\\request.dat"));
 		FileOutputFormat.setOutputPath(job, output);
 		job.waitForCompletion(true);
 		
