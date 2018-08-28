@@ -1,49 +1,46 @@
 package Study.MapReduce.DataType;
 
  
-import java.io.IOException;
 import java.util.Comparator;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
+ 
 import org.apache.hadoop.io.Text;
+ 
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+ 
 
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.log4j.PropertyConfigurator;
+import Study.MapReduce.DistributedJob;
+ 
 
-
-
-public class FlowCount {
+public class FlowCount extends DistributedJob{
 
 	public void TreeMapTest() {
-		 TreeMap<FlowBean, String> treeMap= new TreeMap<>(new Comparator<FlowBean>() {
+		TreeMap<FlowBean, String> treeMap = new TreeMap<>(new Comparator<FlowBean>() {
 
 			@Override
 			public int compare(FlowBean o1, FlowBean o2) {
-				int result=o2.getAmountFlow()-o1.getAmountFlow();
-				if(result==0)
-					result= o1.getPhone().compareTo(o2.getPhone());
+				int result = o2.getAmountFlow() - o1.getAmountFlow();
+				if (result == 0)
+					result = o1.getPhone().compareTo(o2.getPhone());
 				return result;
 			}
 		});
-		 
-		 Set<Entry<FlowBean, String>> entrySet=treeMap.entrySet();
-		 for(Entry<FlowBean, String> each : entrySet) {
-			 
-		 }
-		 
-		 
-		 
+
+		Set<Entry<FlowBean, String>> entrySet = treeMap.entrySet();
+		for (Entry<FlowBean, String> each : entrySet) {
+
+		}
+
 	}
-	
-	
+
+
+
 	public static void main(String[] args) throws Exception {
+<<<<<<< HEAD
 		String path = System.getProperty("user.dir") ;
 		PropertyConfigurator.configure(path + "\\Resources\\log4j.properties");
 		
@@ -83,5 +80,18 @@ public class FlowCount {
 		fs.deleteOnExit(new Path("\\tmp"));
 		fs.deleteOnExit(new Path("\\usr"));
 		
+=======
+		// execJob();
+		String clsName = FlowCount.class.getSimpleName();
+		boolean isLocaltion = false;
+		Class<? extends Mapper> clsMapper = FlowCountMapper.class;
+		Class<? extends Reducer> clsReducer = FlowCountReducer.class;
+		Class<?> clsMapOutputKey = Text.class;
+		Class<?> clsMapOutputValue = FlowBean.class;
+		Class<?> clsOutputKey = Text.class;
+		Class<?> clsOutputValue = FlowBean.class;
+		new FlowCount().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
+				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue);
+>>>>>>> 1c34ac51c4dce7e23d752695ac9ede56977abd44
 	}
 }
