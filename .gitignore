@@ -5,4 +5,5 @@
 /target/
 /bin/
 /.settings/
-
+hadoopData/output/*
+/logs/
