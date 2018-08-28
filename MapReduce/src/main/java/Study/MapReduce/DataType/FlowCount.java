@@ -13,10 +13,10 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
  
 
-import Study.MapReduce.DistributedJobBase;
+import Study.MapReduce.DistributedJob;
  
 
-public class FlowCount {
+public class FlowCount extends DistributedJob{
 
 	public void TreeMapTest() {
 		TreeMap<FlowBean, String> treeMap = new TreeMap<>(new Comparator<FlowBean>() {
@@ -49,7 +49,7 @@ public class FlowCount {
 		Class<?> clsMapOutputValue = FlowBean.class;
 		Class<?> clsOutputKey = Text.class;
 		Class<?> clsOutputValue = FlowBean.class;
-		DistributedJobBase.setJob(clsName, isLocaltion, clsMapper, clsReducer, 
+		new FlowCount().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
 				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue);
 	}
 }

@@ -10,10 +10,10 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 
-import Study.MapReduce.DistributedJobBase;
+import Study.MapReduce.DistributedJob;
  
 
-public class CommonFriendsOne {
+public class CommonFriendsOne extends DistributedJob{
 
 	public static class CommonFriendsOneMapper extends Mapper<LongWritable, Text, Text, Text> {
 		private  Text k =new Text();
@@ -65,7 +65,7 @@ public class CommonFriendsOne {
 		Class<?> clsMapOutputValue = Text.class;
 		Class<?> clsOutputKey = Text.class;
 		Class<?> clsOutputValue = Text.class;
-		DistributedJobBase.setJob(clsName, isLocaltion, clsMapper, clsReducer, 
+		new CommonFriendsOne().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
 				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue);
 
 	}

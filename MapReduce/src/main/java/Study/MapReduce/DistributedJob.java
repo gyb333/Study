@@ -15,7 +15,10 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.log4j.PropertyConfigurator;
 
-public class DistributedJobBase {
+import sun.tools.tree.ThisExpression;
+ 
+
+public  class DistributedJob  implements JobBase{
 
 	private static final String path = System.getProperty("user.dir");
 
@@ -34,7 +37,7 @@ public class DistributedJobBase {
 		}
 	}
 
-	public static Configuration getConfiguration() {
+	public   Configuration getConfiguration() {
 		Configuration conf = new Configuration();
 		conf.set("fs.defaultFS", "hdfs://ns");
 		conf.set("dfs.nameservices", "ns");
@@ -49,7 +52,13 @@ public class DistributedJobBase {
 		return conf;
 	}
 
-	public static void setJob(String clsName, boolean isLocaltion, Class<? extends Mapper> clsMapper,
+	@Override
+	public void setJobConfig(Job job) {
+		
+	}
+ 
+	
+	public   void execJob(String clsName, boolean isLocaltion, Class<? extends Mapper> clsMapper,
 			Class<? extends Reducer> clsReducer, Class<?> clsMapOutputKey, Class<?> clsMapOutputValue,
 			Class<?> clsOutputKey, Class<?> clsOutputValue) throws Exception {
 
@@ -76,7 +85,7 @@ public class DistributedJobBase {
 		Job job = Job.getInstance(conf);
 
 		if (isLocaltion)
-			job.setJarByClass(DistributedJobBase.class);
+			job.setJarByClass(DistributedJob.class);
 
 		else
 			job.setJar("D:\\work\\Study\\MapReduce\\target\\MapReduce-0.0.1-SNAPSHOT.jar");
@@ -84,6 +93,8 @@ public class DistributedJobBase {
 		job.setMapperClass(clsMapper);
 		job.setReducerClass(clsReducer);
 
+		setJobConfig(job);
+		
 		job.setMapOutputKeyClass(clsMapOutputKey);
 		job.setMapOutputValueClass(clsMapOutputValue);
 
@@ -143,5 +154,8 @@ public class DistributedJobBase {
 		}
 
 	}
+
+
+	
 
 }
