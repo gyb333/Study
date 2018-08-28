@@ -75,6 +75,12 @@ public class WordCount {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 
+		//設置分區方案
+		job.setPartitionerClass(MyPartitioner.class);
+		job.setNumReduceTasks(4);
+		
+		//job.setCombinerClass(MyCombiner.class);
+		
 		
 		FileSystem fs =FileSystem.get(conf);
 		String strOutput="/wordcount/output";
@@ -87,7 +93,7 @@ public class WordCount {
 		FileInputFormat.setInputPaths(job, new Path("/wordcount/input"));
 		FileOutputFormat.setOutputPath(job, path);
 
-		job.setNumReduceTasks(3);
+//		job.setNumReduceTasks(3);
 
 		boolean res = job.waitForCompletion(true);
 

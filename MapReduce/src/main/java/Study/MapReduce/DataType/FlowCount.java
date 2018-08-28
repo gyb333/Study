@@ -49,7 +49,7 @@ public class FlowCount {
 		
 		Configuration conf = new Configuration();
  
-			//设置本地提交
+		//设置本地提交
 		conf.set("fs.defaultFS", "local");
 		conf.set("mapreduce.framework.name", "local");
 		 
