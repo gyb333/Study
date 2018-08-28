@@ -1,88 +1,101 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
- 
+
 
 <configuration>
 
 
- <!-- 指定mr框架为yarn方式 -->
-  <property>
-    <name>mapreduce.framework.name</name>
-    <value>yarn</value>
-  </property>
-  
-  <!-- 指定mapreduce jobhistory地址 -->
-  <property>
-    <name>mapreduce.jobhistory.address</name>
-    <value>Master:10020</value>
-  </property>
-  
-  <!-- 任务历史服务器的web地址 -->
-  <property>
-    <name>mapreduce.jobhistory.webapp.address</name>
-    <value>Master:19888</value>
-  </property>
+	<!-- 指定mr框架为yarn方式 -->
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
 
-  <property>
-    <name>mapred.job.tracker</name>
-    <value>http://Master:9001</value>
-  </property>
+	<!-- 指定mapreduce jobhistory地址 -->
+	<property>
+		<name>mapreduce.jobhistory.address</name>
+		<value>Master:10020</value>
+	</property>
 
-  <property>
-    <name>mapreduce.jobtracker.http.address</name>
-    <value>Master:50030</value>
-  </property>
-  
-   <property>
-        <name>mapreduce.application.classpath</name>
-        <value>$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*</value>
-   </property>
-  
-   <!-- 
-  
-  <property>
-  <name>yarn.app.mapreduce.am.env</name>
-  <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value>
-</property>
-<property>
-  <name>mapreduce.map.env</name>
-  <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value>
-</property>
-<property>
-  <name>mapreduce.reduce.env</name>
-  <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value>
-</property>
+	<!-- 任务历史服务器的web地址 -->
+	<property>
+		<name>mapreduce.jobhistory.webapp.address</name>
+		<value>Master:19888</value>
+	</property>
 
+	<property>
+		<name>mapred.job.tracker</name>
+		<value>http://Master:9001</value>
+	</property>
 
-  执行失败 
-  
-   -->
+	<property>
+		<name>mapreduce.jobtracker.http.address</name>
+		<value>Master:50030</value>
+	</property>
 
-<property>  
-    <name>mapred.remote.os</name>  
-    <value>Linux</value>  
-    <description>  
-        Remote MapReduce framework's OS, can be either Linux or Windows  
-    </description>  
-</property> 
+	<property>
+		<name>mapreduce.application.classpath</name>
+		<value>$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*
+		</value>
+	</property>
+
+	<!-- <property> <name>yarn.app.mapreduce.am.env</name> <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value> 
+		</property> <property> <name>mapreduce.map.env</name> <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value> 
+		</property> <property> <name>mapreduce.reduce.env</name> <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value> 
+		</property> 执行失败 -->
+
+	<property>
+		<name>mapred.remote.os</name>
+		<value>Linux</value>
+		<description>
+			Remote MapReduce framework's OS, can be either Linux or
+			Windows
+		</description>
+	</property>
 
 
 
-<property>
-    <name>mapreduce.application.classpath</name>
-    <value>
-        /usr/local/hadoop3/etc/hadoop,
-        /usr/local/hadoop3/share/hadoop/common/*,
-        /usr/local/hadoop3/share/hadoop/common/lib/*,
-        /usr/local/hadoop3/share/hadoop/hdfs/*,
-        /usr/local/hadoop3/share/hadoop/hdfs/lib/*,
-        /usr/local/hadoop3/share/hadoop/mapreduce/*,
-        /usr/local/hadoop3/share/hadoop/mapreduce/lib/*,
-        /usr/local/hadoop3/share/hadoop/yarn/*,
-        /usr/local/hadoop3/share/hadoop/yarn/lib/*
-    </value>
-</property>    
-  
+	<property>
+		<name>mapreduce.application.classpath</name>
+		<value>
+			/usr/local/hadoop3/etc/hadoop,
+			/usr/local/hadoop3/share/hadoop/common/*,
+			/usr/local/hadoop3/share/hadoop/common/lib/*,
+			/usr/local/hadoop3/share/hadoop/hdfs/*,
+			/usr/local/hadoop3/share/hadoop/hdfs/lib/*,
+			/usr/local/hadoop3/share/hadoop/mapreduce/*,
+			/usr/local/hadoop3/share/hadoop/mapreduce/lib/*,
+			/usr/local/hadoop3/share/hadoop/yarn/*,
+			/usr/local/hadoop3/share/hadoop/yarn/lib/*
+		</value>
+	</property>
+
+
+	<property>
+		<name>mapreduce.map.output.compress</name>
+		<value>false</value>
+	</property>
+	<property>
+		<name>mapreduce.map.output.compress.codec</name>
+		<value>org.apache.hadoop.io.compress.DefaultCodec</value>
+	</property>
+
+
+
+	<property>
+		<name>mapreduce.output.fileoutputformat.compress</name>
+		<value>false</value>
+	</property>
+	<property>
+		<name>mapreduce.output.fileoutputformat.compress.type</name>
+		<value>RECORD</value>
+	</property>
+	<property>
+		<name>mapreduce.output.fileoutputformat.compress.codec</name>
+		<value>org.apache.hadoop.io.compress.DefaultCodec</value>
+	</property>
+
+
 </configuration>
 
  
