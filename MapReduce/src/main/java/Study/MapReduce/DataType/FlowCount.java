@@ -40,48 +40,7 @@ public class FlowCount extends DistributedJob{
 
 
 	public static void main(String[] args) throws Exception {
-<<<<<<< HEAD
-		String path = System.getProperty("user.dir") ;
-		PropertyConfigurator.configure(path + "\\Resources\\log4j.properties");
-		
-		Configuration conf = new Configuration();
- 
-		//设置本地提交
-		conf.set("fs.defaultFS", "local");
-		conf.set("mapreduce.framework.name", "local");
-		 
-		
-		Job job =Job.getInstance(conf);
-		
-		job.setJarByClass(FlowCount.class);
-		
-		job.setMapperClass(FlowCountMapper.class);
-		job.setReducerClass(FlowCountReducer.class);
-		
-		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(FlowBean.class);
-		
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(FlowBean.class);
-		Path baseDir =new Path(path).getParent();
-		
-		Path output=new Path(baseDir.toString()+"\\HadoopData\\output\\FlowCount");
-		FileSystem fs=FileSystem.get(conf);
-		if(fs.exists(output))
-			fs.delete(output);
-		//fs.deleteOnExit(output);
-		 
-		
-		FileInputFormat.setInputPaths(job, new Path(baseDir.toString()+"\\HadoopData\\input\\flow.log"));
-		FileOutputFormat.setOutputPath(job, output);
-		job.waitForCompletion(true);
-		
-		
-		fs.deleteOnExit(new Path("\\tmp"));
-		fs.deleteOnExit(new Path("\\usr"));
-		
-=======
-		// execJob();
+  
 		String clsName = FlowCount.class.getSimpleName();
 		boolean isLocaltion = false;
 		Class<? extends Mapper> clsMapper = FlowCountMapper.class;
@@ -92,6 +51,6 @@ public class FlowCount extends DistributedJob{
 		Class<?> clsOutputValue = FlowBean.class;
 		new FlowCount().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
 				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue);
->>>>>>> 1c34ac51c4dce7e23d752695ac9ede56977abd44
+ 
 	}
 }
