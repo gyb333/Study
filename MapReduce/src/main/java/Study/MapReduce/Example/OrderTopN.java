@@ -15,6 +15,10 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import Study.MapReduce.DistributedJob;
 import Study.MapReduce.Beans.OrderBean;
+import Study.MapReduce.DataType.FlowBean;
+import Study.MapReduce.DataType.FlowCount;
+import Study.MapReduce.DataType.FlowCountMapper;
+import Study.MapReduce.DataType.FlowCountReducer;
 
 public class OrderTopN  extends DistributedJob{
 
@@ -24,7 +28,7 @@ public class OrderTopN  extends DistributedJob{
 	 * 根据OrderId 分区
 	 *
 	 */
-	public class OrderIdPartitioner extends Partitioner<OrderBean, NullWritable>{
+	public static class OrderIdPartitioner extends Partitioner<OrderBean, NullWritable>{
 
 		@Override
 		public int getPartition(OrderBean key, NullWritable value, int numPartitions) {
@@ -39,7 +43,7 @@ public class OrderTopN  extends DistributedJob{
 	 * 根据OrderId 分组
 	 *
 	 */
-	public class OrderIdGroupingComparator extends WritableComparator{
+	public static class OrderIdGroupingComparator extends WritableComparator{
 
 		public OrderIdGroupingComparator() {
 			super(OrderBean.class,true);
@@ -104,9 +108,18 @@ public static class OrderTopnReducer extends Reducer< OrderBean, NullWritable,  
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		 
-		
+		String clsName = OrderTopN.class.getSimpleName();
+		boolean isLocaltion = false;
+		Class<? extends Mapper> clsMapper = OrderTopNMapper.class;
+		Class<? extends Reducer> clsReducer = OrderTopnReducer.class;
+		Class<?> clsMapOutputKey = OrderBean.class;
+		Class<?> clsMapOutputValue = NullWritable.class;
+		Class<?> clsOutputKey = OrderBean.class;
+		Class<?> clsOutputValue = NullWritable.class;
+		new OrderTopN().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
+				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue);
 
 	}
 

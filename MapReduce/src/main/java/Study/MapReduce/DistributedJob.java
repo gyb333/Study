@@ -29,6 +29,7 @@ public  class DistributedJob  implements JobBase{
 //			System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
 			// 设置环境变量
 			System.setProperty("HADOOP_USER_NAME", "root");
+ 
 //			System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
 
 		} catch (UnsatisfiedLinkError e) {
@@ -67,12 +68,12 @@ public  class DistributedJob  implements JobBase{
 		Path baseDir = new Path(path).getParent();
 		String strLocalInput = baseDir.toString() + strInput;
 		String strLocalOutput = baseDir.toString() + strOutput;
-		String osName = System.getProperty("os.name");
-		System.out.println(osName);
+		//String osName = System.getProperty("os.name");
+	 
 
 		Configuration conf = new Configuration();	// 默认只加载core-default.xml core-site.xml
 
-		System.setProperty("HADOOP_USER_NAME", "root");
+		
 
 		conf.set("mapreduce.app-submission.cross-platform", "true");
 		if (isLocaltion) {
@@ -93,7 +94,7 @@ public  class DistributedJob  implements JobBase{
 		job.setMapperClass(clsMapper);
 		job.setReducerClass(clsReducer);
 
-		setJobConfig(job);
+
 		
 		job.setMapOutputKeyClass(clsMapOutputKey);
 		job.setMapOutputValueClass(clsMapOutputValue);
@@ -138,7 +139,8 @@ public  class DistributedJob  implements JobBase{
 			FileOutputFormat.setOutputPath(job, pathOutput);
 
 			job.setNumReduceTasks(3);
-
+			setJobConfig(job);
+			
 			boolean res = job.waitForCompletion(true);
 
 			if (isLocaltion) {
