@@ -14,8 +14,9 @@ import org.apache.zookeeper.Watcher.Event.KeeperState;
 public class CreateSession implements Watcher { 
 
 	private static ZooKeeper zookeeper;
+	
 	public static void main(String[] args) throws IOException, InterruptedException {
-		zookeeper = new ZooKeeper("192.168.1.105:2181",5000,new CreateSession());
+		zookeeper = new ZooKeeper("Master:2181",5000,new CreateSession());
 		System.out.println(zookeeper.getState());
 		
 		Thread.sleep(Integer.MAX_VALUE);
