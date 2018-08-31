@@ -1,4 +1,4 @@
-package Study.Zookeeper;
+package Study.Zookeeper.Base;
 
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.Watcher.Event.EventType;
 
 
 /**
@@ -30,10 +31,7 @@ public class ZookeeperFactory {
 		return getInstance(connectString,sessionTimeout);
 	}
 	
-	public static ZooKeeper getInstance(Watcher watcher) throws IOException, InterruptedException {
-		
-		return getInstance(connectString,sessionTimeout,watcher);
-	}
+	
 	
 	public static ZooKeeper getInstance(String connectString,int sessionTimeout) throws IOException, InterruptedException {
 		
@@ -41,9 +39,13 @@ public class ZookeeperFactory {
 		ZooKeeper zooKeeper = new ZooKeeper(connectString, sessionTimeout, new Watcher() {
 			// 为避免连接还未完成就执行zookeeper的get/create/exists操作引起的
 			//（KeeperErrorCode = ConnectionLoss)  等Zookeeper的连接完成才返回实例
+			@Override
 			public void process(WatchedEvent event) {
 				if (event.getState() == Event.KeeperState.SyncConnected) {
-					signal.countDown();
+					if (event.getType()==EventType.None && null==event.getPath()){
+						signal.countDown();
+					}
+					
 				}
 
 			}
@@ -52,10 +54,7 @@ public class ZookeeperFactory {
 		return zooKeeper;
 	}
 
-	public static ZooKeeper getInstance(String connectString,int sessionTimeout,Watcher watcher) throws IOException {
-		ZooKeeper zooKeeper = new ZooKeeper(connectString, sessionTimeout,watcher);
-		return zooKeeper;
-	}
+	
 	
 	
 	public static String getConnectionString() {

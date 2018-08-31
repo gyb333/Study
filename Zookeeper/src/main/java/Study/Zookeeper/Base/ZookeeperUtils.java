@@ -1,51 +1,67 @@
-package Study.Zookeeper;
+package Study.Zookeeper.Base;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs.Ids;
+import org.apache.zookeeper.ZooDefs.Perms;
 import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.AsyncCallback.StringCallback;
+import org.apache.zookeeper.Watcher.Event.EventType;
+import org.apache.zookeeper.Watcher.Event.KeeperState;
+import org.apache.zookeeper.data.ACL;
+import org.apache.zookeeper.data.Id;
 import org.apache.zookeeper.data.Stat;
+import org.apache.zookeeper.server.auth.DigestAuthenticationProvider;
 
 public class ZookeeperUtils {
 
-	private ZooKeeper zookeeper;
-
-	public ZookeeperUtils() {
+	private static ZooKeeper zookeeper;
+	private  static boolean IsExisted = false;
+	
+	static {
 
 		try {
 			zookeeper = ZookeeperFactory.getInstance();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
+			zookeeper.addAuthInfo("digest", "root:root".getBytes());
+		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
-	public ZookeeperUtils(Watcher watcher) {
+	public static boolean createZNodeAuth(String path, String data, CreateMode mode) {
 
 		try {
-			zookeeper = ZookeeperFactory.getInstance(watcher);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
+			if (zookeeper.exists(path, true) == null) {
+
+				ACL aclIp = new ACL(Perms.READ|Perms.WRITE, new Id("ip", "10.228.222.65"));
+				ACL aclDigest = new ACL(Perms.READ | Perms.WRITE,
+						new Id("digest", DigestAuthenticationProvider.generateDigest("root:root")));
+				ArrayList<ACL> acls = new ArrayList<ACL>();
+				acls.add(aclDigest);
+				acls.add(aclIp);
+				
+
+				zookeeper.create(path, data.getBytes(), acls, mode);
+				return true;
+			}
+		} catch (KeeperException | NoSuchAlgorithmException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+		System.out.println("znode" + path + "结点已存在");
+		return false;
 	}
 
-	public ZooKeeper getZooKeeper() {
-		return zookeeper;
-	}
-
+	
+	
 	/**
 	 * 创建znode结点
 	 * 
@@ -54,17 +70,14 @@ public class ZookeeperUtils {
 	 * @return true 创建结点成功 false表示结点存在
 	 * @throws Exception
 	 */
-	public boolean addZnodeData(String path, String data, CreateMode mode) {
+	public static boolean createZNode(String path, String data, CreateMode mode) {
 
 		try {
 			if (zookeeper.exists(path, true) == null) {
 				zookeeper.create(path, data.getBytes(), Ids.OPEN_ACL_UNSAFE, mode);
 				return true;
 			}
-		} catch (KeeperException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
+		} catch (KeeperException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -81,8 +94,8 @@ public class ZookeeperUtils {
 	 * @return true 创建结点成功 false表示结点存在
 	 * @throws Exception
 	 */
-	public boolean addPZnode(String path, String data) {
-		return addZnodeData(path, data, CreateMode.PERSISTENT);
+	public static boolean createPZNode(String path, String data) {
+		return createZNode(path, data, CreateMode.PERSISTENT);
 	}
 
 	/**
@@ -93,8 +106,8 @@ public class ZookeeperUtils {
 	 * @return true 创建结点成功 false表示结点存在
 	 * @throws Exception
 	 */
-	public boolean addZEnode(String path, String data) {
-		return addZnodeData(path, data, CreateMode.EPHEMERAL);
+	public static boolean createZENode(String path, String data) {
+		return createZNode(path, data, CreateMode.EPHEMERAL);
 	}
 
 	/**
@@ -104,7 +117,7 @@ public class ZookeeperUtils {
 	 * @param data 结点数据
 	 * @return 修改结点成功 false表示结点不存在
 	 */
-	public boolean updateZnode(String path, String data) {
+	public static boolean updateZNode(String path, String data) {
 
 		Stat stat = null;
 		try {
@@ -112,10 +125,7 @@ public class ZookeeperUtils {
 				zookeeper.setData(path, data.getBytes(), stat.getVersion());
 				return true;
 			}
-		} catch (KeeperException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
+		} catch (KeeperException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -130,7 +140,7 @@ public class ZookeeperUtils {
 	 * @param path 结点
 	 * @return true 删除键结点成功 false表示结点不存在
 	 */
-	public boolean deleteZnode(String path) {
+	public static boolean deleteZNode(String path) {
 
 		Stat stat = null;
 		try {
@@ -141,14 +151,11 @@ public class ZookeeperUtils {
 					return true;
 				} else {
 					for (String subPath : subPaths) {
-						deleteZnode(path + "/" + subPath);
+						deleteZNode(path + "/" + subPath);
 					}
 				}
 			}
-		} catch (KeeperException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
+		} catch (KeeperException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -162,7 +169,7 @@ public class ZookeeperUtils {
 	 * @param path 结点路径
 	 * @return null表示结点不存在 否则返回结点数据
 	 */
-	public String getZnodeData(String path) {
+	public static String getZnodeData(String path) {
 
 		String data = null;
 
@@ -173,13 +180,10 @@ public class ZookeeperUtils {
 			} else {
 				System.out.println("znode:" + path + ",不存在");
 			}
-		} catch (KeeperException e) {
+		} catch (KeeperException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
 		return data;
