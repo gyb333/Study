@@ -6,6 +6,8 @@ public class User implements Serializable {
 	String name;
 	String id;
 	
+	 
+	 
 	public String getName() {
 		return name;
 	}

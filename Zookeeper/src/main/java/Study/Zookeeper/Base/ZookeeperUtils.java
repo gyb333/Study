@@ -22,7 +22,7 @@ import org.apache.zookeeper.server.auth.DigestAuthenticationProvider;
 public class ZookeeperUtils {
 
 	private static ZooKeeper zookeeper;
-	private  static boolean IsExisted = false;
+
 	
 	static {
 

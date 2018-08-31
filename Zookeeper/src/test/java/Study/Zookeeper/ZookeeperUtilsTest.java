@@ -1,14 +1,16 @@
 package Study.Zookeeper;
 
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import Study.Zookeeper.Base.ZookeeperUtils;
 
  
 
  
-
+@FixMethodOrder(MethodSorters.DEFAULT)
 public class ZookeeperUtilsTest {
 
 	@Test
