@@ -1,6 +1,13 @@
 package Study.Zookeeper.ZkClient;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + "]";
+	}
 
 	private Integer id;
 	private String name;
