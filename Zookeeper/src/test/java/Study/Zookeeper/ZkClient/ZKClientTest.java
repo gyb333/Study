@@ -13,11 +13,11 @@ import org.junit.runners.MethodSorters;
 import Study.Zookeeper.ZkClient.ZkClientFactory;
 import Study.Zookeeper.ZkClient.ZkClientUtils;
 
-@FixMethodOrder(MethodSorters.DEFAULT)
+@FixMethodOrder(MethodSorters.JVM)
 public class ZKClientTest {
 
 	@Test
-	public void TestZkClient() {
+	public void Test0ZkClient() {
 		ZkClient zkClient = ZkClientFactory.getInstance();
 		assertNotNull(zkClient);
 
@@ -34,24 +34,27 @@ public class ZKClientTest {
 
 		Assert.assertTrue(true);
 	}
-
+	
 	@Test
-	public void Test2updateNode() {
-		String path = "/ZkClient";
-		if (ZkClientUtils.existsNode(path))
-			ZkClientUtils.updateNode(path, "updateNode", -1);
-		Assert.assertTrue(true);
-	}
-
-	@Test
-	public void Test3ReadNode() {
+	public void Test2ReadNode() {
 		Stat stat = new Stat();
 		User user = ZkClientUtils.getNode("/ZkClient", stat);
 		System.out.println(user.toString());
 		System.out.println(stat);
 		Assert.assertTrue(true);
 	}
+	
+	@Test
+	public void Test3updateNode() {
+		String path = "/ZkClient";
+		if (ZkClientUtils.existsNode(path))
+			ZkClientUtils.updateNode(path, "updateNode", -1);
+		Assert.assertTrue(true);
+	}
 
+	
+
+	
 	@Test
 	public void Test4deleteNode() {
 		ZkClientUtils.deleteNode("/ZkClient");
