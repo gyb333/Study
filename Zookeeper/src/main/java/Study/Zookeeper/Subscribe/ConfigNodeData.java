@@ -1,6 +1,6 @@
 package Study.Zookeeper.Subscribe;
 
-public class DBServerNodeData {
+public class ConfigNodeData {
 
 	private String dbUrl;
 	private String dbPwd;

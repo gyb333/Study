@@ -36,7 +36,7 @@
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 			<version>3.4.13</version>
-			
+
 		</dependency>
 
 
@@ -54,7 +54,7 @@
 			<artifactId>curator-recipes</artifactId>
 			<version>2.12.0</version>
 		</dependency>
-		
+
 
 
 		<dependency>
@@ -71,6 +71,12 @@
 			<version>1.2.47</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.29.Final</version>
+		</dependency>
 
 
 

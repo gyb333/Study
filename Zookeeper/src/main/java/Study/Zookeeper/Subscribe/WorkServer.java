@@ -5,6 +5,8 @@ import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.exception.ZkNoNodeException;
 
 import com.alibaba.fastjson.JSON;
+
+import Study.Zookeeper.ZkClient.ZkClientFactory;
  
  
 
@@ -15,8 +17,9 @@ public class WorkServer {
 	private String serversPath;
 	private String configPath;
 	
-	private ZkClient zkClient;
-	private DBServerNodeData config;
+	private  ZkClient zkClient=ZkClientFactory.getInstance();
+	
+	private ConfigNodeData configNodeData;
 	
     private ServerNodeData serverNodeData;
     
@@ -31,19 +34,19 @@ public class WorkServer {
 	 * @param zkClient     底层与zookeeper集群通信的组件
 	 * @param initconfig   当前服务器的初始配置
 	 */
-	public WorkServer(String configPath,String serversPath,ServerNodeData serverNodeData,ZkClient zkClient, DBServerNodeData initconfig){
+	public WorkServer(ServerNodeData serverNodeData, ConfigNodeData initconfig){
 		
-		this.configPath = configPath;
-		this.serversPath = serversPath;
+		this.configPath = ZkConfig.CONFIG_PATH;
+		this.serversPath = ZkConfig.SERVERS_PATH;
 	    this.serverNodeData = serverNodeData;
-		this.zkClient = zkClient;
-		this.config = initconfig;
+		this.configNodeData = initconfig;
 		
 		/**
 		 * dataListener 用于监听config节点的数据改变
 		 */
 		this.dataListener = new IZkDataListener() {
 			
+			@Override
 			public void handleDataDeleted(String arg0) throws Exception {
 				
 			}
@@ -54,9 +57,10 @@ public class WorkServer {
 			 * 可以通过参数中的Object data 拿到当前数据节点最新的配置信息
 			 * 拿到这个data信息后将它反序列化成ServerConfig对象，然后更新到自己的serverconfig属性中
 			 */
+			@Override
 			public void handleDataChange(String dataPath, Object data) throws Exception {
 				String retJson = new String((byte[])data);
-				DBServerNodeData serverConfigLocal = (DBServerNodeData)JSON.parseObject(retJson,DBServerNodeData.class);
+				ConfigNodeData serverConfigLocal = JSON.parseObject(retJson,ConfigNodeData.class);
 			    //更新配置
 			    updateConfig(serverConfigLocal);
 			    System.out.println("new work server config is:"+serverConfigLocal.toString());
@@ -113,10 +117,18 @@ public class WorkServer {
 	/**
 	 * 当监听到zookeeper中config节点的配置信息改变时，要读取配置信息来更新自己的配置信息
 	 */
-	private void updateConfig(DBServerNodeData serverConfig){
-		this.config = serverConfig;
+	private void updateConfig(ConfigNodeData serverConfig){
+		this.configNodeData = serverConfig;
 	}
 
-	
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+		if(zkClient!=null) {
+			zkClient.close();
+			zkClient=null;
+		}
+	}
 	
 }

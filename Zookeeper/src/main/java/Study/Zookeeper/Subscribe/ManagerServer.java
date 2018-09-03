@@ -7,18 +7,25 @@ import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.exception.ZkNoNodeException;
 import org.I0Itec.zkclient.exception.ZkNodeExistsException;
+import org.I0Itec.zkclient.serialize.BytesPushThroughSerializer;
+import org.apache.zookeeper.CreateMode;
 
 import com.alibaba.fastjson.JSON;
+
+import Study.Zookeeper.ZkClient.ZkClientFactory;
  
 
 public class ManagerServer {
+	private ZkClient zkClient=ZkClientFactory.getInstance(new BytesPushThroughSerializer());
+	
 
+	
 	private String serversPath;
 	private String commandPath;
 	private String configPath;
-	private ZkClient zkClient;
+
 	
-	private DBServerNodeData config;
+	private ConfigNodeData config;
 	//用于监听zookeeper中servers节点的子节点列表变化
 	private IZkChildListener childListener;
 	//用于监听zookeeper中command节点的数据变化
@@ -34,14 +41,20 @@ public class ManagerServer {
 	 * @param zkClient
 	 * @param config
 	 */
-	public ManagerServer(String serversPath, String commandPath,String configPath, ZkClient zkClient, DBServerNodeData config) {
-		this.serversPath = serversPath;
-		this.commandPath = commandPath;
-		this.zkClient = zkClient;
+	public ManagerServer( ConfigNodeData config) {
+ 
 		this.config = config;
-		this.configPath = configPath;
+		this.serversPath=ZkConfig.SERVERS_PATH;
+		this.commandPath=ZkConfig.COMMAND_PATH;
+		this.configPath=ZkConfig.CONFIG_PATH;
+ 
+ 
+		
+		
+		
 		this.childListener = new IZkChildListener() {
 			//用于监听zookeeper中servers节点的子节点列表变化
+			@Override
 			public void handleChildChange(String parentPath,List<String> currentChilds) throws Exception {
 				//更新服务器列表
 				workServerList = currentChilds;
@@ -54,21 +67,26 @@ public class ManagerServer {
 		
 		//用于监听zookeeper中command节点的数据变化
 		this.dataListener = new IZkDataListener() {
- 
-			public void handleDataDeleted(String dataPath) throws Exception {
 			
+			@Override
+			public void handleDataDeleted(String dataPath) throws Exception {
+				// TODO Auto-generated method stub
+				
 			}
- 
-			public void handleDataChange(String dataPath, Object data)
-					throws Exception {
-			    
+			
+			@Override
+			public void handleDataChange(String dataPath, Object data) throws Exception {
+				// TODO Auto-generated method stub
+				System.out.println(dataPath);
 				String cmd = new String((byte[]) data);
 				System.out.println("cmd:"+cmd);
 				exeCmd(cmd);
- 
 			}
 		};
  
+	 
+		
+		
 	}
 	
 	public void start() {
@@ -76,9 +94,11 @@ public class ManagerServer {
 	}
  
 	public void stop() {
+		
 		//取消订阅command节点数据变化和servers节点的列表变化
-		zkClient.unsubscribeChildChanges(serversPath, childListener);
 		zkClient.unsubscribeDataChanges(commandPath, dataListener);
+		zkClient.unsubscribeChildChanges(serversPath, childListener);
+
 	}
 	
 	/**
@@ -86,9 +106,8 @@ public class ManagerServer {
 	 */
 	private void initRunning() {
 		//执行订阅command节点数据变化和servers节点的列表变化
-		zkClient.subscribeDataChanges(commandPath, dataListener);
 		zkClient.subscribeChildChanges(serversPath, childListener);
-	
+		zkClient.subscribeDataChanges(commandPath, dataListener);
 	}
 	
  
@@ -140,13 +159,21 @@ public class ManagerServer {
  
 		try {
 			//回写到zookeeper中
-			zkClient.writeData(configPath, JSON.toJSONString(config).getBytes());
+			zkClient.writeData(ZkConfig.CONFIG_PATH, JSON.toJSONString(config).getBytes());
 		} catch (ZkNoNodeException e) {
 			execCreate();
 		}
 	}
 
-	
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+		if(zkClient!=null) {
+			zkClient.close();
+			zkClient=null;
+		}
+	}
 	
 	
 }
