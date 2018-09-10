@@ -19,6 +19,11 @@
  * hive>dfs -rmr /目录                 				//dfs命令，删除目录
  * hive>!clear ;                          	//hive中执行shell命令
  * 
+ * set hive.cli.print.current.db=true;		#让提示符显示当前库
+ * set hive.cli.print.header=true; 			#显示查询结果时显示字段名称
+ * set hive.exec.mode.local.auto=true;		#可以让hive将mrjob提交给本地运行器运行
+ * set hive.enforce.bucketing = true;		#指定开启分桶
+ * set mapreduce.job.reduces=4;
  * 
  * 元数据都储存在mysql：use hive用户库; 
  * SELECT * FROM version v;       	#查看hive版本

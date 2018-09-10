@@ -16,6 +16,8 @@ collection items terminated by ',';
 --导入数据
 load data local inpath '/usr/local/BigData/hivedata/array.txt' into table t_stu_subjects;
 
+select  id,array_contains(subjects,'语文') from t_stu-subjects;
+
 --查询列值拆分
 	select id,subjects[0] from t_stu_subjects;
 
@@ -63,12 +65,15 @@ where t_lt.sub='天文';
 
 --explode函数应用示例2： wordcount
 Create table if not exists dual (dummy string);		#hive中构建dual虚表
-load data local inpath '/usr/local/BigData/hivedata/dual' overwrite into table dual;
+insert into table dual values('');
+--load data local inpath '/usr/local/BigData/hivedata/dual' overwrite into table dual;
 select 1+1 from dual;	
 	
 select words.word,count(1) as counts
 from
-(select explode(split("a b c d e f a b c d e f g"," ")) as word from dual) words
+(select explode(split("a b c d e f a b c d e f g"," ")) as word 
+from dual
+) words
 group by word
 order by counts desc;
 
@@ -97,7 +102,7 @@ e       2
 d       2
 */
 
---常用于求分组TOPN
+--row_number() over 常用于求分组TOPN
 /*
 有如下数据：
 zhangsan,kc1,90
