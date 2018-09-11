@@ -1,29 +1,66 @@
 package Study.HBase;
 
 
-import java.util.List;
+ 
+
+import org.apache.hadoop.hbase.util.Bytes;
 
 public class HBaseRow {
 
-	private byte[] row;
+	private byte[] rowKey;
 	
-	private List<HBaseFamily> families;
+	private byte[] family;
+	
+	
+	private byte[] qualifier;
+	
+	private byte[] value;
 
-	public byte[] getRow() {
-		return row;
+	public HBaseRow(String rowKey, String family, String qualifier, String value) {
+ 
+		this.rowKey = Bytes.toBytes(rowKey);
+		this.family =  Bytes.toBytes(family);
+		this.qualifier =  Bytes.toBytes(qualifier);
+		this.value =  Bytes.toBytes(value);
 	}
 
-	public void setRow(byte[] row) {
-		this.row = row;
+	public byte[] getRowKey() {
+		return rowKey;
 	}
 
-	public List<HBaseFamily> getFamilies() {
-		return families;
+	public void setRowKey(byte[] rowKey) {
+		this.rowKey = rowKey;
 	}
 
-	public void setFamilies(List<HBaseFamily> families) {
-		this.families = families;
+	public byte[] getFamily() {
+		return family;
 	}
+
+	public void setFamily(byte[] family) {
+		this.family = family;
+	}
+
+	public byte[] getQualifier() {
+		return qualifier;
+	}
+
+	public void setQualifier(byte[] qualifier) {
+		this.qualifier = qualifier;
+	}
+
+	public byte[] getValue() {
+		return value;
+	}
+
+	public void setValue(byte[] value) {
+		this.value = value;
+	}
+	
+	 
+
+	 
+
+	 
 	
 	
 	

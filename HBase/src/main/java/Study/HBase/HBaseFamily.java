@@ -1,6 +1,20 @@
 package Study.HBase;
 
+import org.apache.hadoop.hbase.util.Bytes;
+
 public class HBaseFamily {
+
+	public HBaseFamily(byte[] family, byte[] qualifier, byte[] value) {
+		this.family = family;
+		this.qualifier = qualifier;
+		this.value = value;
+	}
+	
+	public HBaseFamily(String family, String qualifier, String value) {
+		this.family = Bytes.toBytes(family);
+		this.qualifier =Bytes.toBytes(qualifier); 
+		this.value =Bytes.toBytes(value); 
+	}
 
 	private  byte[] family;
 	

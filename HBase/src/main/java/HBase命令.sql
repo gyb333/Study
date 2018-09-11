@@ -21,6 +21,8 @@
  */
 --			表名      列族名   列族名
 create 't_user_info','base_info','extra_info'
+--查看表结构 describe
+describe 't_user_info'
 
 put 't_user_info','001','base_info:username','zhangsan'
 put 't_user_info','001','base_info:age','18'

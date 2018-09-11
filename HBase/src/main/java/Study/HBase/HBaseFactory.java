@@ -17,11 +17,12 @@ public class HBaseFactory {
 		// 构建一个连接对象
 		conf = HBaseConfiguration.create();
 		//会自动加载hbase-site.xml
+		//System.out.println(System.getenv("HBASE_CONF_DIR"));
 		
 		 //Add any necessary configuration files (hbase-site.xml, core-site.xml)
-		conf.addResource(new Path(System.getenv("HBASE_CONF_DIR"), "hbase-site.xml"));
-		conf.addResource(new Path(System.getenv("HADOOP_CONF_DIR"), "core-site.xml"));
-		
+//		conf.addResource(new Path(System.getenv("HBASE_CONF_DIR"), "hbase-site.xml"));
+//		conf.addResource(new Path(System.getenv("HADOOP_CONF_DIR"), "core-site.xml"));
+	
 		conf.set("hbase.zookeeper.quorum", ZKHBase);
 	}
 
