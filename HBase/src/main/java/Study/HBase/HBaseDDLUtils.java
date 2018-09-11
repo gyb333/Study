@@ -16,6 +16,7 @@ import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.TableDescriptor;
 import org.apache.hadoop.hbase.client.TableDescriptorBuilder;
 import org.apache.hadoop.hbase.io.compress.Compression.Algorithm;
+import org.apache.hadoop.hbase.regionserver.BloomType;
 
  
 public class HBaseDDLUtils {
@@ -67,7 +68,9 @@ public class HBaseDDLUtils {
 		}
 		TableDescriptor table = admin.getDescriptor(tableName);
 		ModifyableColumnFamilyDescriptor columnFamilyNew = new ModifyableColumnFamilyDescriptor(
-				ColumnFamilyDescriptorBuilder.of(strFamilyName)).setCompactionCompressionType(Algorithm.GZ)
+				ColumnFamilyDescriptorBuilder.of(strFamilyName))
+				.setBloomFilterType(BloomType.ROWCOL)	//设置布隆过滤器
+				.setCompactionCompressionType(Algorithm.GZ)
 						.setMaxVersions(HConstants.ALL_VERSIONS);
 		admin.addColumnFamily(tableName, columnFamilyNew);
 	}
