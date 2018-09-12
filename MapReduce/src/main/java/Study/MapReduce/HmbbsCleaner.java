@@ -24,8 +24,9 @@ import org.apache.hadoop.util.ToolRunner;
 public class HmbbsCleaner extends Configured implements Tool{
 	
 	
+	@Override
 	public int run(String[] args) throws Exception {
-		final Job job = new Job(new Configuration(), HmbbsCleaner.class.getSimpleName());
+		final Job job = Job.getInstance(new Configuration(), HmbbsCleaner.class.getSimpleName());
 		job.setJarByClass(HmbbsCleaner.class);
 		FileInputFormat.setInputPaths(job, args[0]);
 		job.setMapperClass(MyMapper.class);
@@ -45,6 +46,7 @@ public class HmbbsCleaner extends Configured implements Tool{
 	static class MyMapper extends Mapper<LongWritable, Text, LongWritable, Text>{
 		LogParser logParser = new LogParser();
 		Text v2 = new Text();
+		@Override
 		protected void map(LongWritable key, Text value, org.apache.hadoop.mapreduce.Mapper<LongWritable,Text,LongWritable,Text>.Context context) throws java.io.IOException ,InterruptedException {
 			final String[] parsed = logParser.parse(value.toString());
 			
@@ -72,6 +74,7 @@ public class HmbbsCleaner extends Configured implements Tool{
 	}
 	
 	static class MyReducer extends Reducer<LongWritable, Text, Text, NullWritable>{
+		@Override
 		protected void reduce(LongWritable k2, java.lang.Iterable<Text> v2s, org.apache.hadoop.mapreduce.Reducer<LongWritable,Text,Text,NullWritable>.Context context) throws java.io.IOException ,InterruptedException {
 			for (Text v2 : v2s) {
 				context.write(v2, NullWritable.get());
