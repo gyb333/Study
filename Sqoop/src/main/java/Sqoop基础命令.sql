@@ -66,6 +66,8 @@ sqoop export  --connect jdbc:mysql://Master:3306/sqoop2 \
 #--input-null-string '\\N' --input-null-non-string '\\N'
 
 
-
+sqoop export  --connect jdbc:mysql://Master:3306/sqoop2 \
+--username root --password root \
+--table tb_kc --export-dir /hive3/warehouse/hive3.db/tb_kc
 
 
