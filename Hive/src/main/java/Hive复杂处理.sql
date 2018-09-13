@@ -107,7 +107,7 @@ d       2
 有如下数据：
 zhangsan,kc1,90
 zhangsan,kc2,95
-zhangsan,kc3,68 
+zhangsan,kc3,68
 lisi,kc1,88
 lisi,kc2,95
 lisi,kc3,98

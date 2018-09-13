@@ -18,18 +18,18 @@ sqoop eval --connect jdbc:mysql://Master:3306/sqoop2 \
 --将关系型数据的表结构复制到hive中,只是复制表的结构，表中的内容没有复制过去
 sqoop create-hive-table --connect jdbc:mysql://Master:3306/sqoop2 \
 --table student --username root --password root \
---hive-table hive3.student
+--hive-database hive3 --hive-table student
 
 
 --导入mysql整表数据到hive表中
-sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2?zeroDateTimeBehavior=EXCEPTION \
---username root --password root \
+sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2 \
+--driver com.mysql.jdbc.Driver --username root --password root \
 --table student  --hive-import  --delete-target-dir \
 --hive-database hive3 --hive-table student -m 1
 
 --从关系数据库导入整表和数据到hive中
 sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2?zeroDateTimeBehavior=EXCEPTION \
---username root --password root \
+--driver com.mysql.jdbc.Driver --username root --password root \
 --table student --fields-terminated-by '\t' \
 --hive-import  --delete-target-dir \
 --hive-database hive3 --hive-table student1 -m 1
@@ -66,8 +66,13 @@ sqoop export  --connect jdbc:mysql://Master:3306/sqoop2 \
 #--input-null-string '\\N' --input-null-non-string '\\N'
 
 
-sqoop export  --connect jdbc:mysql://Master:3306/sqoop2 \
---username root --password root \
---table tb_kc --export-dir /hive3/warehouse/hive3.db/tb_kc
-
-
+csrutil disable
+sudo ln -s /usr/local/jdk1.8/bin/java /bin/java
+ 
+sqoop export --connect jdbc:mysql://Master:3306/sqoop2 \
+--driver com.mysql.jdbc.Driver --username root --password root \
+--table tb_kc -m 1 \
+--input-fields-terminated-by ',' --input-lines-terminated-by '\n' \
+--input-null-string '\\N' --input-null-non-string '\\N' \
+--export-dir /hive/warehouse/hive3.db/tb_kc/ --update-mode allowinsert \
+;
