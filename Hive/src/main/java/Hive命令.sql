@@ -51,6 +51,10 @@
      UNIONTYPE           		//联合类型
      NULL
  * 
+ * show database;
+ * use dbName;
+ * show tables;
+ * 
  * create database if not exists dbname; #创建库
  * 
  * alter database dbname set dbproperties('edited-by'='joe'); #修改库(不能删除或“重置”数据库属性)
