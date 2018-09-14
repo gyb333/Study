@@ -1,0 +1,7 @@
+tail-hdfs.conf
+
+用tail命令获取数据，下沉到hdfs
+启动命令：
+bin/flume-ng agent -c conf -f conf/tail-hdfs.conf -n a1
+########
+
