@@ -2,6 +2,13 @@
  * 本质就是迁移数据， 迁移的方式：就是把sqoop的迁移命令转换成MR程序
  * 修改库的编码：alter database db_name character set utf8;
  * 修改表的编码：ALTER TABLE table_name CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci; 
+ 	set global time_zone='+8:00';
+ 	执行 flush privileges;
+ 	
+ 	--csrutil disable
+sudo ln -s /usr/local/jdk1.8/bin/java /usr/bin/java
+/usr/bin/java -version 
+ 
  */
 sqoop version
 
@@ -25,16 +32,17 @@ sqoop create-hive-table --connect jdbc:mysql://Master:3306/sqoop2 \
 
 
 --导入mysql整表数据到hive表中
-sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC \
---driver com.mysql.jdbc.Driver --username root --password root \
---table student  --hive-import  --delete-target-dir \
---hive-database hive3 --hive-table student -m 1
+sqoop import --connect jdbc:mysql://Master:3306/sqoop2?zeroDateTimeBehavior=EXCEPTION \
+--username root --password root \
+--table student --hive-import --delete-target-dir \
+--hive-database hive3 --hive-table student -m 1 \
+--null-string '\\N' --null-non-string '\\N'
 
 --从关系数据库导入整表和数据到hive中
-sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2?zeroDateTimeBehavior=EXCEPTION \
---driver com.mysql.jdbc.Driver --username root --password root \
+sqoop import  --connect jdbc:mysql://Master:3306/sqoop2?zeroDateTimeBehavior=EXCEPTION \
+--driver com.mysql.cj.jdbc.Driver --username root --password root \
 --table student --fields-terminated-by '\t' \
---hive-import  --delete-target-dir \
+--hive-import --delete-target-dir \
 --hive-database hive3 --hive-table student1 -m 1
 
 --从关系数据库导入表的数据到HDFS上文件
@@ -111,9 +119,8 @@ sqoop export --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC \
 --input-null-string 'null' --input-null-non-string 'null'
  
 
+ 
 
---csrutil disable
---sudo ln -s /usr/local/jdk1.8/bin/java /bin/java
  
 day=`date -d '-1 day' +'%Y-%m-%d'`
 sqoop export --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8 \
