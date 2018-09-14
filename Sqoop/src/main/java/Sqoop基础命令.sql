@@ -1,6 +1,7 @@
 /**
  * 本质就是迁移数据， 迁移的方式：就是把sqoop的迁移命令转换成MR程序
- * 
+ * 修改库的编码：alter database db_name character set utf8;
+ * 修改表的编码：ALTER TABLE table_name CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci; 
  */
 sqoop version
 
@@ -10,6 +11,8 @@ sqoop list-databases --connect jdbc:mysql://Master:3306/?serverTimezone=UTC --us
 --连接mysql并列出hive3数据库中的表
 sqoop list-tables --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC --username root -password root
 
+1gyb10false
+2test20true
 
 sqoop eval --connect jdbc:mysql://Master:3306/sqoop2 \
 --username root --password root \
@@ -22,7 +25,7 @@ sqoop create-hive-table --connect jdbc:mysql://Master:3306/sqoop2 \
 
 
 --导入mysql整表数据到hive表中
-sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2 \
+sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC \
 --driver com.mysql.jdbc.Driver --username root --password root \
 --table student  --hive-import  --delete-target-dir \
 --hive-database hive3 --hive-table student -m 1
@@ -34,6 +37,16 @@ sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2?zeroDateTimeBehavior=EX
 --hive-import  --delete-target-dir \
 --hive-database hive3 --hive-table student1 -m 1
 
+--从关系数据库导入表的数据到HDFS上文件
+sqoop import --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC \
+--driver com.mysql.jdbc.Driver --username root --password root \
+--table student -m 1 --target-dir /hive3/warehouse/student
+
+--从关系数据库增量导入表数据到hdfs中
+sqoop import --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC \
+--driver com.mysql.jdbc.Driver --username root --password root \
+--table student -m 1 --target-dir /hive3/warehouse/student \
+--check-column id -incremental append --last-value 2
 
 --从关系数据库查询数据导入到hive表中
 sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2 \
@@ -50,29 +63,61 @@ sqoop  import  --connect jdbc:mysql://Master:3306/sqoop2 \
 --delete-target-dir --target-dir  /hive3/warehouse/hive3.db/student \
 --hive-database hive3 --hive-table student
 
+sqoop export --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC \
+--driver com.mysql.jdbc.Driver --username root --password root \
+--table hivestudent -m 1 \
+--input-null-string '\\N' --input-null-non-string '\\N' \
+--input-fields-terminated-by '\001' --input-lines-terminated-by '\n' \
+--export-dir /hive3/warehouse/hive3.db/student \
+;
 
 -- 将hive中的表数据导入到mysql中,在进行导入之前，mysql中的表hive_test必须已经提起创建好
+create table tb_kc(name string,kcId string,score int)
+row format delimited
+fields terminated by '\001';
+load data local inpath '/usr/local/BigData/hivedata/kc.dat' into table tb_kc;
+
+
 CREATE TABLE IF NOT EXISTS tb_kc(
   name nvarchar(100),
   kcId nvarchar(100),
   score int
   );
-  
-sqoop export  --connect jdbc:mysql://Master:3306/sqoop2 \
---username root --password root \
---table tb_kc --export-dir /hive3/warehouse/hive3.db/tb_kc/kc \
---fields-terminated-by ',' \
---input-null-string 'null' --input-null-non-string 'null'
-#--input-null-string '\\N' --input-null-non-string '\\N'
-
-
-csrutil disable
-sudo ln -s /usr/local/jdk1.8/bin/java /bin/java
  
-sqoop export --connect jdbc:mysql://Master:3306/sqoop2 \
+sqoop export --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC \
 --driver com.mysql.jdbc.Driver --username root --password root \
 --table tb_kc -m 1 \
---input-fields-terminated-by ',' --input-lines-terminated-by '\n' \
 --input-null-string '\\N' --input-null-non-string '\\N' \
---export-dir /hive/warehouse/hive3.db/tb_kc/ --update-mode allowinsert \
+--input-fields-terminated-by '\001' --input-lines-terminated-by '\n' \
+--export-dir /hive3/warehouse/hive3.db/tb_kc \
 ;
+
+
+create table kc(name string,kcId string,score int)
+row format delimited
+fields terminated by ',';
+load data local inpath '/usr/local/BigData/hivedata/kc' into table kc;
+
+
+sqoop export --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC \
+--driver com.mysql.jdbc.Driver --username root --password root \
+--table tb_kc -m 1 \
+--input-null-string '\\N' --input-null-non-string '\\N' \
+--input-fields-terminated-by ',' --input-lines-terminated-by '\n' \
+--export-dir /hive3/warehouse/hive3.db/kc \
+;
+
+--update-mode allowinsert
+--input-null-string 'null' --input-null-non-string 'null'
+ 
+
+
+--csrutil disable
+--sudo ln -s /usr/local/jdk1.8/bin/java /bin/java
+ 
+day=`date -d '-1 day' +'%Y-%m-%d'`
+sqoop export --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8 \
+--driver com.mysql.jdbc.Driver --username root --password root \
+--input-fields-terminated-by '\001' \
+--table dim_day \
+--export-dir /user/hive/warehouse/app.db/dim_day/day=${day} /
