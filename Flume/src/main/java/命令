@@ -5,3 +5,8 @@ tail-hdfs.conf
 bin/flume-ng agent -c conf -f conf/tail-hdfs.conf -n a1
 ########
 
+
+
+
+
+

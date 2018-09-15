@@ -1,4 +1,5 @@
 /**
+ * chown -R user:user /目录
  * 本质就是迁移数据， 迁移的方式：就是把sqoop的迁移命令转换成MR程序
  * 修改库的编码：alter database db_name character set utf8;
  * 修改表的编码：ALTER TABLE table_name CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci; 
