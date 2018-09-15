@@ -18,6 +18,11 @@ public class MySqlUtils {
 	private PreparedStatement pstmt;
 	private ResultSet resultSet;
 
+	public static Connection getConnection() {
+		return MySqlUtils.getConnection();
+	}
+	
+	
 	private void close() {
 		try {
 			if (resultSet != null)
