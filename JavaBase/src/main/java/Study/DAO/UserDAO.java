@@ -1,10 +1,5 @@
 package Study.DAO;
 
-public interface UserDAO {
+public class UserDAO {
 
-	
-	
-	
-	
-	
 }
