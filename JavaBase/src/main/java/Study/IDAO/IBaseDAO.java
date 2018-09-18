@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IBaseDAO<T> {
 
-	void save(T entity, String AutoIncrementColumn);
+	Object save(T entity, String AutoIncrementColumn);
 	
 	void update(T entity, List<String> where);
 	

@@ -1,7 +1,13 @@
 package Study.JavaBase;
 
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Assert;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 
 import Study.DAO.StudentDAO;
@@ -14,7 +20,11 @@ public class StudentDAOTest {
 	public void TestSave() {
 		Student s = new Student("gyb33", 11, true);
 		StudentDAO sd = new StudentDAO();
-		sd.save(s, "id");
+		Object object = sd.save(s, "id");
+		
+		List<String> where =  new ArrayList<>();
+		sd.update(s, where);
+		System.out.println(object);
 		Assert.assertTrue(true);
 	}
 	
