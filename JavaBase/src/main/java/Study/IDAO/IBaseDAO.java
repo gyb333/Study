@@ -1,6 +1,7 @@
 package Study.IDAO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IBaseDAO<T> {
 
@@ -10,7 +11,7 @@ public interface IBaseDAO<T> {
 	
 	void delete(T entity, List<String> where);
 	
-	T findByKeys(Object object,List<String> keys);
+	T findByKeys(Map<String,Object> maps);
 	
 	
 	

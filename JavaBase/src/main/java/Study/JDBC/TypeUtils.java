@@ -6,6 +6,9 @@ import java.sql.Date;
 
 public class TypeUtils<T> {
 
+	
+	
+	
 	/**
 	 * 方法返回类型为int或Integer类型时,返回的SQL语句值.对应get
 	 */
