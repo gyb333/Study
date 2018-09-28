@@ -2,8 +2,29 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Study.Mybatis.POJO">
-  <select id="selectBlog" resultType="Blog">
-    select * from Blog where id = #{id}
-  </select>
+<mapper namespace="Study.Mybatis.Mapper.StudentMapper">
+	<select id="getStudentById" parameterType="int"
+		resultType="Study.domain.Student">
+		select * from Student where id = #{id}
+	</select>
+
+	<insert id="insertStudent" useGeneratedKeys="true"
+		keyProperty="id">
+		INSERT INTO student (name, age, sex)
+		VALUES (#{name}, #{age}, #{sex});
+	</insert>
+
+	<update id="updateStudent">
+		UPDATE student SET name=#{name},age=#{age} WHERE id=#{id}
+	</update>
+
+
+	<delete id="deleteStudentById">
+		delete from student where id = #{id}
+	</delete>
+	
+	<delete id="deleteStudent">
+		delete from student where id = #{id}
+	</delete>
+
 </mapper>

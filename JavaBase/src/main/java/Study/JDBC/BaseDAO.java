@@ -1,5 +1,6 @@
 package Study.JDBC;
 
+
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.sql.Connection;
@@ -7,13 +8,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
-import javax.swing.text.Utilities;
 
-import org.apache.commons.dbcp2.cpdsadapter.PStmtKeyCPDS;
 
 import Study.Common.CommonUtils;
 import Study.Common.SQLBuilder;
@@ -21,7 +22,7 @@ import Study.IDAO.IBaseDAO;
 
 public class BaseDAO<T> extends PreparedSQL<T> implements IBaseDAO<T> {
 
-	private Connection connection = MySqlFactory.getConnection();
+ 
 
 	@SuppressWarnings("unused")
 	private Class<T> persistentClass;
@@ -39,12 +40,7 @@ public class BaseDAO<T> extends PreparedSQL<T> implements IBaseDAO<T> {
 
 			if (rs != null)
 				rs.close();
-
-			if (pstmt != null)
-				pstmt.close();
-
-			if (connection != null)
-				connection.close();
+ 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -62,16 +58,17 @@ public class BaseDAO<T> extends PreparedSQL<T> implements IBaseDAO<T> {
 	 */
 	@Override
 	public Object save(T entity, String AutoIncrementColumn) {
-		Object autoId =null;
+		Object autoId = null;
 		String tableName = entity.getClass().getSimpleName().toLowerCase();
 		// 获得带有字符串get的所有方法的对象
 		List<Method> list = this.matchPojoMethods(entity, "get");
-
+		PreparedStatement pstmt = null;
 		String sql = SQLBuilder.getInsertSQL(tableName, list, AutoIncrementColumn);
 		try {
+			Connection connection = MySqlFactory.getConnection();
 			// 获得预编译对象的引用
-			pstmt = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-			preparedInsertSQL(entity, list, AutoIncrementColumn);
+			pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			preparedInsertSQL(entity,pstmt, list, AutoIncrementColumn);
 			// 执行
 			pstmt.executeUpdate();
 			if (!CommonUtils.isNullOrEmpty(AutoIncrementColumn)) {
@@ -81,15 +78,13 @@ public class BaseDAO<T> extends PreparedSQL<T> implements IBaseDAO<T> {
 				}
 				rs.close();
 			}
-			
+
 			pstmt.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new DAOException(e.getMessage());
-		}finally {
-			
-		}
+		}  
 		return autoId;
 	}
 
@@ -102,11 +97,12 @@ public class BaseDAO<T> extends PreparedSQL<T> implements IBaseDAO<T> {
 		// 获得带有字符串get的所有方法的对象
 		List<Method> list = this.matchPojoMethods(entity, "get");
 		String sql = SQLBuilder.getUpdateSQL(tableName, list, where);
-
+		PreparedStatement pstmt = null;
 		try {
+			Connection connection = JdbcUtils.getConnection();
 			pstmt = connection.prepareStatement(sql);
 
-			preparedUpdateSQL(entity, list, where);
+			preparedUpdateSQL(entity,pstmt, list, where);
 			// 执行SQL语句
 			pstmt.executeUpdate();
 
@@ -128,9 +124,11 @@ public class BaseDAO<T> extends PreparedSQL<T> implements IBaseDAO<T> {
 		String tableName = entity.getClass().getSimpleName().toLowerCase();
 		List<Method> list = this.matchPojoMethods(entity, "get");
 		String sql = SQLBuilder.getDeleteSQL(tableName, list, where);
+		PreparedStatement pstmt = null;
 		try {
-			pstmt = this.connection.prepareStatement(sql);
-			preparedDeleteSQL(entity, list, where);
+			Connection connection = MySqlFactory.getConnection();
+			pstmt = connection.prepareStatement(sql);
+			preparedDeleteSQL(entity,pstmt, list, where);
 
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -142,33 +140,40 @@ public class BaseDAO<T> extends PreparedSQL<T> implements IBaseDAO<T> {
 
 	}
 
-	/**
-	 * 通过ID查询
-	 */
 	@Override
-	public T findByKeys(Object object, List<String> keys) {
+	public T findByKeys(Map<String, Object> maps) {
 		String tableName = persistentClass.getSimpleName().toLowerCase();
 		// 通过子类的构造函数,获得参数化类型的具体类型.比如BaseDAO<T>也就是获得T的具体类型
 		T entity;
+		PreparedStatement pstmt = null;
 		try {
+			Connection conn = MySqlFactory.getConnection();
 			entity = persistentClass.newInstance();
-			List<Method> list = this.matchPojoMethods(entity, "get");
 
-			String sql = SQLBuilder.getSelectSQL(tableName, list, keys);
+			EntityMapper(entity, maps);
+
+			Collection<String> keys = maps.keySet();
+
+			List<Method> list = this.matchPojoMethods(entity, "get", keys);
+
+			String sql = SQLBuilder.getSelectSQL(tableName, list);
 
 			// 获得连接
-			pstmt = this.connection.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
 
-			preparedSelectSQL(entity, list, keys);
+
+			pstmt.setInt(1, 5);
+			preparedSelectSQL(entity,pstmt, list);
 
 			// 执行sql,取得查询结果集.
 			rs = pstmt.executeQuery();
-
+			
+			List<Method> allList = matchPojoMethods(entity, "set");
 			// 把指针指向迭代器第一行
-			Iterator<Method> iter = list.iterator();
-
+			Iterator<Method> iter = allList.iterator();
 			// 封装
 			while (rs.next()) {
+				
 				while (iter.hasNext()) {
 					Method method = iter.next();
 					preparedEntity(entity, method);

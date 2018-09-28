@@ -2,27 +2,34 @@ package Study.domain;
 
 public class Student {
 
+	public Student() {
+		
+	}
 	
-	
-	public Student(String name, int age, boolean sex) {
+	public Student(String name, Integer age, Boolean sex) {
 		this.name = name;
 		this.age = age;
 		this.sex = sex;
 	}
 
-	private int id;
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", age=" + age + ", sex=" + sex + "]";
+	}
+
+	private Integer id;
 	
 	private String name;
 	
-	private int age;
+	private Integer age;
 	
-	private boolean sex;
+	private Boolean sex;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -34,21 +41,24 @@ public class Student {
 		this.name = name;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
-	public boolean getSex() {
+	public Boolean getSex() {
 		return sex;
 	}
 
-	public void setSex(boolean sex) {
+	public void setSex(Boolean sex) {
 		this.sex = sex;
 	}
+
+
+
 	
 	
 	
