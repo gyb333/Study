@@ -16,7 +16,7 @@ public class WordCount {
 
 	public static void main(String[] args) {
 
-		SparkConf conf = new SparkConf().setAppName("WordCount");
+		SparkConf conf = new SparkConf().setAppName("WordCount").setMaster("local[*]");
 		JavaSparkContext jsc = new JavaSparkContext(conf);
 		JavaRDD<String> lines = jsc.textFile(inputPath);
 		JavaRDD<String> words = lines.flatMap(line -> Arrays.asList(line.split(" ")).iterator());
