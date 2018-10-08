@@ -36,12 +36,10 @@ fields terminated by ',';
 
 load data local inpath '/usr/local/BigData/hivedata/t_access.dat' into table t_access;
 
-select username,month,counts
-,sum(counts) over(partition by username order by month 
+select username,month,counts,
+sum(counts) over(partition by username order by month 
 rows between unbounded preceding and current row) as  grandtotal
-from (select username,month,sum(counts) counts
-from t_access
-group by username,month) tmp;
+from (select username,month,sum(counts) counts from t_access group by username,month) tmp;
 
 /* username        month   counts  grandtotal
 		A       2015-01 33      33

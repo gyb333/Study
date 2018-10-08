@@ -41,7 +41,8 @@ arrays: ARRAY<data_type> (Note: negative values and non-constant expressions are
 
 示例：array类型的应用
 假如有如下数据需要用hive的表去映射：
-战狼2,吴京:吴刚:龙母,2017-08-16三生三世十里桃花,刘亦菲:痒痒,2017-08-20
+战狼2,吴京:吴刚:龙母,2017-08-16
+三生三世十里桃花,刘亦菲:痒痒,2017-08-20
 设想：如果主演信息用一个数组来映射比较方便
 
 */
@@ -51,7 +52,7 @@ row format delimited fields terminated by ','
 collection items terminated by ':';
 
 --导入数据：
-load data local inpath '/root/movie.dat' into table t_movie;
+load data local inpath '/usr/local/BigData/hivedata/movie.dat' into table t_movie;
 
 --查询：
 select * from t_movie;
@@ -63,7 +64,10 @@ select moive_name,size(actors) from t_movie;
 maps: MAP<primitive_type, data_type> (Note: negative values and non-constant expressions are allowed as of Hive 0.14.)
 
 假如有以下数据：
-1,zhangsan,father:xiaoming#mother:xiaohuang#brother:xiaoxu,282,lisi,father:mayun#mother:huangyi#brother:guanyu,223,wangwu,father:wangjianlin#mother:ruhua#sister:jingtian,294,mayun,father:mayongzhen#mother:angelababy,26
+1,zhangsan,father:xiaoming#mother:xiaohuang#brother:xiaoxu,28
+2,lisi,father:mayun#mother:huangyi#brother:guanyu,22
+3,wangwu,father:wangjianlin#mother:ruhua#sister:jingtian,29
+4,mayun,father:mayongzhen#mother:angelababy,26
 
 可以用一个map类型来对上述数据中的家庭成员进行描述
 
@@ -73,6 +77,7 @@ row format delimited fields terminated by ','
 collection items terminated by '#'
 map keys terminated by ':';
 
+load data local inpath '/usr/local/BigData/hivedata/person.dat' into table t_person;
 select * from t_person;
 
 --## 取map字段的指定key的值
@@ -86,7 +91,9 @@ select id,name,map_values(family_members) from t_person;
 select id,name,map_values(family_members)[0] from t_person;
 
 --## 综合：查询有brother的用户信息
-select id,name,father from (select id,name,family_members['brother'] as father from t_person) tmpwhere father is not null;
+select id,name,father 
+from (select id,name,family_members['brother'] as father from t_person) tmp 
+where father is not null;
 
 
 /**
@@ -94,7 +101,8 @@ struct类型
 structs: STRUCT<col_name : data_type, ...>
 
 假如有如下数据：
-1,zhangsan,18:male:beijing2,lisi,28:female:shanghai
+1,zhangsan,18:male:beijing
+2,lisi,28:female:shanghai
 
 其中的用户信息包含：年龄：整数，性别：字符串，地址：字符串
 设想用一个字段来描述整个用户信息，可以采用struct
@@ -104,6 +112,7 @@ create table t_person_struct(id int,name string,info struct<age:int,sex:string,a
 row format delimited fields terminated by ','
 collection items terminated by ':';
 
+load data local inpath '/usr/local/BigData/hivedata/person_struct.dat' into table t_person_struct;
 
 select * from t_person_struct;
 select id,name,info.age from t_person_struct;
