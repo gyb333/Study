@@ -12,7 +12,7 @@
  * 后台启动hiveserver2
  * 		nohup hiveserver2 1>/dev/null 2>&1 &
  * 		nohup hive --service hiveserver2 >/dev/null 2>&1 &
- * 客户端连接hive：beeline -u jdbc:hive2:// Master:10000 -n root 
+ * 客户端连接hive：beeline -u jdbc:hive2://Master:10000 -n root 
  * 
  * hive命令模型
  * hive>dfs -lsr /                         	//显示dfs下文件：路径/库/表/文件
@@ -51,7 +51,7 @@
      UNIONTYPE           		//联合类型
      NULL
  * 
- * show database;
+ * show databases;
  * use dbName;
  * show tables;
  * 

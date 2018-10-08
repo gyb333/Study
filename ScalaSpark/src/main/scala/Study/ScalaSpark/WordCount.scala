@@ -2,6 +2,9 @@ package Study.ScalaSpark
 
 import org.apache.spark.{SparkConf,SparkContext}
 import org.apache.spark.rdd.{RDD}
+import org.apache.spark.rdd.RDD
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
 
 object WordCount {
   
