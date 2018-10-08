@@ -6,6 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<inceptionYear>2008</inceptionYear>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -36,7 +37,7 @@
 			<artifactId>scala-library</artifactId>
 			<version>${scala.version}</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
 		<dependency>
 			<groupId>org.apache.spark</groupId>
@@ -50,12 +51,12 @@
 			<artifactId>hadoop-client</artifactId>
 			<version>${hadoop.version}</version>
 		</dependency>
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
