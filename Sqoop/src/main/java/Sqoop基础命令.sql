@@ -33,7 +33,7 @@ sqoop create-hive-table --connect jdbc:mysql://Master:3306/sqoop2 \
 
 
 --导入mysql整表数据到hive表中
-sqoop import --connect jdbc:mysql://Master:3306/sqoop2?zeroDateTimeBehavior=EXCEPTION \
+sqoop import --connect jdbc:mysql://Master:3306/sqoop2?serverTimezone=UTC&zeroDateTimeBehavior=EXCEPTION \
 --username root --password root \
 --table student --hive-import --delete-target-dir \
 --hive-database hive3 --hive-table student -m 1 \

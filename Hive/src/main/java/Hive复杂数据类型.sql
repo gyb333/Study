@@ -17,7 +17,9 @@ TIMESTAMP (Note: Only available starting with Hive 0.8.0)
 DATE (Note: Only available starting with Hive 0.12.0)
 
 示例，假如有以下数据文件：
-1,zhangsan,1985-06-302,lisi,1986-07-103,wangwu,1985-08-09
+1,zhangsan,1985-06-30
+2,lisi,1986-07-10
+3,wangwu,1985-08-09
 那么，就可以建一个表来对数据进行映射
 */
 create table t_customer(id int,name string,birthday date)
@@ -44,7 +46,6 @@ arrays: ARRAY<data_type> (Note: negative values and non-constant expressions are
 战狼2,吴京:吴刚:龙母,2017-08-16
 三生三世十里桃花,刘亦菲:痒痒,2017-08-20
 设想：如果主演信息用一个数组来映射比较方便
-
 */
  
 create table t_movie(moive_name string,actors array<string>,first_show date)

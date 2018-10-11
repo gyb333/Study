@@ -97,9 +97,9 @@ object ArrayOpt {
 
   def ParallelSeq = {
     val list = List(1, 2, 3, 4, 5)
-    println(list.par.fold(0)(_ + _))
+    println(list.par.fold(10)(_ + _))
 
-    println(list.par.foldLeft(0)(_ + _))
+    println(list.par.foldLeft(10)(_ + _))
 
     // list.par.aggregate()
 
@@ -164,6 +164,13 @@ object ArrayOpt {
     val sortResult: List[(String, Int)] = wrdResult.toList.sortBy(t => -t._2)
 
     sortResult.foreach(t => println(t))
-
+    println("------------------------------------------------")
+    var sr= words.flatMap(_.split(" ")).map((_,1)).groupBy(_._1).mapValues(_.length)
+    .toList.sortBy(-_._2)
+    sr.foreach(println(_))
+    println("------------------------------------------------")
+    sr=words.flatMap(_.split(" ")).groupBy(x =>x).map(x =>(x._1,x._2.length))
+    .toList.sortBy(-_._2)
+    sr.foreach(println(_))
   }
 }

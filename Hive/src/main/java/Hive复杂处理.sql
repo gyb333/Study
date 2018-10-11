@@ -14,9 +14,9 @@ fields terminated by '\t'
 collection items terminated by ',';
 
 --导入数据
-load data local inpath '/usr/local/BigData/hivedata/array.txt' into table t_stu_subjects;
+load data local inpath '/usr/local/BigData/hivedata/array.dat' into table t_stu_subjects;
 
-select  id,array_contains(subjects,'语文') from t_stu-subjects;
+select  id,array_contains(subjects,'语文') from t_stu_subjects;
 
 --查询列值拆分
 	select id,subjects[0] from t_stu_subjects;
@@ -33,7 +33,7 @@ id      _c1     _c2     _c3
 */
 	
 --使用explode —— 行转列
-	select id,explode(subjects) from t_stu_subjects;
+	select explode(subjects) from t_stu_subjects;
   	
 --配合lateral view 列转行方便统计
 select id, tmp.* from t_stu_subjects

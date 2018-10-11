@@ -13,7 +13,7 @@ object Test {
 
     /**
      * 数据类型 Any ->
-     *             AnyVal -> 7 数据类型， Boolean 、Unit(void) = ()
+     *             AnyVal -> 7 数据类型：Short Int Long double float char Byte， Boolean 、Unit(void) = ()
      *             AnyRef -> String
      *
      */
@@ -99,7 +99,11 @@ object Test {
     val r1 = if (i < 8) i else 1
 
     println(r1)
-
+     
   }
 
+  
+   
+  
+ 
 }
