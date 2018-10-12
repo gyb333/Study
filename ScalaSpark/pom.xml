@@ -7,12 +7,13 @@
 	<inceptionYear>2008</inceptionYear>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
+
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<scala.version>2.11.12</scala.version>
 		<spark.version>2.3.0</spark.version>
 		<hadoop.version>3.0.3</hadoop.version>
+		<akka.version>2.5.17</akka.version>
 	</properties>
 
 	<repositories>
@@ -50,6 +51,20 @@
 			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-client</artifactId>
 			<version>${hadoop.version}</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-actor_2.11</artifactId>
+			<version>${akka.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-remote -->
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-remote_2.11</artifactId>
+			<version>${akka.version}</version>
 		</dependency>
 
 
