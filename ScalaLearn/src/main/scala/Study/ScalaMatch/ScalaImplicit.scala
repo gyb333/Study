@@ -2,7 +2,7 @@ package Study.ScalaMatch
 
 import java.io.BufferedReader
 import scala.io.Source
- 
+
 import java.io.FileReader
 import java.io.File
 
@@ -61,7 +61,8 @@ object ScalaImplicit {
     println("---fdouble2Int---")
     double.toInt
   }
-
+  
+  
   // 隐式类 - 只能在静态对象中使用
   implicit class FileRead(file: File) {
 
@@ -78,8 +79,7 @@ object ScalaImplicit {
      */
 
     // 编译器在查找隐式值的时候，不能有歧义
-    // implicit val msg = "你好帅"
-    implicit val msg1 = "你好帅。。。。"
+    implicit val msg = "你好帅"
     say
     println(add(5))
 
