@@ -1,104 +1,103 @@
 package Study.ScalaSpark
 
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import org.apache.spark.rdd.RDD
+
 object RDD {
-  
-  def main(args:Array[String]):Unit={
-    
-//#常用Transformation(即转换，延迟加载)
-//#通过并行化scala集合创建RDD
-val rdd1 = sc.parallelize(Array(1,2,3,4,5,6,7,8))
-//#查看该rdd的分区数量
-rdd1.partitions.length
 
+  def main(args: Array[String]): Unit = {
+    val conf = new SparkConf().setAppName("RDD").setMaster("local")
+    val sc = new SparkContext(conf)
+    //#常用Transformation(即转换，延迟加载)
+    //#通过并行化scala集合创建RDD
+    val rdd = sc.parallelize(Array(1, 2, 3, 4, 5, 6, 7, 8))
+    //#查看该rdd的分区数量
+    rdd.partitions.length
 
-val rdd1 = sc.parallelize(List(5,6,4,7,3,8,2,9,1,10))
-val rdd2 = sc.parallelize(List(5,6,4,7,3,8,2,9,1,10)).map(_*2).sortBy(x=>x,true)
-val rdd3 = rdd2.filter(_>10)
-val rdd2 = sc.parallelize(List(5,6,4,7,3,8,2,9,1,10)).map(_*2).sortBy(x=>x+"",true)
-val rdd2 = sc.parallelize(List(5,6,4,7,3,8,2,9,1,10)).map(_*2).sortBy(x=>x.toString,true)
+    val rdd1 = sc.parallelize(List(5, 6, 4, 7, 3, 8, 2, 9, 1, 10))
+    val rdd2:RDD[Int] = rdd1.map(_ * 2).sortBy(x => x, true)
+    val rdd3 = rdd2.filter(_ > 10)
+    val rdd4 = rdd2.map(_ * 2).sortBy(x => x + "", true)
+    val rdd5 = rdd2.map(_ * 2).sortBy(x => x.toString, true)
 
+    val rdd6 = sc.parallelize(Array("a b c", "d e f", "h i j"))
+    rdd6.flatMap(_.split(" ")).collect()
+    rdd6.flatMap(_.split(' ')).collect()
 
-val rdd4 = sc.parallelize(Array("a b c", "d e f", "h i j"))
-rdd4.flatMap(_.split(' ')).collect
+    val rdd7 = sc.parallelize(List(List("a b c", "a b b"), List("e f g", "a f g"), List("h i j", "a a b")))
 
-val rdd5 = sc.parallelize(List(List("a b c", "a b b"),List("e f g", "a f g"), List("h i j", "a a b")))
+//    List("a b c", "a b b")
+//    List("a", "b", ())
+     
+    rdd7.flatMap(_.flatMap(_.split(" "))).collect
 
+    //#union求并集，注意类型要一致
+    val u1 = sc.parallelize(List(5, 6, 4, 7))
+    val u2 = sc.parallelize(List(1, 2, 3, 4))
+    val union = u1.union(u2)
+    union.distinct.sortBy(x => x).collect
 
-List("a b c", "a b b") =List("a","b",))
+    //#intersection求交集
+    val intersection = u1.intersection(u2)
 
-rdd5.flatMap(_.flatMap(_.split(" "))).collect
+    val tup1 = sc.parallelize(List(("tom", 1), ("jerry", 2), ("kitty", 3)))
+    val tup2 = sc.parallelize(List(("jerry", 9), ("tom", 8), ("shuke", 7), ("tom", 2)))
 
-//#union求并集，注意类型要一致
-val rdd6 = sc.parallelize(List(5,6,4,7))
-val rdd7 = sc.parallelize(List(1,2,3,4))
-val rdd8 = rdd6.union(rdd7)
-rdd8.distinct.sortBy(x=>x).collect
+    //#join(连接)
+    val join = tup1.join(tup2)
+    val lJoin = tup1.leftOuterJoin(tup2)
+    val rJoin = tup1.rightOuterJoin(tup2)
 
-//#intersection求交集
-val rdd9 = rdd6.intersection(rdd7)
+    //#groupByKey
+    val tupUnion = tup1 union tup2
+    tupUnion.groupByKey
+    //(tom,CompactBuffer(1, 8, 2))
+    tupUnion.groupByKey.map(x => (x._1, x._2.sum))
+    tupUnion.groupByKey.mapValues(_.sum).collect
+    //Array((tom, CompactBuffer(1, 8, 2)), (jerry, CompactBuffer(9, 2)), (shuke, CompactBuffer(7)), (kitty, CompactBuffer(3)))
 
+    //#WordCount
+    sc.textFile("/spark/words.txt").flatMap(_.split(" ")).map((_, 1)).reduceByKey(_ + _).sortBy(_._2, false).collect
+    sc.textFile("/spark/words.txt").flatMap(_.split(" ")).map((_, 1)).groupByKey.map(t => (t._1, t._2.sum)).collect
+    sc.textFile("/spark/words.txt").flatMap(_.split(" ")).map((_, 1)).groupByKey.mapValues(_.sum).collect
 
-val rdd1 = sc.parallelize(List(("tom", 1), ("jerry", 2), ("kitty", 3)))
-val rdd2 = sc.parallelize(List(("jerry", 9), ("tom", 8), ("shuke", 7), ("tom", 2)))
-
-//#join(连接)
-val rdd3 = rdd1.join(rdd2)
-val rdd3 = rdd1.leftOuterJoin(rdd2)
-val rdd3 = rdd1.rightOuterJoin(rdd2)
-
-
-//#groupByKey
-val rdd3 = rdd1 union rdd2
-rdd3.groupByKey
-//(tom,CompactBuffer(1, 8, 2))
-rdd3.groupByKey.map(x=>(x._1,x._2.sum))
-groupByKey.mapValues(_.sum).collect
-Array((tom,CompactBuffer(1, 8, 2)), (jerry,CompactBuffer(9, 2)), (shuke,CompactBuffer(7)), (kitty,CompactBuffer(3)))
-
-
-//#WordCount
-sc.textFile("/root/words.txt").flatMap(x=>x.split(" ")).map((_,1)).reduceByKey(_+_).sortBy(_._2,false).collect
-sc.textFile("/root/words.txt").flatMap(x=>x.split(" ")).map((_,1)).groupByKey.map(t=>(t._1, t._2.sum)).collect
-
-//#cogroup
-val rdd1 = sc.parallelize(List(("tom", 1), ("tom", 2), ("jerry", 3), ("kitty", 2)))
-val rdd2 = sc.parallelize(List(("jerry", 2), ("tom", 1), ("shuke", 2)))
-val rdd3 = rdd1.cogroup(rdd2)
-val rdd4 = rdd3.map(t=>(t._1, t._2._1.sum + t._2._2.sum))
-
-//#cartesian笛卡尔积
-val rdd1 = sc.parallelize(List("tom", "jerry"))
-val rdd2 = sc.parallelize(List("tom", "kitty", "shuke"))
-val rdd3 = rdd1.cartesian(rdd2)
-
+    //#cogroup
+    val tuple1 = sc.parallelize(List(("tom", 1), ("tom", 2), ("jerry", 3), ("kitty", 2)))
+    val tuple2 = sc.parallelize(List(("jerry", 2), ("tom", 1), ("shuke", 2)))
+    val cg = tuple1.cogroup(tuple2)
+    val cog = cg.map(t => (t._1, t._2._1.sum + t._2._2.sum))
+   
  
+    //#cartesian笛卡尔积
+    val strArray1 = sc.parallelize(List("tom", "jerry"))
+    val strArray2 = sc.parallelize(List("tom", "kitty", "shuke"))
+    strArray1.cartesian(strArray2)
 
-//#spark action
-val rdd1 = sc.parallelize(List(1,2,3,4,5), 2)
+    //#spark action
+    val rddAny = sc.parallelize(List(1, 2, 3, 4, 5), 2)
 
-//#collect
-rdd1.collect
+    //#collect
+    rddAny.collect
 
-//#reduce
-val r = rdd1.reduce(_+_)
+    //#reduce
+    val r = rddAny.reduce(_ + _)
 
-//#count
-rdd1.count
+    //#count
+    rddAny.count
 
-//#top
-rdd1.top(2)
+    //#top
+    rddAny.top(2)
 
-//#take
-rdd1.take(2)
+    //#take
+    rddAny.take(2)
 
-//#first(similer to take(1))
-rdd1.first
+    //#first(similer to take(1))
+    rddAny.first
 
-//#takeOrdered
-rdd1.takeOrdered(3)
-    
-    
-    
+    //#takeOrdered
+    rddAny.takeOrdered(3)
+
   }
-  
+
 }
