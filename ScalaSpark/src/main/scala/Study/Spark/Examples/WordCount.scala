@@ -25,7 +25,7 @@ object WordCount {
       val wordAndOne :RDD[(String, Int)]=words.map((_,1))//mapPartitionsRDD
       val reduced : RDD[(String, Int)]=wordAndOne.reduceByKey(_+_)  //shuffleRDD
       val sorted: RDD[(String, Int)] =reduced.sortBy(_._2, false)
-      sorted.saveAsTextFile(outputPath)
+      sorted.saveAsTextFile(outputPath)      //mapPartitionsRDD
       sc.stop()
    }
 }
