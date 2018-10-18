@@ -15,6 +15,8 @@ object RDD {
     //#查看该rdd的分区数量
     rdd.partitions.length
 
+    //从集合中创建RDD，Spark主要提供了两中函数：parallelize和makeRDD
+    //makeRDD的实现不可以自己指定分区的数量，而是固定为seq参数的size大小。
     val rdd1 = sc.parallelize(List(5, 6, 4, 7, 3, 8, 2, 9, 1, 10))
     val rdd2:RDD[Int] = rdd1.map(_ * 2).sortBy(x => x, true)
     val rdd3 = rdd2.filter(_ > 10)
@@ -37,6 +39,7 @@ object RDD {
     val u2 = sc.parallelize(List(1, 2, 3, 4))
     val union = u1.union(u2)
     union.distinct.sortBy(x => x).collect
+    union.distinct().sortBy(f=>f, true, 2)
 
     //#intersection求交集
     val intersection = u1.intersection(u2)
@@ -62,7 +65,7 @@ object RDD {
     sc.textFile("/spark/words.txt").flatMap(_.split(" ")).map((_, 1)).groupByKey.map(t => (t._1, t._2.sum)).collect
     sc.textFile("/spark/words.txt").flatMap(_.split(" ")).map((_, 1)).groupByKey.mapValues(_.sum).collect
 
-    //#cogroup
+    //#cogroup :对两个RDD中的KV元素，每个RDD中相同key中的元素分别聚合成一个集合。与reduceByKey不同的是针对两个RDD中相同的key的元素进行合并。
     val tuple1 = sc.parallelize(List(("tom", 1), ("tom", 2), ("jerry", 3), ("kitty", 2)))
     val tuple2 = sc.parallelize(List(("jerry", 2), ("tom", 1), ("shuke", 2)))
     val cg = tuple1.cogroup(tuple2)
@@ -97,7 +100,9 @@ object RDD {
 
     //#takeOrdered
     rddAny.takeOrdered(3)
-
+    
+    sc.stop()
+    
   }
 
 }

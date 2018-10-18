@@ -6,9 +6,10 @@ import org.apache.spark.SparkContext
 object RDDAPI {
 
   def main(args: Array[String]): Unit = {
+
     val conf = new SparkConf().setAppName("RDDAPI").setMaster("local")
     val sc = new SparkContext(conf)
-    //    mapPartitionsWithIndex
+    //mapPartitionsWithIndex
     val funcString = (index: Int, iter: Iterator[(String)]) => {
       iter.map(x => "[partID:" + index + ", val: " + x + "]")
     }
@@ -22,15 +23,45 @@ object RDDAPI {
 
     //-------------------------------------------------------------------------------------------
     //-------------------------------------------------------------------------------------------
-    //aggregate
+    //aggregate    input.aggregate(zeroValue)(seqOp, combOp)
+
+    val input = sc.parallelize(List(1, 2, 3, 4))
+
+    val result = input.aggregate((0, 0))(
+      (acc, value) => (acc._1 + value, acc._2 + 1),
+      (acc, accValue) => (acc._1 + accValue._1, acc._2 + accValue._2))
+    input.aggregate((1, 0))(
+      (acc, value) => (acc._1 + value, acc._2 + 1),
+      (acc, accValue) => (acc._1 + accValue._1, acc._2 + accValue._2))
+
+    /**
+     * result: (Int, Int) = (10, 4)
+     * val avg = result._1 / result._2
+     * avg: Int = 2.5
+     * 程序的详细过程大概如下：
+     * 首先定义一个初始值 (0, 0)，即我们期待的返回类型的初始值。
+     * (acc,value) => (acc._1 + value, acc._2 + 1)， value是函数定义里面的T，这里是List里面的元素。
+     * 所以acc._1 + value, acc._2 + 1的过程如下：
+     * (0	,	0	)						(1	,	0)
+     * 0+1, 0+1						1+1,0+1
+     * 1+2, 1+1						2+2,1+1
+     * 3+3, 2+1						4+3,2+1
+     * 6+4, 3+1						7+4,3+1
+     * 结果：初始值+分区计算值
+     * (0+10,0+4)			(1+11+(2-1)*1,0+4+(2-1)*0)=(13,4)
+     * 结果为 (10,4)。在实际Spark执行中是分布式计算，可能会把List分成多个分区，
+     * 假如3个，p1(1,2), p2(3), p3(4)，经过计算各分区的的结果 (3,2), (3,1), (4,1)，
+     * 这样，执行 (acc1,acc2) => (acc1._1 + acc2._1, acc1._2 + acc2._2)
+     * 就是 (0+3+3+4,0+2+1+1) 即 (10,4)，然后再计算平均值。
+     */
 
     def func1(index: Int, iter: Iterator[(Int)]): Iterator[String] = {
       iter.toList.map(x => "[partID:" + index + ", val: " + x + "]").iterator
     }
     val rdd1 = sc.parallelize(List(1, 2, 3, 4, 5, 6, 7, 8, 9), 2)
     rdd1.mapPartitionsWithIndex(func1).collect
-    rdd1.aggregate(0)(math.max(_, _), _ + _) //0|01234|56789=0+4+9=13
-    rdd1.aggregate(5)(math.max(_, _), _ + _) //5|51234|556789=5+5+9=19
+    rdd1.aggregate(0)(math.max(_, _), _ + _) //0+4+5=9
+    rdd1.aggregate(5)(math.max(_, _), _ + _) //5+5+9=19
 
     val rdd2 = sc.parallelize(List("a", "b", "c", "d", "e", "f"), 2)
     def func2(index: Int, iter: Iterator[(String)]): Iterator[String] = {
@@ -40,20 +71,14 @@ object RDDAPI {
     rdd2.aggregate("=")(_ + _, _ + _) //=|=def|=abc     ==def=abc
 
     val rdd3 = sc.parallelize(List("12", "23", "345", "4567"), 2)
-    rdd3.aggregate("#")((x, y) => x + ":" + y, (x, y) => x + "-" + y) //#-#:345:4567-#:12:23
-    rdd3.aggregate("")((x, y) => math.max(x.length, y.length).toString, (x, y) => x + y) //42
+    rdd3.aggregate("")((x, y) => math.max(x.length, y.length).toString, (x, y) => x + y) //24 或42
 
     val rdd4 = sc.parallelize(List("12", "23", "345", ""), 2)
-    rdd4.aggregate("")((x, y) => x + "|" + y, (x, y) => x + "#" + y) //  #""|345|#|12|23
-    rdd4.aggregate("")((x, y) => x + y + "|", (x, y) => x + "#" + y) //  #12|23|#345||
-    rdd4.aggregate("")((x, y) => x.length + "|" + y.length, (x, y) => x + "#" + y) // #3|2#3|0
-    rdd4.aggregate("")((x, y) => math.min(x.length, y.length).toString, (x, y) => x + y) //01
+    rdd4.aggregate("")((x, y) => math.min(x.length, y.length).toString, (x, y) => x + y) //10或01
 
     val rdd5 = sc.parallelize(List("12", "23", "", "345"), 2)
     rdd5.aggregate("")((x, y) => math.min(x.length, y.length).toString, (x, y) => x + y) //11
 
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
     //aggregateByKey
 
     val pairRDD = sc.parallelize(List(("cat", 2), ("cat", 5), ("mouse", 4), ("cat", 12), ("dog", 12), ("mouse", 2)), 2)
@@ -65,8 +90,7 @@ object RDDAPI {
     //Array[(String, Int)] = Array((dog,12), (cat,17), (mouse,6))
     pairRDD.aggregateByKey(100)(math.max(_, _), _ + _).collect
     //Array[(String, Int)] = Array((dog,100), (cat,200), (mouse,200))
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
+
     //checkpoint
     sc.setCheckpointDir("hdfs://ns:9000/ck")
     val rddcp = sc.textFile("hdfs://ns/wc").flatMap(_.split(" ")).map((_, 1)).reduceByKey(_ + _)
@@ -76,85 +100,66 @@ object RDDAPI {
     rddcp.isCheckpointed
     rddcp.getCheckpointFile
 
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
     //coalesce, repartition
     val rddTo = sc.parallelize(1 to 10, 10)
     val rddC = rddTo.coalesce(2, false)
     rddC.partitions.length
 
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
     //collectAsMap
-    val rddAM = sc.parallelize(List(("a", 1), ("b", 2)))
+    val rddAM = sc.parallelize(List(("a", 1), ("b", 2), ("a", 3), ("b", 4), ("c", 5)))
     rddAM.collectAsMap
 
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
-    //combineByKey
+    //combineByKey  combineByKey(createCombiner, mergeValue, mergeCombiners)
     val rddKey = sc.textFile("hdfs://ns/wc").flatMap(_.split(" ")).map((_, 1))
-    rddKey.combineByKey(x => x, (a: Int, b: Int) => a + b, (m: Int, n: Int) => m + n).collect
-
-    rddKey.combineByKey(x => x + 10, (a: Int, b: Int) => a + b, (m: Int, n: Int) => m + n).collect
+    rddAM.combineByKey(x => x, (a: Int, b: Int) => a + b, (m: Int, n: Int) => m + n).collect
+    // Array[(String, Int)] = Array((b,6), (a,4), (c,5))
+    rddAM.combineByKey(x => x + 10, (a: Int, b: Int) => a + b, (m: Int, n: Int) => m + n).collect
+    //Array[(String, Int)] = Array((b,26), (a,24), (c,15))
 
     val z1 = sc.parallelize(List("dog", "cat", "gnu", "salmon", "rabbit", "turkey", "wolf", "bear", "bee"), 3)
     val z2 = sc.parallelize(List(1, 1, 2, 2, 2, 1, 2, 2, 2), 3)
-//    z1.zip(z2).combineByKey(List(_), (x: List[String], y: String) => x :+ y, (m: List[String], n: List[String]) => m ++ n)
-
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
+    val zmap = z2.zip(z1) // AArray[(Int, String)] =
+    //Array((1,dog), (1,cat), (2,gnu), (2,salmon), (2,rabbit), (1,turkey), (2,wolf), (2,bear), (2,bee))
+    zmap.combineByKey(List(_), (x: List[String], y: String) => x :+ y, (m: List[String], n: List[String]) => m ++ n)
+    // Array[(Int, List[String])] = Array((1,List(turkey, dog, cat)), (2,List(gnu, salmon, rabbit, wolf, bear, bee)))
+    
     //countByKey
-
     val count = sc.parallelize(List(("a", 1), ("b", 2), ("b", 2), ("c", 2), ("c", 1)))
     count.countByKey
     count.countByValue
 
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
     //filterByRange
 
     val rddFilter = sc.parallelize(List(("e", 5), ("c", 3), ("d", 4), ("c", 2), ("a", 1)))
-    rddFilter.filterByRange("b", "d").collect()
+    rddFilter.filterByRange("c", "d").collect()
 
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
     //flatMapValues
     sc.parallelize(List(("a", "1 2"), ("b", "3 4")))
-    .flatMapValues(_.split(" "))
+      .flatMapValues(_.split(" "))
 
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
     //foldByKey
 
-    sc.parallelize(List("dog", "wolf", "cat", "bear"), 2)
-    .map(x => (x.length, x)).foldByKey("")(_ + _)
+    sc.parallelize(List("dog", "wolf", "cat", "bear"), 2).map(x => (x.length, x))
+      .foldByKey("")(_ + _)
 
     sc.textFile("hdfs://ns/wc").flatMap(_.split(" ")).map((_, 1))
-    .foldByKey(0)(_+_)
-    
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
+      .foldByKey(0)(_ + _)
+
     //foreachPartition
-    sc.parallelize(List(1, 2, 3, 4, 5, 6, 7, 8, 9), 3)
-    .foreachPartition(x => println(x.reduce(_ + _)))
-    
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
+    val fp = sc.parallelize(List(1, 2, 3, 4, 5, 6, 7, 8, 9), 3)
+    fp.foreach(println) //excutor 执行     一条条
+    fp.foreachPartition(x => println(x.reduce(_ + _))) //excutor 执行  一个分区
+
     //keyBy
-    sc.parallelize(List("dog", "salmon", "salmon", "rat", "elephant"), 3)
-    .keyBy(_.length).collect
-    
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
+    val kb = sc.parallelize(List("dog", "salmon", "salmon", "rat", "elephant"), 3)
+    kb.keyBy(_.length).collect
+
     //keys values
-    val rddMap=sc.parallelize(List("dog", "tiger", "lion", "cat", "panther", "eagle"), 2)
-    .map(x => (x.length, x))
+    val rddMap = sc.parallelize(List("dog", "tiger", "lion", "cat", "panther", "eagle"), 2).map(x => (x.length, x))
     rddMap.keys.collect
     rddMap.values.collect
-    
-    //-------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------
-    //mapPartitions(it: Iterator => {it.map(x => x * 10)})
 
+    //mapPartitions(it: Iterator => {it.map(x => x * 10)})
+    sc.stop()
   }
 }

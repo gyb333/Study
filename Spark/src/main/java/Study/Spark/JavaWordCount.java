@@ -72,7 +72,7 @@ public class JavaWordCount {
 
 		// 释放资源
 		jsc.stop();
-
+		jsc.close();
 	}
 
 }

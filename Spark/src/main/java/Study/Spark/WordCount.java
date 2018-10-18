@@ -27,7 +27,7 @@ public class WordCount {
 		JavaPairRDD<String, Integer> result=sorted.mapToPair(f->f.swap());
 		result.saveAsTextFile(outputPath);
 		jsc.stop();
-		
+		jsc.close();
 	}
 
 }
