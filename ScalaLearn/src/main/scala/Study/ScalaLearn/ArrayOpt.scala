@@ -83,6 +83,7 @@ object ArrayOpt {
    *         zip 拉链操作 相同角标位置的元素组合到一起，返回一个新的集合
    */
   def main(args: Array[String]): Unit = {
+    
     val list = List(3, 5, 1)
     println(list.par.sum)
     println(list.fold(0)(_ + _))
