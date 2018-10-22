@@ -53,7 +53,7 @@ object IpLocation {
     }).reduceByKey(_ + _)
 
     //拿一条执行一条
-    result.foreach(f => MyUtils.data2MySQL(Iterator(f)))
+    //result.foreach(f => MyUtils.data2MySQL(Iterator(f)))
 
     //一次拿出一个分区(一个分区用一个连接，可以将一个分区中的多条数据写完在释放jdbc连接，这样更节省资源)
     result.foreachPartition(it => MyUtils.data2MySQL(it))
