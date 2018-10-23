@@ -14,17 +14,7 @@ object WorldCount {
     val sparkBuilder = SparkSession.builder()
       .appName("WorldCount").master("local[*]")
 
-    val conf = new Configuration()
-    val core = new Path(".\\resources\\core-site.xml")
-    val hdfs = new Path(".\\resources\\hdfs-site.xml")
-    //    val hive = new Path(".\\resources\\hive-site.xml")
-    conf.addResource(core)
-    conf.addResource(hdfs)
-    //    conf.addResource(hive)
-    for (c <- conf.iterator().asScala) {
-      sparkBuilder.config(c.getKey, c.getValue)
-    }
-    //val spark = sparkBuilder.enableHiveSupport().getOrCreate()
+    
     val spark = sparkBuilder.getOrCreate()
 
     //(指定以后从哪里)读数据，是lazy

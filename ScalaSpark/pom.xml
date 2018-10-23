@@ -12,7 +12,8 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<scala.version>2.11.12</scala.version>
 		<spark.version>2.3.0</spark.version>
-		<hadoop.version>3.0.3</hadoop.version>
+		<hadoop.version>2.7.3</hadoop.version>
+		<mysql.version>8.0.12</mysql.version>
 		<akka.version>2.5.17</akka.version>
 	</properties>
 
@@ -90,6 +91,12 @@
 		</dependency>
 
 
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
 
 
 
