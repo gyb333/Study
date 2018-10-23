@@ -34,7 +34,7 @@ object WorldCount {
     val result = spark.sql("SELECT value, COUNT(*) counts FROM v_wc GROUP BY value ORDER BY counts DESC")
     //执行Action
     result.show()
-
+     
     //2.使用DataSet的API（DSL特定领域编程语言）
     val count = words.groupBy($"value" as "word").count().sort($"count" desc);
     count.show()
