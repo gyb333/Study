@@ -9,7 +9,7 @@ object HiveOnSpark {
 
     val sparkBuilder = SparkSession.builder()
       .appName("HiveOnSpark").master("local[*]")
-
+       
 //    val conf = new Configuration()
 //    var path = System.getProperty("user.dir") + "\\Resources\\";
 //    conf.addResource("core-site.xml")

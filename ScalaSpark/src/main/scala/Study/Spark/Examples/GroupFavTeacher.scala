@@ -5,6 +5,7 @@ import org.apache.spark.SparkContext
 import java.net.URL
 import org.apache.spark.Partitioner
 import scala.collection.mutable
+import org.apache.spark.sql.SparkSession
 
 object GroupFavTeacher {
   val topN = 1
@@ -13,15 +14,18 @@ object GroupFavTeacher {
   var path = basePath + "/FavTeacher.dat"
   val resultPath = basePath + "/GroupFavTeacher"
   val local = false
-
+  if (local) {
+    path = "file:/D:/work/Study/BigData/FavTeacher.dat"
+  }
   def main(args: Array[String]): Unit = {
-    if (local) {
-      master = "local"
-      path = "D:\\work\\Study\\BigData\\FavTeacher.dat"
-    }
+//    RDDExec()
+    SQLExec()
+  }
+
+  def RDDExec(): Unit = {
     val conf = new SparkConf().setAppName("GroupFavTeacher").setMaster(master)
     val sc = new SparkContext(conf)
-    val lines = sc.textFile(path)  //2个RDD
+    val lines = sc.textFile(path) //2个RDD
     val map = lines.map(line => {
       val index = line.lastIndexOf("/")
       val teacher = line.substring(index + 1)
@@ -30,34 +34,69 @@ object GroupFavTeacher {
       ((subject, teacher), 1)
     })
 
-//    val result = map.reduceByKey(_ + _).groupBy(_._1._1)
-//      .mapValues(_.toList.sortBy(_._2).reverse.take(topN))
+    //    val result = map.reduceByKey(_ + _).groupBy(_._1._1)
+    //      .mapValues(_.toList.sortBy(_._2).reverse.take(topN))
 
-      
     //------------------根据业务逻辑分区优化拆分数据---------------------------------------------------
-        val reduced = map.reduceByKey(_ + _)      //shuffle
-        val subjects = reduced.map(_._1._1).distinct().collect()
-        val partitioner = new SubjectParitioner(subjects)
-    
-//        val result = reduced.partitionBy(partitioner)     //shuffle
-//          .mapPartitions(it => {
-//            it.toList.sortBy(_._2).reverse.take(topN).iterator
-//          })
-//    //-----------------------------------------------------------
+    val reduced = map.reduceByKey(_ + _) //shuffle
+    val subjects = reduced.map(_._1._1).distinct().collect()
+    val partitioner = new SubjectParitioner(subjects)
 
-        val result = map.reduceByKey(partitioner, _ + _)
-          .mapPartitions(it => {
-            it.toList.sortBy(_._2).reverse.take(topN).iterator
-          })
+    //        val result = reduced.partitionBy(partitioner)     //shuffle
+    //          .mapPartitions(it => {
+    //            it.toList.sortBy(_._2).reverse.take(topN).iterator
+    //          })
+    //    //-----------------------------------------------------------
 
-    if (!local) result.saveAsTextFile(resultPath)
+    val result = map.reduceByKey(partitioner, _ + _)
+      .mapPartitions(it => {
+        it.toList.sortBy(_._2).reverse.take(topN).iterator
+      })
+
+    //if (!local) result.saveAsTextFile(resultPath)
     println(result.collect().toBuffer)
     sc.stop()
+
   }
 
+  def SQLExec(): Unit = {
+    val spark = SparkSession.builder()
+      .appName("GroupFavTeacherSQL").master(master).getOrCreate()
+
+    val lines = spark.sparkContext.textFile(path) //spark.read.text(path)
+    import spark.implicits._
+    lines.map(line => {
+      val index = line.lastIndexOf("/")
+      val teacher = line.substring(index + 1)
+      val httpHost = line.substring(0, index)
+      val subject = new URL(httpHost).getHost.split("[.]")(0)
+      (subject, teacher)
+    }).toDF("subject","teacher")
+    .createTempView("v_sub_teacher")
+    
+    spark.sql("""
+      SELECT subject,teacher,COUNT(*) counts
+      FROM v_sub_teacher
+      GROUP BY subject,teacher
+      """)
+      .createTempView("v_tmp")
+      
+     val result=spark.sql("""
+       SELECT subject,teacher,counts
+       ,row_number() over(partition by subject order by counts desc) subrk
+       ,rank() over(order by counts desc) rk  
+       ,dense_rank() over(order by counts desc) drk       
+       FROM v_tmp
+       """)
+      result.show()
+      spark.stop()
+     
+    
+  }
 }
 
 //自定义分区器
+
 class SubjectParitioner(sbs: Array[String]) extends Partitioner {
 
   //相当于主构造器（new的时候回执行一次）
@@ -68,7 +107,7 @@ class SubjectParitioner(sbs: Array[String]) extends Partitioner {
     //rules(sb) = i
     rules.put(sb, i)
     i += 1
-    
+
   }
 
   //返回分区的数量（下一个RDD有多少分区）

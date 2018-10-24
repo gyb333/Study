@@ -3,21 +3,25 @@ package Study.Spark.Examples
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import java.net.URL
+import org.apache.spark.sql.SparkSession
 
 object FavTeacher {
 
-  var master: String = "local"
+  val master: String = "local[*]"
   val basePath: String = "hdfs://ns/BigData"
   var path = basePath + "/FavTeacher.dat"
-  val resultPath=basePath+"/FavTeacher"
-  val local =false
-  
+  val resultPath = basePath + "/FavTeacher"
+  val local = true
+
+  if (local) {
+    path = "file:/D:/work/Study/BigData/FavTeacher.dat"
+  }
+
   def main(args: Array[String]): Unit = {
-    if(local) {
-      master="local"
-      path="D:\\work\\Study\\BigData\\FavTeacher.dat"
-    }
-    
+    RDDExec()
+  }
+
+  def RDDExec(): Unit = {
     val conf = new SparkConf().setAppName("Teacher").setMaster(master)
     val sc = new SparkContext(conf)
     val lines = sc.textFile(path)
@@ -27,10 +31,14 @@ object FavTeacher {
       val httpHost = line.substring(0, index)
       val subject = new URL(httpHost).getHost.split("[.]")(0)
       (teacher, 1)
-    }).reduceByKey(_ + _).sortBy(_._2, false) 
-    if(!local)result.saveAsTextFile(resultPath)
+    }).reduceByKey(_ + _).sortBy(_._2, false)
+    //if(!local)result.saveAsTextFile(resultPath)
     println(result.collect.toBuffer)
     sc.stop()
 
   }
+
+  
+  
+  
 }

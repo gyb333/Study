@@ -9,13 +9,16 @@ import org.apache.spark.sql.types.LongType
 import org.apache.spark.sql.types.StringType
 import org.apache.spark.sql.types.StructField
 import org.apache.spark.sql.types.StructType
+import akka.routing.Broadcast
 
 object SQLDemo {
 
   def main(args: Array[String]): Unit = {
 
     //    base()
-    join()
+    //    join()
+
+    joinExec()
   }
 
   def base(): Unit = {
@@ -96,7 +99,7 @@ object SQLDemo {
 
     //import org.apache.spark.sql.functions._
     val result = df1.join(df2, $"code" === $"ename", "left")
-//    val result = df1.join(df2, $"code" === $"ename", "left_outer")
+    //    val result = df1.join(df2, $"code" === $"ename", "left_outer")
 
     result.show()
 
@@ -104,4 +107,41 @@ object SQLDemo {
 
   }
 
+  /**
+   * BroadcastJoin、HashJoin、SortMergeJoin
+   */
+  def joinExec(): Unit = {
+    val spark = SparkSession.builder()
+      .appName("joinExec").master("local[*]").getOrCreate()
+
+    import spark.implicits._
+
+    //spark.sql.autoBroadcastJoinThreshold=-1
+        spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
+//    spark.conf.set("spark.sql.join.preferSortMergeJoin", true)
+
+    println(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
+    println(spark.conf.get("spark.sql.join.preferSortMergeJoin"))
+
+    val df1 = Seq((0, "playing"), (1, "with"), (2, "join"))
+      .toDF("id", "token")
+
+    val df2 = Seq((0, "P"), (1, "W"), (2, "S"))
+      .toDF("aid", "atoken")
+
+    val result = df1.join(df2, $"id" === $"aid") //BroadcastHashJoin
+    //查看执行计划
+    result.explain()
+    
+    df1.cache().count()  //放到内存
+    df2.repartition()
+    import org.apache.spark.sql.functions._
+    val result2 = df1.join(broadcast(df2), $"id" === $"aid")
+    result2.explain()
+
+    //result.show()
+
+    spark.stop()
+
+  }
 }
