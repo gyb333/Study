@@ -1,13 +1,10 @@
 package Study.Spark.Examples
 
-import org.apache.spark.{ SparkConf, SparkContext }
-import org.apache.spark.rdd.{ RDD }
-import org.apache.spark.SparkConf
-import org.apache.spark.SparkContext
-import org.apache.spark.rdd.RDD.rddToPairRDDFunctions
-import org.apache.hadoop.fs.Path
-import org.apache.hadoop.conf.Configuration
-import scala.collection.JavaConverters._
+
+import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.rdd.RDD
+//import org.apache.spark.rdd.RDD.rddToPairRDDFunctions
+
  
 object WordCount {
   val basePath: String = "hdfs://ns/BigData"
@@ -22,14 +19,7 @@ object WordCount {
 
   def main(args: Array[String]): Unit = {
     val sparkConf = new SparkConf().setAppName("WordCount").setMaster("local")
-
-    
-
-     
-  
     val sc = new SparkContext(sparkConf)
-
-    
     val lines: RDD[String] = sc.textFile(inputPath) //2个RDD
     val words: RDD[String] = lines.flatMap(_.split(",")) //mapPartitionsRDD
     val wordAndOne: RDD[(String, Int)] = words.map((_, 1)) //mapPartitionsRDD

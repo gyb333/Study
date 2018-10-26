@@ -21,7 +21,7 @@ public class RowsMapper<T> implements IRowsMapper<T>,IRowMapper<T> {
 
 	
 	
-	@Override
+
 	public List<T> mapRows(ResultSet rs) throws Exception {
 
 		List<T> list = new ArrayList<T>();
@@ -47,7 +47,7 @@ public class RowsMapper<T> implements IRowsMapper<T>,IRowMapper<T> {
 
 
 
-	@Override
+
 	public T mapRow(ResultSet rs) throws Exception {
 		// TODO Auto-generated method stub
 		return mapRows(rs).get(0);

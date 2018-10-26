@@ -79,7 +79,7 @@ public class SQLUtils<T> {
 			pstmt = conn.prepareStatement(sql);
 			paramsMapper(pstmt, params);
 			rs = pstmt.executeQuery();
-			t = executeQuery(sql, params, new RowsMapper<>());
+			t = executeQuery(sql, params, new RowsMapper<T>());
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DAOException(e);

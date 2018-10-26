@@ -28,7 +28,7 @@ public class StudentDAOTest {
 		Object object = sd.save(s, "id");
 		
 		System.out.println(object);
-		Map<String, Object> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("Id", 6);
 		s= sd.findByKeys(maps);
 

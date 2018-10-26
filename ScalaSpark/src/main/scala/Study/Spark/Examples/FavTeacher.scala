@@ -1,9 +1,10 @@
 package Study.Spark.Examples
 
-import org.apache.spark.SparkConf
-import org.apache.spark.SparkContext
 import java.net.URL
-import org.apache.spark.sql.SparkSession
+
+import org.apache.spark.{SparkConf, SparkContext}
+
+
 
 object FavTeacher {
 
