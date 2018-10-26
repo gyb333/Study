@@ -29,8 +29,16 @@ public class KfkConsumer {
 	public static void main(String[] args) {
 		try {
 			Properties props = CommonUtils.getProperties(path);
-			Consumer<String, String> consumer = new KafkaConsumer<String, String>(props);
-			// 消费者订阅的topic, 可同时订阅多个 
+			final Consumer<String, String> consumer = new KafkaConsumer<String, String>(props);
+			Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+				public void run() {
+					if(consumer!=null)
+						consumer.close();
+					System.out.println("closed............");
+				}
+			}));
+
+			// 消费者订阅的topic, 可同时订阅多个
 			consumer.subscribe(Arrays.asList(topic));
 			while (true) {
 				// 读取数据，读取超时时间为100ms 
@@ -38,7 +46,8 @@ public class KfkConsumer {
 				for (ConsumerRecord<String, String> record : records)
 					System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(),
 							record.value());
-			}			 
+			}
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

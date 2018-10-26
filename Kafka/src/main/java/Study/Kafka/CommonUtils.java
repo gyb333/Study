@@ -8,6 +8,7 @@ public class CommonUtils {
 
 	public static Properties getProperties(String path) throws IOException {
 		Properties properties = new Properties();
+
 		InputStream is = CommonUtils.class.getClassLoader().getResourceAsStream(path);
 		properties.load(is);
 		return properties;

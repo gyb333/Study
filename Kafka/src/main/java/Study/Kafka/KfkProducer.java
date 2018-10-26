@@ -26,7 +26,7 @@ public class KfkProducer {
 //				producer.send(new ProducerRecord<String, String>(topic, "test-msg" + i, Integer.toString(i)));				
 				//消息的成功发送：-1 不等待集群反馈、0 等待leader的反馈、all 等待所有副本的反馈、1
 				producer.send(new ProducerRecord<String, String>(topic,1,"cb-key"+i, "cb-value" + i), new Callback() {
-					@Override
+
 					public void onCompletion(RecordMetadata metadata, Exception exception) {
 						if (metadata != null) {
 							System.out.println(metadata.partition() + "---" + metadata.offset());
