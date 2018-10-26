@@ -3,7 +3,6 @@ package Study.Kafka;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Properties;
-
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;

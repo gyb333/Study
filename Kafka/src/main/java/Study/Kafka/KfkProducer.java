@@ -1,13 +1,10 @@
 package Study.Kafka;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Properties;
 
-import org.apache.kafka.clients.producer.Callback;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.Producer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.clients.producer.*;
 
 public class KfkProducer {
 	private static final String path = "KafkaProducer.Properties";
@@ -17,8 +14,14 @@ public class KfkProducer {
 
 		try {
 			Properties props = CommonUtils.getProperties(path);
+			//设置自定义分区
 			props.put("partitioner.class", "Study.Kafka.CustomPartitioner");
+			//为生产者注册拦截器
+			props.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG,
+					Arrays.asList("Study.Kafka.TimeInterceptor","Study.Kafka.CounterInterceptor"));
 			Producer<String, String> producer = new KafkaProducer<String, String>(props);
+
+
 			for (int i = 1001; i <= 1100; i++) {
 				//null-key:轮询所有分区，负载均衡
 				//key:hash(key)%分区数
