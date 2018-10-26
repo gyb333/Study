@@ -33,24 +33,31 @@ kafka集群安装
 	3.解压
 	4.修改配置文件 config/server.properties
 		broker.id=0
-		host.name=node-4
-		log.dirs=/data/kafka
-		zookeeper.connect=node-1:2181,node-2:2181,node-3:2181
+		listeners=PLAINTEXT://Master:9092
+		log.dirs=/usr/local/BigData/Kafka
+		zookeeper.connect=Master:2181,Second:2181,Slave:2181
 	5.将配置好的kafka拷贝到其他机器上
 	6.修改broker.id和host.name
 	7.启动kafka
-		/bigdata/kafka_2.11-0.8.2.2/bin/kafka-server-start.sh -daemon /bigdata/kafka_2.11-0.8.2.2/config/server.properties 
+		kafka-server-start.sh -daemon kafka2.11/config/server.properties
 
 
 	#查看topic信息
-	/bigdata/kafka_2.11-0.8.2.2/bin/kafka-topics.sh --list --zookeeper node-1:2181,node-2:2181
+	kafka-topics.sh --list --zookeeper Master:2181,Second:2181,Slave:2181
 
 	#创建topic
-	/bigdata/kafka_2.11-0.8.2.2/bin/kafka-topics.sh --create --zookeeper node-1:2181,node-2:2181 --replication-factor 3 --partitions 3 --topic xiaoniu
+	kafka-topics.sh --create --zookeeper Master:2181,Second:2181,Slave:2181 --replication-factor 3 --partitions 3 --topic my-topic
 
 	#往Kafka的topic中写入数据(命令行的生成者)
-	/bigdata/kafka_2.11-0.8.2.2/bin/kafka-console-producer.sh --broker-list node-4:9092,node-5:9092,node-5:9092 --topic xiaoniu
+	kafka-topics.sh --describe --zookeeper Master:2181,Second:2181,Slave:2181 --topic my-topic
+	
+	启动一个命令行的生产者:
+	kafka-console-producer.sh --broker-list Master:9092,Second:9092,Slave:9092 --topic my-topic
+	
+	启动一个命令行的消费者:消费者连接到borker的地址
+	kafka-console-consumer.sh --bootstrap-server Master:9092,Second:9092,Slave:9092 --topic my-topic --from-beginning 
 
-	#启动消费者
-	/bigdata/kafka_2.11-0.8.2.2/bin/kafka-console-consumer.sh --zookeeper node-1:2181,node-2:2181 --topic xiaoniu --from-beginning
-
+	
+	
+	
+	
