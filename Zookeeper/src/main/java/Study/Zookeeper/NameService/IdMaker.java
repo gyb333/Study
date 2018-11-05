@@ -107,7 +107,6 @@ public class IdMaker {
 		} else if (removeMethod.equals(RemoveMethod.DELAY)) {
 			cleanExector.execute(new Runnable() {
 
-				@Override
 				public void run() {
 					// TODO Auto-generated method stub
 					client.delete(ourPath);

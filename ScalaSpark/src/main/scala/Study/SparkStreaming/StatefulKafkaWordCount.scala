@@ -23,7 +23,9 @@ object StatefulKafkaWordCount {
     val ssc = new StreamingContext(conf, Seconds(5))
 
     //如果要使用课更新历史数据（累加），那么就要把终结结果保存起来
-    ssc.checkpoint("./ck")
+
+    val Path ="file:/./BigData/ck" //./BigData/ck
+    ssc.checkpoint(Path)
 
     val zkQuorum = "Master:2181,Second:2181,Slave:2181"
     val groupId = "g100"

@@ -12,29 +12,33 @@ import org.apache.spark.streaming.kafka.{HasOffsetRanges, KafkaUtils, OffsetRang
 import org.apache.spark.streaming.{Duration, StreamingContext}
 
 object KafkaDirectWordCount {
+
   def main(args: Array[String]): Unit = {
 
-    //指定组名
-    val group = "g001"
+    directWordCount()
+
+  }
+
+  def directWordCount():Unit={
     //创建SparkConf
-    val conf = new SparkConf().setAppName("KafkaDirectWordCount").setMaster("local[2]")
+    val conf = new SparkConf().setAppName("KafkaDirectWordCount").setMaster("local[*]")
     //创建SparkStreaming，并设置间隔时间
     val ssc = new StreamingContext(conf, Duration(5000))
-    //指定消费的 topic 名字
-    val topic = "wwcc"
-    //指定kafka的broker地址(sparkStream的Task直连到kafka的分区上，用更加底层的API消费，效率更高)
-    val brokerList = "Master:9092,Second:9092,Slave:9092"
 
-    //指定zk的地址，后期更新消费的偏移量时使用(以后可以使用Redis、MySQL来记录偏移量)
-    val zkQuorum = "Master:2181,Second:2181,Slave:2181"
+    //指定消费的 topic 名字
+    val topic = "mytopic"
     //创建 stream 时使用的 topic 名字集合，SparkStreaming可同时消费多个topic
     val topics: Set[String] = Set(topic)
-
+    //指定组名
+    val group = "g001"
     //创建一个 ZKGroupTopicDirs 对象,其实是指定往zk中写入数据的目录，用于保存偏移量
     val topicDirs = new ZKGroupTopicDirs(group, topic)
     //获取 zookeeper 中的路径 "/g001/offsets/wordcount/"
     val zkTopicPath = s"${topicDirs.consumerOffsetDir}"
 
+
+    //指定kafka的broker地址(sparkStream的Task直连到kafka的分区上，用更加底层的API消费，效率更高)
+    val brokerList = "Master:9092,Second:9092,Slave:9092"
     //准备kafka的参数
     val kafkaParams = Map(
       "metadata.broker.list" -> brokerList,
@@ -43,6 +47,8 @@ object KafkaDirectWordCount {
       "auto.offset.reset" -> kafka.api.OffsetRequest.SmallestTimeString
     )
 
+    //指定zk的地址，后期更新消费的偏移量时使用(以后可以使用Redis、MySQL来记录偏移量)
+    val zkQuorum = "Master:2181,Second:2181,Slave:2181"
     //zookeeper 的host 和 ip，创建一个 client,用于跟新偏移量量的
     //是zookeeper的客户端，可以从zk中读取偏移量数据，并更新偏移量
     val zkClient = new ZkClient(zkQuorum)
@@ -79,44 +85,66 @@ object KafkaDirectWordCount {
       //通过KafkaUtils创建直连的DStream（fromOffsets参数的作用是:按照前面计算好了的偏移量继续消费数据）
       //[String, String, StringDecoder, StringDecoder,     (String, String)]
       //  key    value    key的解码方式   value的解码方式
-      kafkaStream = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder, (String, String)](ssc, kafkaParams, fromOffsets, messageHandler)
+      kafkaStream = KafkaUtils.createDirectStream[String, String, StringDecoder,
+        StringDecoder,(String, String)](ssc, kafkaParams, fromOffsets, messageHandler)
     } else {
       //如果未保存，根据 kafkaParam 的配置使用最新(largest)或者最旧的（smallest） offset
-      kafkaStream = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](ssc, kafkaParams, topics)
+      kafkaStream = KafkaUtils.createDirectStream[String, String, StringDecoder,
+        StringDecoder](ssc, kafkaParams, topics)
     }
+    //Receiver方式把接收到固定时间间隔的数据达到额度阈值才写入磁盘，使用kafka高级API
 
+    //直连方式
+    //DirectKafkaOld(kafkaStream,topicDirs,zkClient)
+    DirectKafka(kafkaStream,topicDirs,zkClient)       //直接连接到kafka的分区上，直接使用底层API
+
+
+
+
+    ssc.start()
+    ssc.awaitTermination()
+
+  }
+
+
+
+
+  def DirectKafkaOld(kafkaStream: InputDStream[(String, String)], topicDirs:ZKGroupTopicDirs, zkClient:ZkClient):Unit={
     //偏移量的范围
     var offsetRanges = Array[OffsetRange]()
+        //从kafka读取的消息，DStream的Transform方法可以将当前批次的RDD获取出来
+        //该transform方法计算获取到当前批次RDD,然后将RDD的偏移量取出来，然后在将RDD返回到DStream
+        val transform: DStream[(String, String)] = kafkaStream.transform { rdd =>
+          //得到该 rdd 对应 kafka 的消息的 offset
+          //该RDD是一个KafkaRDD，可以获得偏移量的范围
+          offsetRanges = rdd.asInstanceOf[HasOffsetRanges].offsetRanges
+          rdd
+        }
+        val messages: DStream[String] = transform.map(_._2)
 
-//    //从kafka读取的消息，DStream的Transform方法可以将当前批次的RDD获取出来
-//    //该transform方法计算获取到当前批次RDD,然后将RDD的偏移量取出来，然后在将RDD返回到DStream
-//    val transform: DStream[(String, String)] = kafkaStream.transform { rdd =>
-//      //得到该 rdd 对应 kafka 的消息的 offset
-//      //该RDD是一个KafkaRDD，可以获得偏移量的范围
-//      offsetRanges = rdd.asInstanceOf[HasOffsetRanges].offsetRanges
-//      rdd
-//    }
-//    val messages: DStream[String] = transform.map(_._2)
-//
-//    //依次迭代DStream中的RDD
-//    messages.foreachRDD { rdd =>
-//      //对RDD进行操作，触发Action
-//      rdd.foreachPartition(partition =>
-//        partition.foreach(x => {
-//          println(x)
-//        })
-//      )
-//
-//      for (o <- offsetRanges) {
-//        //  /g001/offsets/wordcount/0
-//        val zkPath = s"${topicDirs.consumerOffsetDir}/${o.partition}"
-//        //将该 partition 的 offset 保存到 zookeeper
-//        //  /g001/offsets/wordcount/0/20000
-//        ZkUtils.updatePersistentPath(zkClient, zkPath, o.untilOffset.toString)
-//      }
-//    }
+        //依次迭代DStream中的RDD
+        messages.foreachRDD { rdd =>
+          //对RDD进行操作，触发Action
+          rdd.foreachPartition(partition =>
+            partition.foreach(x => {
+              println(x)
+            })
+          )
+
+          for (o <- offsetRanges) {
+            //  /g001/offsets/wordcount/0
+            val zkPath = s"${topicDirs.consumerOffsetDir}/${o.partition}"
+            //将该 partition 的 offset 保存到 zookeeper
+            //  /g001/offsets/wordcount/0/20000
+            ZkUtils.updatePersistentPath(zkClient, zkPath, o.untilOffset.toString)
+          }
+        }
+  }
 
 
+  def DirectKafka(kafkaStream: InputDStream[(String, String)], topicDirs:ZKGroupTopicDirs, zkClient:ZkClient):Unit={
+    //偏移量的范围
+    var offsetRanges = Array[OffsetRange]()
 
     //直连方式只有在KafkaDStream的RDD中才能获取偏移量，那么就不能到调用DStream的Transformation
     //所以只能子在kafkaStream调用foreachRDD，获取RDD的偏移量，然后就是对RDD进行操作了
@@ -142,12 +170,7 @@ object KafkaDirectWordCount {
       }
     }
 
-
-
-
-
-    ssc.start()
-    ssc.awaitTermination()
-
   }
+
+
 }
