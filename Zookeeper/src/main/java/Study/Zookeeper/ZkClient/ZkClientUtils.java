@@ -47,8 +47,6 @@ public class ZkClientUtils {
 		
 		
 		zkClient.subscribeChildChanges(path,new IZkChildListener() {
-			
-			@Override
 			public void handleChildChange(String parentPath, List<String> currentChilds) throws Exception {
 				// TODO Auto-generated method stub
 				System.out.println(parentPath);
@@ -62,13 +60,12 @@ public class ZkClientUtils {
 	public static void SubscribeDataChanges(String path) {
 		zkClient.subscribeDataChanges(path, new IZkDataListener() {
 			
-			@Override
+
 			public void handleDataDeleted(String dataPath) throws Exception {
 				// TODO Auto-generated method stub
 				System.out.println(dataPath);
 			}
-			
-			@Override
+
 			public void handleDataChange(String dataPath, Object data) throws Exception {
 				// TODO Auto-generated method stub
 				System.out.println(dataPath+":"+data.toString());
