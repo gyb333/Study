@@ -37,7 +37,7 @@ Page({
       }
     });
 
-    //创建一个map上下文，如果想要调用地图相关的方发
+    //创建一个map上下文，如果想要调用地图相关的方法
     that.mapCtx = wx.createMapContext('map');
 
     //在地图页中加入按钮（归位、扫描、充值）
@@ -108,7 +108,7 @@ Page({
 
   //在地图中绑定的事件
   contap(e) {
-    //console.log(e)
+    console.log(e)
     var that = this;
     if (e.controlId == 2) {
       //点击定位当前位置
@@ -120,10 +120,11 @@ Page({
         success: function (r) {
           //扫描成功获取二维码的信息
           var code = r.result;
+          console.log(code)
           //向后台发送请求
           wx.request({
-            //method: 'POST',
-            url: 'http://localhost:8888/bike', //仅为示例，并非真实的接口地址
+            // method: 'POST',
+            url: 'http://localhost:8080/bike', //仅为示例，并非真实的接口地址
             data: {
               qrCode: code,
               latitude: that.data.latitude,
