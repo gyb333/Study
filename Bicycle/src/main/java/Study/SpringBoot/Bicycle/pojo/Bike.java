@@ -2,7 +2,7 @@ package Study.SpringBoot.Bicycle.pojo;
 
 public class Bike {
 
-    private Long id;
+    private String id;
 
     private int status;
 
@@ -12,11 +12,11 @@ public class Bike {
 
     private Double longitude;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

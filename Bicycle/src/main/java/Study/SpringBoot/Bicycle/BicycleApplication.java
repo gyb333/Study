@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 
 
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, MongoAutoConfiguration.class})
-@SpringBootApplication(exclude = {  MongoAutoConfiguration.class})
+@SpringBootApplication
 public class BicycleApplication {
 
     public static void main(String[] args) {
@@ -15,4 +15,6 @@ public class BicycleApplication {
         SpringApplication.run(BicycleApplication.class, args);
 
     }
+
+    //mvn spring-boot:run 回车启动项目
 }

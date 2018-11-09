@@ -14,7 +14,9 @@ Page({
     latitude: 0,
     longitude: 0,
     //控件的变量，数组类型
-    controls: []
+    controls: [],
+    //显示的单车
+    markers: []
   },
 
   /**
@@ -98,7 +100,17 @@ Page({
             },
             //是否可点击
             clickable: true
-          }]
+            }, {
+              //单车按钮
+              id: 5,
+              iconPath: '/image/bike.png',
+              position: {
+                width: 35,
+                height: 40
+              },
+              //是否可点击
+              clickable: true
+            }]
         })
       },
     })
@@ -135,6 +147,46 @@ Page({
             },
             success: function (res) {
               console.log(res.data)
+            }
+          })
+        }
+      })
+    }
+    if (e.controlId == 5) {
+      //添加车辆的按钮
+      that.mapCtx.getCenterLocation({
+        success: function (res) {
+          var lat = res.latitude;
+          var log = res.longitude;
+          wx.request({
+            url: "http://localhost:8080/bike",
+            method: 'POST',
+            data: {
+              latitude: lat,
+              longitude: log
+            },
+            success: function () {
+              //向后台发送请求，将单车查找出来
+              wx.request({
+                url: "http://localhost:8080/bikes",
+                method: 'GET',
+                success: function (res) {
+                  const bikes = res.data.map((item) => {
+                    return {
+                      id: item.id,
+                      iconPath: "/image/bike.png",
+                      width: 35,
+                      height: 40,
+                      latitude: item.latitude,
+                      longitude: item.longitude
+                    };
+                  });
+                  // 修改data里面的markers
+                  that.setData({
+                    markers: bikes
+                  });
+                }
+              })
             }
           })
         }
