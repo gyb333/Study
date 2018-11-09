@@ -37,6 +37,7 @@ public class BikeController {
     @GetMapping("/bike")
     @ResponseBody  //响应Ajax请求，会将响应的对象转成json
     public String getById(Bike bike) {
+        System.out.println(bike);
         //调用Service保存map
         bikeServce.save(bike);
         return "success";
