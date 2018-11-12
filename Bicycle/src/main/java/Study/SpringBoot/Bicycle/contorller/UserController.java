@@ -3,6 +3,9 @@ package Study.SpringBoot.Bicycle.contorller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 @Controller
 public class UserController {
 
@@ -13,5 +16,17 @@ public class UserController {
         //前缀 + 视图名 + 后缀
         //pages/index.html
         return "index";
+    }
+
+
+    @RequestMapping("/host")
+    public String host() {
+        String host=null;
+        try {
+            host= InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return host;
     }
 }
