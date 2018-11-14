@@ -13,26 +13,28 @@
 		<result property="qrCode" column="qr_code"/>
 
 	</resultMap>
+	
+	<select id="getById" parameterType="long" resultMap="bike_result_map">
+		SELECT * FROM t_bike WHERE id = #{id}
+	</select>
+	
+	<select id="findAll" resultMap="bike_result_map">
+		SELECT * FROM t_bike
+	</select>
 
-
-	<!--
-	CREATE TABLE bigdata.bike (
-	id bigint(20) NOT NULL AUTO_INCREMENT,
-	status int(11) DEFAULT NULL,
-	qr_Code varchar(255) DEFAULT NULL,
-	latitude varchar(255) DEFAULT NULL,
-	longitude varchar(255) DEFAULT NULL,
-	PRIMARY KEY (id)
-	)
-	ENGINE = INNODB
-	CHARACTER SET utf8
-	COLLATE utf8_general_ci;
-	-->
-
-	<!--parameterMap="bike_result_map"-->
-	<insert id="save" parameterType="Study.SpringBoot.Bicycle.pojo.Bike"  >
-		INSERT INTO t_bike (id, status, latitude, longitude, qr_code) VALUES (#{id}, #{status}, #{latitude}, #{longitude}, #{qrCode})
+	<insert id="save" parameterType="Study.SpringBoot.Bicycle.pojo.Bike">
+		INSERT INTO t_bike (id, status, latitude, longitude, qrCode) VALUES (#{id}, #{status}, #{latitude}, #{longitude}, #{qrCode})
 	</insert>
 
+	<delete id="deleteByIds" parameterType="list">
+		DELETE FROM t_bike WHERE id IN
+		<foreach collection="array" item="id" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+	
+	<update id="update" parameterType="Study.SpringBoot.Bicycle.pojo.Bike">
+		UPDATE t_bike SET status = #{status}, latitude = #{latitude}, longitude = #{longitude} WHERE id = #{id}
+	</update>
 
 </mapper>

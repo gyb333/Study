@@ -1,39 +1,73 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
+    //调用微信的login方法会返回code
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
+      success: function (res) {
+        var openid = wx.getStorageSync("openid")
+        if (openid) {
+          getApp().globalData.openid = openid;
+          getInfoByOpenid(openid);
+        } else {
+          var appid = "wx5b603fddb2c1bca9";
+          var secret = "ca6b9becf4ff51692f01fa86065ad35c";
+          var code = res.code;
+          //发起网络请求
+          wx.request({
+            url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
+            success: function (res) {
+              openid = res.data.openid;
+              getApp().globalData.openid = openid;
+              //把用户的openid保存到本地
+              wx.setStorageSync('openid', openid);
+              getInfoByOpenid(openid);
             }
           })
         }
       }
-    })
+    });
   },
+
+  getUserInfo: function (cb) {
+    var that = this
+    if (this.globalData.userInfo) {
+      typeof cb == "function" && cb(this.globalData.userInfo)
+    } else {
+      //调用登录接口
+      wx.getUserInfo({
+        withCredentials: false,
+        success: function (res) {
+          console.log(res)
+          that.globalData.userInfo = res.userInfo
+          typeof cb == "function" && cb(that.globalData.userInfo)
+        }
+      })
+    }
+  },
+
   globalData: {
+    bikeNo: 10000008,
+    openid: "",
+    status: 0,
+    balance: 0, //余额
     userInfo: null
   }
 })
+
+function getInfoByOpenid(openid) {
+  wx.request({
+    url: "http://localhost:8888/phoneNum/" + openid,
+    success: function (res) {
+      var user = res.data;
+      if (user) {
+        var phoneNum = user.phoneNum;
+        var status = user.status;
+        getApp().globalData.phoneNum = phoneNum;
+        getApp().globalData.status = status;
+        //把用户的openid保存到本地
+        wx.setStorageSync('phoneNum', phoneNum);
+        wx.setStorageSync('status', status);
+      }
+    }
+  })
+}
