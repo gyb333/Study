@@ -3,14 +3,20 @@ package Study.Flume.Interceptor;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.flume.Context;
 import org.apache.flume.Event;
-import org.apache.flume.interceptor.Interceptor;
 
+import org.apache.flume.interceptor.Interceptor;
+import org.apache.flume.source.taildir.TaildirSource;
+
+
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *   查看RegexFilteringInterceptor  TimestampInterceptor
+ */
 public class JsonInterceptor implements Interceptor {
-
     private String[] schema; //id,name,age,fv
     private String separator; //,
 
@@ -43,9 +49,12 @@ public class JsonInterceptor implements Interceptor {
 
 
     public List<Event> intercept(List<Event> events) {
-        for (Event e: events) {
-            intercept(e);
+        Iterator var2 = events.iterator();
+        while(var2.hasNext()) {
+            Event event = (Event)var2.next();
+            this.intercept(event);
         }
+
         return events;
     }
 

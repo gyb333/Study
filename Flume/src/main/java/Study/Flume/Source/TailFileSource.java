@@ -21,7 +21,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 /**
- *  可以参考ExecSource
+ *  可以参考ExecSource  TaildirSource不支持递归  可以到GitHub上查找递归Taildir
  * flume source 的生命周期：构造器 -> configure -> start -> processor.process
  * 1.读取配置文件：（配置文件的内容：读取哪个文件、编码集、偏移量写到哪个文件、多长时间检查一下文件是否有新内容）
  */
