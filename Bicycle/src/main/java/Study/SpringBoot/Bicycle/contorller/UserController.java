@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import Study.SpringBoot.Bicycle.pojo.User;
 import Study.SpringBoot.Bicycle.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -76,6 +75,18 @@ public class UserController {
         }
         return msg;
 	}
+
+
+
+	@PostMapping("/recharge")
+	@ResponseBody
+	public boolean recharge(@RequestBody String params) {
+		boolean flag = true;
+		//System.out.println(params);
+		userService.recharge(params);
+		return flag;
+	}
+
 
 	@RequestMapping("/welcome")
 	public String welcome() {

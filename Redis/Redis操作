@@ -1,0 +1,40 @@
+wget http://download.redis.io/releases/redis-5.0.0.tar.gz
+tar xzf redis-5.0.0.tar.gz
+tar -zxvf redis-5.0.0.tar.gz -C /usr/local/src/
+
+cd redis-5.0.0
+yum -y install gcc
+make MALLOC=libc && make install
+make
+
+
+
+启动redis节点
+redis-server redis5/redis.conf
+
+查看redis进程状态
+ps -ef | grep redis
+
+启动集群：
+redis-cli --cluster create Master:7001 Master:7002 Second:7003 Second:7004 Slave:7005 Slave:7006 --cluster-replicas 1
+
+使用命令行客户的连接redis
+redis-cli -p 6379
+redis-cli -h Master -p 6379
+关闭redis
+redis-cli -h Master -a redis shutdown
+
+配置redis密码
+config set requirepass redis
+
+修改redis.conf配置文件　　
+# requirepass foobared
+requirepass redis   指定密码redis
+
+
+auth redis        //指定密码
+
+keys *
+
+
+
