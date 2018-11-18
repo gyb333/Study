@@ -13,9 +13,36 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <flume.version>1.8.0</flume.version>
+		<fastjson.version>1.2.51</fastjson.version>
 	</properties>
 
 	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.flume/flume-ng-core -->
+		<dependency>
+			<groupId>org.apache.flume</groupId>
+			<artifactId>flume-ng-core</artifactId>
+			<version>${flume.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.flume.flume-ng-sources/flume-taildir-source -->
+		<dependency>
+			<groupId>org.apache.flume.flume-ng-sources</groupId>
+			<artifactId>flume-taildir-source</artifactId>
+			<version>${flume.version}</version>
+		</dependency>
+
+
+
+
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

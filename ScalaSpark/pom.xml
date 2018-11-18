@@ -7,7 +7,7 @@
 	<inceptionYear>2008</inceptionYear>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
+		<encoding>UTF-8</encoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<scala.version>2.11.12</scala.version>
@@ -61,14 +61,40 @@
 			<version>${spark.version}</version>
 		</dependency>
 
+<<<<<<< HEAD
 
 		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming -->
+=======
+		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming  <scope>provided</scope>-->
+>>>>>>> f9288a36b50714fb4f601c046a9e8c4012e52d3e
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-streaming_2.11</artifactId>
 			<version>${spark.version}</version>
-			<scope>provided</scope>
 		</dependency>
+
+		 <!--https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka-0-8-->
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-streaming-kafka-0-8_2.11</artifactId>
+			<version>${spark.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka-0-10 -->
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka -->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.spark</groupId>-->
+			<!--<artifactId>spark-streaming-kafka_2.11</artifactId>-->
+			<!--<version>1.6.3</version>-->
+		<!--</dependency>-->
+
 
 		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-hive -->
 		<dependency>
@@ -99,6 +125,12 @@
 			<version>${mysql.version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
 
 
 
@@ -118,7 +150,7 @@
 
 	<build>
 		<sourceDirectory>src/main/scala</sourceDirectory>
-		<testSourceDirectory>src/test/scala</testSourceDirectory>
+		<!--<testSourceDirectory>src/test/scala</testSourceDirectory>-->
 		<plugins>
 			<plugin>
 				<groupId>org.scala-tools</groupId>

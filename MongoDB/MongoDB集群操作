@@ -1,0 +1,124 @@
+
+#32位linux（centos）下mongoDB的下载
+wget http://downloads.mongodb.org/linux/mongodb-linux-i686-3.2.21.tgz
+#在每台服务器执行
+tar -zxvf mongodb-linux-i686-3.2.21.tgz
+
+mv mongodb-linux-i686-3.2.21 mongodb
+
+
+
+分别在每台服务器创建配置服务
+创建db目录 日志目录 mongod配置文件
+mkdir -p /usr/local/mongodb/config/data
+mkdir -p /usr/local/mongodb/config/log
+mkdir -p /usr/local/mongodb/config/run
+touch /usr/local/mongodb/config/mongod.conf
+
+
+#【重要】启动所有的mongo config server服务
+mongod --storageEngine=mmapv1 --journal --config /usr/local/mongodb/config/mongod.conf
+mongod --storageEngine=mmapv1 --journal -f /usr/local/mongodb/config/mongod.conf
+
+mongod --journal --shutdown -f /usr/local/mongodb/config/mongod.conf
+
+ps -ef | grep mongod
+
+#登录任意一台配置服务器，初始化配置副本集
+mongo --port 27100
+
+#创建配置
+config = {
+   _id : "config",
+    members : [
+        {_id : 0, host : "Master:27100" },
+        {_id : 1, host : "Second:27100" },
+        {_id : 2, host : "Slave:27100" }
+    ]
+}
+
+#初始化副本集配置
+rs.initiate(config)
+
+#查看分区状态
+rs.status()
+
+#注意:其中，"_id" : "config"对应配置文件中配置的 replicaction.replSetName 一致，"members" 中的 "host" 为三个节点的ip和port
+
+#配置第一个分片和副本集，依此类推到第三个发布和副本集
+#修改mongo shard1 server的配置文件中的端口27001~27003和路径shard1~shard3
+cp mongodb/config  mongodb/shard1
+mongod --storageEngine=mmapv1 --journal --config /usr/local/mongodb/shard1/mongod.conf
+
+mongo --port 27001
+#创建配置
+config = {
+   _id : "config",
+    members : [
+        {_id : 0, host : "Master:27001" },
+        {_id : 1, host : "Second:27001" },
+        {_id : 2, host : "Slave:27001" }
+    ]
+}
+#初始化副本集配置
+rs.initiate(config)
+
+#查看分区状态
+rs.status()
+
+
+######注意：启动mongos是守候进程是因为/mongo/mongos/mongod.conf缺少了fork: true这个配置#######
+------------------------------------------------------------------------------------------------
+mkdir -p /mongo/mongos/{log,data,run}
+
+#添加mongs的配置文件
+cat >> /mongo/mongos/mongod.conf << EOF
+systemLog:
+  destination: file
+  logAppend: true
+  path: /mongo/mongos/log/mongod.log
+processManagement:
+  fork: true
+  pidFilePath: /mongo/mongos/run/mongod.pid
+net:
+  port: 27200
+sharding:
+  configDB: config/192.168.1.111:27100,192.168.1.12:27100,192.168.1.13:27100
+EOF
+
+#注意，这里configDB后面的config要与配置服务器的_id保持一致
+
+#启动路由服务器
+mongos --config /mongo/mongos/mongod.conf
+
+#登录其中的一台路由节点，手动启用分片
+mongo --port 27200
+
+#添加分片到mongos
+sh.addShard("shard1/192.168.1.11:27001,192.168.1.12:27001,192.168.1.13:27001")
+sh.addShard("shard2/192.168.1.12:27002,192.168.1.13:27002,192.168.1.11:27002")
+sh.addShard("shard3/192.168.1.13:27003,192.168.1.11:27003,192.168.1.12:27003")
+
+#设置slave可读(在命令行中生效一次)，如果配置从接到可读，那么是连接客户端指定的
+rs.slaveOk()
+
+------------------------------------------------------------------------------------------------
+####没有分片是因为没有开启分片规则####################
+------------------------------------------------------------------------------------------------
+#创建mobike数据库
+use admin
+
+#创建mobike数据库
+
+#对bikes这个数据库开启分片功能
+db.runCommand({"enablesharding":"mobike"})
+
+#创建bikes集合
+db.createCollection("bikes")
+
+##对bike数据库下的users集合按id的hash进行分片
+db.runCommand({"shardcollection":"mobike.bikes","key":{_id:'hashed'}})
+
+
+
+
