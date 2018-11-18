@@ -8,8 +8,7 @@ public class Test {
 		
 		Configuration conf =new Configuration();
 		conf.addResource(Test.class.getResourceAsStream("/Param.xml"));
-		
-		 //‘O÷√›î»Î›î≥ˆâ∫øs
+
 		conf.setBoolean("mapreduce.map.output.compress", true);
 		conf.set("mapreduce.map.output.compress.codec", "org.apache.hadoop.io.compress.DefaultCodec");
 		
