@@ -6,7 +6,6 @@ import org.apache.spark.{SparkConf, SparkContext}
 object StreamingWordCount {
 
   def main(args: Array[String]): Unit = {
-<<<<<<< HEAD
 
     val conf=new SparkConf().setAppName("StreamingWordCount")
       .setMaster("local[*]")
