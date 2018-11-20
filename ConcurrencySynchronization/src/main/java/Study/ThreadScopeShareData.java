@@ -1,4 +1,4 @@
-package Study.ConcurrencySynchronization;
+package Study;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package Study.Concurrency;
+package Study.HighGrade;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

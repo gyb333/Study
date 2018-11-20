@@ -1,7 +1,5 @@
-package Study.ConcurrencySynchronization;
+package Study;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class ThreadLocalShareData {

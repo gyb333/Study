@@ -1,4 +1,4 @@
-package Study.Concurrency;
+package Study.HighGrade;
 
 public class User implements Cloneable {
     private String name;

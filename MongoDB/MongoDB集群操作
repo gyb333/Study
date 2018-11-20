@@ -15,6 +15,8 @@ mkdir -p /usr/local/mongodb/config/log
 mkdir -p /usr/local/mongodb/config/run
 touch /usr/local/mongodb/config/mongod.conf
 
+openssl rand -base64 755 > /usr/local/mongodb/keyfile
+chmod 400 /usr/local/mongodb/keyfile
 
 #【重要】启动所有的mongo config server服务
 mongod --storageEngine=mmapv1 --journal --config /usr/local/mongodb/config/mongod.conf
@@ -26,7 +28,12 @@ ps -ef | grep mongod
 
 #登录任意一台配置服务器，初始化配置副本集
 mongo --port 27100
+mongo Master:27100/admin
 
+show dbs
+rs.slaveOk()
+rs.masterOk()
+use admin
 #创建配置
 config = {
    _id : "config",
@@ -37,11 +44,19 @@ config = {
     ]
 }
 
-#初始化副本集配置
 rs.initiate(config)
 
 #查看分区状态
 rs.status()
+
+
+
+ rs.initiate()
+ rs.add('Second:27100',{force:true});
+
+rs.add("Second:27100")
+
+rs.add("Slave:27100")
 
 #注意:其中，"_id" : "config"对应配置文件中配置的 replicaction.replSetName 一致，"members" 中的 "host" 为三个节点的ip和port
 
@@ -53,11 +68,43 @@ mongod --storageEngine=mmapv1 --journal --config /usr/local/mongodb/shard1/mongo
 mongo --port 27001
 #创建配置
 config = {
-   _id : "config",
+   _id : "shard1",
     members : [
         {_id : 0, host : "Master:27001" },
         {_id : 1, host : "Second:27001" },
         {_id : 2, host : "Slave:27001" }
+    ]
+}
+#初始化副本集配置
+rs.initiate(config)
+#查看分区状态
+rs.status()
+
+mongod --storageEngine=mmapv1 --journal --config /usr/local/mongodb/shard2/mongod.conf
+mongo --port 27002
+#创建配置
+config = {
+   _id : "shard2",
+    members : [
+        {_id : 0, host : "Master:27002" },
+        {_id : 1, host : "Second:27002" },
+        {_id : 2, host : "Slave:27002" }
+    ]
+}
+#初始化副本集配置
+rs.initiate(config)
+#查看分区状态
+rs.status()
+
+mongod --storageEngine=mmapv1 --journal --config /usr/local/mongodb/shard3/mongod.conf
+mongo --port 27003
+#创建配置
+config = {
+   _id : "shard3",
+    members : [
+        {_id : 0, host : "Master:27003" },
+        {_id : 1, host : "Second:27003" },
+        {_id : 2, host : "Slave:27003" }
     ]
 }
 #初始化副本集配置
@@ -69,27 +116,33 @@ rs.status()
 
 ######注意：启动mongos是守候进程是因为/mongo/mongos/mongod.conf缺少了fork: true这个配置#######
 ------------------------------------------------------------------------------------------------
-mkdir -p /mongo/mongos/{log,data,run}
-
+mkdir -p /usr/local/mongodb/mongos/{log,data,run}
+touch /usr/local/mongodb/mongos/mongod.conf
 #添加mongs的配置文件
-cat >> /mongo/mongos/mongod.conf << EOF
+cat >> /usr/local/mongodb/mongos/mongod.conf << EOF
 systemLog:
   destination: file
   logAppend: true
-  path: /mongo/mongos/log/mongod.log
+  path: /usr/local/mongodb/mongos/log/mongod.log
 processManagement:
   fork: true
-  pidFilePath: /mongo/mongos/run/mongod.pid
+  pidFilePath: /usr/local/mongodb/mongos/run/mongod.pid
 net:
   port: 27200
 sharding:
-  configDB: config/192.168.1.111:27100,192.168.1.12:27100,192.168.1.13:27100
+  configDB: config/Master:27100,Second:27100,Slave:27100
 EOF
 
 #注意，这里configDB后面的config要与配置服务器的_id保持一致
 
 #启动路由服务器
-mongos --config /mongo/mongos/mongod.conf
+
+mongos -f /usr/local/mongodb/mongos/mongod.conf
+
+mongos --port 27200 --configdb config/Master:27100,Second:27100,Slave:27100 \
+--fork --logpath /usr/local/mongodb/mongos/log/mongos.log --bind_ip 0.0.0.0
+
+
 
 #登录其中的一台路由节点，手动启用分片
 mongo --port 27200

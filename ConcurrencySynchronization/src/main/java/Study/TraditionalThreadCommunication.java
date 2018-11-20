@@ -1,4 +1,4 @@
-package Study.ConcurrencySynchronization;
+package Study;
 
 public class TraditionalThreadCommunication {
 

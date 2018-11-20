@@ -1,6 +1,9 @@
-package Study.ConcurrencySynchronization;
+package Study;
 
-import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 传统的定时器

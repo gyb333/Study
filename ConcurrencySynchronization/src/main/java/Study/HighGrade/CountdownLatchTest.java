@@ -1,4 +1,4 @@
-package Study.Concurrency;
+package Study.HighGrade;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;

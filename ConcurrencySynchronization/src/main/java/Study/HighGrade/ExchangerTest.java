@@ -1,4 +1,4 @@
-package Study.Concurrency;
+package Study.HighGrade;
 import java.util.concurrent.Exchanger;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
