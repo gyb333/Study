@@ -4,9 +4,13 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class RedisClusterService {
@@ -36,10 +40,16 @@ public class RedisClusterService {
      * 设置对象
      * */
     public <T> boolean set(KeyPrefix prefix, String key,  T value) {
-        JedisCluster jedis = null;
+        ShardedJedis jedis = null;
 
         try {
             jedis =  shardedJedisPool.getResource();
+
+
+
+
+
+
             String str = beanToString(value);
             if(str == null || str.length() <= 0) {
                 return false;

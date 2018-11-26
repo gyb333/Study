@@ -4,15 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
-import redis.clients.jedis.JedisShardInfo;
-import redis.clients.jedis.ShardedJedisPool;
+import redis.clients.jedis.*;
 import redis.clients.util.Hashing;
 import redis.clients.util.Sharded;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class RedisPoolFactory {
@@ -52,6 +51,12 @@ public class RedisPoolFactory {
                 info = new JedisShardInfo(Host,Port );
                 info.setPassword(redisConfig.getPassword());
                 jdsInfoList.add(info);
+
+                HostAndPort hostAndPort = new HostAndPort(Host, Port);
+                Set<HostAndPort> hostAndPortSet = new HashSet<HostAndPort>();
+                hostAndPortSet.add(hostAndPort);
+                JedisCluster jedis = new JedisCluster(hostAndPortSet);
+                
             }
             sjp = new ShardedJedisPool(poolConfig, jdsInfoList, Hashing.MURMUR_HASH, Sharded.DEFAULT_KEY_TAG_PATTERN);
         }
