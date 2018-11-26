@@ -1,6 +1,7 @@
 package Study.SpringCloud.GYB.controller;
 
 import Study.SpringCloud.GYB.domain.User;
+import Study.SpringCloud.GYB.redis.RedisClusterService;
 import Study.SpringCloud.GYB.redis.RedisService;
 import Study.SpringCloud.GYB.redis.UserKey;
 import Study.SpringCloud.GYB.result.CodeMsg;
@@ -23,13 +24,22 @@ public class SampleController {
 	
 	@Autowired
     RedisService redisService;
+
+	@Autowired
+    RedisClusterService redisClusterService;
 	
     @RequestMapping("/hello")
     @ResponseBody
     public Result<String> home() {
         return Result.success("Hello，world");
     }
-    
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public String Test(){
+        return " hello world test!";
+    }
+
     @RequestMapping("/error")
     @ResponseBody
     public Result<String> error() {
@@ -60,7 +70,8 @@ public class SampleController {
     @RequestMapping("/redis/get")
     @ResponseBody
     public Result<User> redisGet() {
-    	User  user  = redisService.get(UserKey.getById, ""+1, User.class);
+//    	User  user  = redisService.get(UserKey.getById, ""+1, User.class);
+        User  user  = redisClusterService.get(UserKey.getById, ""+1, User.class);
         return Result.success(user);
     }
     
@@ -70,7 +81,8 @@ public class SampleController {
     	User user  = new User();
     	user.setId(1);
     	user.setName("1111");
-    	redisService.set(UserKey.getById, ""+1, user);//UserKey:id1
+//    	redisService.set(UserKey.getById, ""+1, user);//UserKey:id1
+        redisClusterService.set(UserKey.getById, ""+1, user);//UserKey:id1
         return Result.success(true);
     }
     

@@ -5,19 +5,23 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.*;
+
+import java.util.HashSet;
 
 @Service
 public class RedisService {
 	
 	@Autowired
 	JedisPool jedisPool;
+
+
 	
 	/**
 	 * 获取当个对象
 	 * */
 	public <T> T get(KeyPrefix prefix, String key,  Class<T> clazz) {
+
 		 Jedis jedis = null;
 		 try {
 			 jedis =  jedisPool.getResource();

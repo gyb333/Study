@@ -8,11 +8,20 @@ import org.springframework.stereotype.Component;
 public class RedisConfig {
 	private String host;
 	private int port;
+
+
+
+	private String nodes;
+
+
 	private int timeout;//秒
 	private String password;
 	private int poolMaxTotal;
 	private int poolMaxIdle;
 	private int poolMaxWait;//秒
+
+
+
 	public String getHost() {
 		return host;
 	}
@@ -54,5 +63,14 @@ public class RedisConfig {
 	}
 	public void setPoolMaxWait(int poolMaxWait) {
 		this.poolMaxWait = poolMaxWait;
+	}
+
+
+	public String getNodes() {
+		return nodes;
+	}
+
+	public void setNodes(String nodes) {
+		this.nodes = nodes;
 	}
 }
