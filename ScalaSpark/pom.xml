@@ -61,12 +61,7 @@
 			<version>${spark.version}</version>
 		</dependency>
 
-<<<<<<< HEAD
 
-		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming -->
-=======
-		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming  <scope>provided</scope>-->
->>>>>>> f9288a36b50714fb4f601c046a9e8c4012e52d3e
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-streaming_2.11</artifactId>

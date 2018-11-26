@@ -23,10 +23,6 @@ object StreamingWordCount {
 
 
 
-=======
-    wordCount()
-  }
-
   def wordCount():Unit={
     val conf = new SparkConf().setAppName("WordCount" ).setMaster("local[2]")
     val  sc = new SparkContext(conf)
@@ -39,5 +35,5 @@ object StreamingWordCount {
     ssc.awaitTermination()
 
   }
->>>>>>> f9288a36b50714fb4f601c046a9e8c4012e52d3e
+
 }

@@ -22,6 +22,8 @@ chmod 400 /usr/local/mongodb/keyfile
 mongod --storageEngine=mmapv1 --journal --config /usr/local/mongodb/config/mongod.conf
 mongod --storageEngine=mmapv1 --journal -f /usr/local/mongodb/config/mongod.conf
 
+mongod --journal -f /usr/local/mongodb/config/mongod.conf
+
 mongod --journal --shutdown -f /usr/local/mongodb/config/mongod.conf
 
 ps -ef | grep mongod
@@ -32,7 +34,7 @@ mongo Master:27100/admin
 
 show dbs
 rs.slaveOk()
-rs.masterOk()
+
 use admin
 #创建配置
 config = {
@@ -51,12 +53,9 @@ rs.status()
 
 
 
- rs.initiate()
- rs.add('Second:27100',{force:true});
-
-rs.add("Second:27100")
-
-rs.add("Slave:27100")
+#rs.initiate()
+#rs.add("Second:27100")
+#rs.add("Slave:27100")
 
 #注意:其中，"_id" : "config"对应配置文件中配置的 replicaction.replSetName 一致，"members" 中的 "host" 为三个节点的ip和port
 
@@ -64,6 +63,8 @@ rs.add("Slave:27100")
 #修改mongo shard1 server的配置文件中的端口27001~27003和路径shard1~shard3
 cp mongodb/config  mongodb/shard1
 mongod --storageEngine=mmapv1 --journal --config /usr/local/mongodb/shard1/mongod.conf
+mongod --journal --config /usr/local/mongodb/shard1/mongod.conf
+
 
 mongo --port 27001
 #创建配置
@@ -81,6 +82,7 @@ rs.initiate(config)
 rs.status()
 
 mongod --storageEngine=mmapv1 --journal --config /usr/local/mongodb/shard2/mongod.conf
+mongod --journal --config /usr/local/mongodb/shard2/mongod.conf
 mongo --port 27002
 #创建配置
 config = {
@@ -117,27 +119,35 @@ rs.status()
 ######注意：启动mongos是守候进程是因为/mongo/mongos/mongod.conf缺少了fork: true这个配置#######
 ------------------------------------------------------------------------------------------------
 mkdir -p /usr/local/mongodb/mongos/{log,data,run}
-touch /usr/local/mongodb/mongos/mongod.conf
+touch /usr/local/mongodb/mongos/mongos.conf
 #添加mongs的配置文件
 cat >> /usr/local/mongodb/mongos/mongod.conf << EOF
 systemLog:
   destination: file
   logAppend: true
-  path: /usr/local/mongodb/mongos/log/mongod.log
+  path: /usr/local/mongodb/mongos/log/mongos.log
 processManagement:
   fork: true
-  pidFilePath: /usr/local/mongodb/mongos/run/mongod.pid
+  pidFilePath: /usr/local/mongodb/mongos/run/mongos.pid
 net:
   port: 27200
 sharding:
   configDB: config/Master:27100,Second:27100,Slave:27100
 EOF
 
+
+logpath=/usr/local/mongodb/mongos/log/mongos.log
+logappend = true
+port = 27200
+fork = true
+configdb = config/Master:27100,Second:27100,Slave:27100
+maxConns=20000
+bind_ip=0.0.0.0
 #注意，这里configDB后面的config要与配置服务器的_id保持一致
 
 #启动路由服务器
 
-mongos -f /usr/local/mongodb/mongos/mongod.conf
+mongos -f /usr/local/mongodb/mongos/mongos.conf
 
 mongos --port 27200 --configdb config/Master:27100,Second:27100,Slave:27100 \
 --fork --logpath /usr/local/mongodb/mongos/log/mongos.log --bind_ip 0.0.0.0
@@ -148,9 +158,13 @@ mongos --port 27200 --configdb config/Master:27100,Second:27100,Slave:27100 \
 mongo --port 27200
 
 #添加分片到mongos
-sh.addShard("shard1/192.168.1.11:27001,192.168.1.12:27001,192.168.1.13:27001")
-sh.addShard("shard2/192.168.1.12:27002,192.168.1.13:27002,192.168.1.11:27002")
-sh.addShard("shard3/192.168.1.13:27003,192.168.1.11:27003,192.168.1.12:27003")
+sh.addShard("shard1/Master:27001,Second:27001,Slave:27001")
+sh.addShard("shard2/Master:27002,Second:27002,Slave:27002")
+sh.addShard("shard3/Master:27003,Second:27003,Slave:27003")
+
+sh.status()
+
+mongo --port 27200
 
 #设置slave可读(在命令行中生效一次)，如果配置从接到可读，那么是连接客户端指定的
 rs.slaveOk()
@@ -161,17 +175,60 @@ rs.slaveOk()
 #创建mobike数据库
 use admin
 
-#创建mobike数据库
+
 
 #对bikes这个数据库开启分片功能
 db.runCommand({"enablesharding":"mobike"})
+sh.enableSharding("mobike")
 
-#创建bikes集合
-db.createCollection("bikes")
 
 ##对bike数据库下的users集合按id的hash进行分片
 db.runCommand({"shardcollection":"mobike.bikes","key":{_id:'hashed'}})
+#指定数据库里需要分片的集合和片键
+db.runCommand( { shardcollection : "mobike.bikes",key : {id: 1} } )
 
+#创建mobike数据库
+use mobike
+#创建bikes集合
+#db.createCollection("bikes")
+
+
+
+#插入测试数据
+for (var i = 1; i <= 100; i++) db.bikes.save({id:i,"test1":"testval1"});
+#查看分片情况如下，部分无关信息省掉了
+db.bikes.stats();
+
+
+
+db.bikes.createIndex({"id":1}) # 以"id"作为索引
+sh.shardCollection(mobike.bikes",{"id":1}) # 根据"id"对user表进行分片
+sh.status() # 查看分片情况
+
+
+建立安全
+
+秘钥文件keyfile
+
+生成秘钥文件
+
+openssl rand -base64 755 > /usr/local/mongodb/keyfile
+chmod 400 /usr/local/mongodb/keyfile
+
+scp -r keyfile  Second:/usr/local/mongodb/
+
+mongo --port 27200
+use admin
+db.createUser({user: "root",pwd: "root",roles: [ "root", "userAdminAnyDatabase", "userAdmin", "dbOwner" ]})
+
+db.createUser(
+    {
+        user:"gyb333",
+        pwd:"qwer.1234",
+        roles:[{role:"root",db:"admin"}]
+    }
+
+db.auth("root","root")
 
 
 
