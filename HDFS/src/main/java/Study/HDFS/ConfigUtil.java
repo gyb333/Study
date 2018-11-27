@@ -1,19 +1,20 @@
 package Study.HDFS;
+import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.commons.configuration.reloading.FileChangedReloadingStrategy;
+import org.apache.log4j.Logger;
+
 import java.io.UnsupportedEncodingException;
  
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.apache.commons.configuration.PropertiesConfiguration;
-import org.apache.commons.configuration.reloading.FileChangedReloadingStrategy;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+
 
  
 
 public class ConfigUtil {
 	
-	private static PropertiesConfiguration  config=null;
+	private static PropertiesConfiguration config=null;
 	private static final Logger logger=Logger.getLogger(ConfigUtil.class);
 	 
 	private static final String packageName = ConfigUtil.class.getPackage().getName(); 
