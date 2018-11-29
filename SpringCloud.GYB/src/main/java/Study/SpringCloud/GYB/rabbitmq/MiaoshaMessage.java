@@ -6,6 +6,8 @@ import Study.SpringCloud.GYB.domain.MiaoshaUser;
 public class MiaoshaMessage {
 	private MiaoshaUser user;
 	private long goodsId;
+
+
 	public MiaoshaUser getUser() {
 		return user;
 	}

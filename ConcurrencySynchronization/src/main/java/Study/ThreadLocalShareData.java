@@ -13,8 +13,7 @@ public class ThreadLocalShareData {
             new Thread(new Runnable() {
                 public void run() {
                     int data = new Random().nextInt();
-                    System.out.println(Thread.currentThread().getName()
-                            + " has put data :" + data);
+                    System.out.println(Thread.currentThread().getName()+ " has put data :" + data);
                     x.set(data);
                     ThreadScopeData tsd = ThreadScopeData.getThreadInstance();
                     tsd.setName("name" + data);

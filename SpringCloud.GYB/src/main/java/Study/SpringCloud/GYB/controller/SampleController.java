@@ -36,34 +36,37 @@ public class SampleController {
 	@Autowired
     MQSender sender;
 	
-//	@RequestMapping("/mq/header")
-//    @ResponseBody
-//    public Result<String> header() {
-//		sender.sendHeader("hello,imooc");
-//        return Result.success("Hello，world");
-//    }
-//	
-//	@RequestMapping("/mq/fanout")
-//    @ResponseBody
-//    public Result<String> fanout() {
-//		sender.sendFanout("hello,imooc");
-//        return Result.success("Hello，world");
-//    }
-//	
-//	@RequestMapping("/mq/topic")
-//    @ResponseBody
-//    public Result<String> topic() {
-//		sender.sendTopic("hello,imooc");
-//        return Result.success("Hello，world");
-//    }
-//	
-//	@RequestMapping("/mq")
-//    @ResponseBody
-//    public Result<String> mq() {
-//		sender.send("hello,imooc");
-//        return Result.success("Hello，world");
-//    }
-	
+
+
+
+	@RequestMapping("/mq")
+    @ResponseBody
+    public Result<String> mq() {
+		sender.send("hello,imooc");
+        return Result.success("Hello，mq");
+    }
+
+
+	@RequestMapping("/mq/topic")
+    @ResponseBody
+    public Result<String> topic() {
+		sender.sendTopic("hello,imooc");
+        return Result.success("Hello，topic");
+    }
+
+	@RequestMapping("/mq/fanout")
+    @ResponseBody
+    public Result<String> fanout() {
+		sender.sendFanout("hello,imooc");
+        return Result.success("Hello，fanout");
+    }
+
+    @RequestMapping("/mq/header")
+    @ResponseBody
+    public Result<String> header() {
+		sender.sendHeader("hello,imooc");
+        return Result.success("Hello，header");
+    }
     @RequestMapping("/hello")
     @ResponseBody
     public Result<String> home() {
@@ -103,7 +106,7 @@ public class SampleController {
     	User  user  = redisClusterService.get(UserKey.getById, ""+1, User.class);
         return Result.success(user);
     }
-    
+
     @RequestMapping("/redis/set")
     @ResponseBody
     public Result<Boolean> redisSet() {

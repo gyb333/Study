@@ -63,6 +63,7 @@ public class MiaoshaController implements InitializingBean {
 	
 	/**
 	 * 系统初始化
+	 *
 	 * */
 	public void afterPropertiesSet() throws Exception {
 //		List<GoodsVo> goodsList = goodsService.listGoodsVo();

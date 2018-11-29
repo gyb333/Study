@@ -22,6 +22,7 @@ public class CallableAndFuture {
         Future<String> future = threadPool.submit(
                 new Callable<String>() {
                     public String call() throws Exception {
+                        System.out.println(calendar.get(Calendar.SECOND) + "开始执行");
                         Thread.sleep(2000);
                         return "hello";
                     }

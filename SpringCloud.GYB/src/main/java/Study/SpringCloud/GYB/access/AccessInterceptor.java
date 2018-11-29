@@ -20,7 +20,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.alibaba.fastjson.JSON;
 
-
+/**
+ * 拦截器
+ */
 @Service
 public class AccessInterceptor  extends HandlerInterceptorAdapter{
 	
@@ -34,8 +36,10 @@ public class AccessInterceptor  extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		if(handler instanceof HandlerMethod) {
+			//通用的用户功能
 			MiaoshaUser user = getUser(request, response);
 			UserContext.setUser(user);
+
 			HandlerMethod hm = (HandlerMethod)handler;
 			AccessLimit accessLimit = hm.getMethodAnnotation(AccessLimit.class);
 			if(accessLimit == null) {
