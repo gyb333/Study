@@ -4,7 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import Study.SpringCloud.GYB.result.CodeMsg;
+
+import Study.SpringCloud.GYB.result.CodeMessageEnum;
 import Study.SpringCloud.GYB.result.Result;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
@@ -27,9 +28,10 @@ public class GlobalExceptionHandler {
 			List<ObjectError> errors = ex.getAllErrors();
 			ObjectError error = errors.get(0);
 			String msg = error.getDefaultMessage();
-			return Result.error(CodeMsg.BIND_ERROR.fillArgs(msg));
+//			return Result.error(CodeMessageEnum.BIND_ERROR.fillArgs(msg));
+			return Result.error(CodeMessageEnum.BIND_ERROR);
 		}else {
-			return Result.error(CodeMsg.SERVER_ERROR);
+			return Result.error(CodeMessageEnum.SERVER_ERROR);
 		}
 	}
 }

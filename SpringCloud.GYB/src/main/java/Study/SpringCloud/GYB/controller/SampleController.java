@@ -5,7 +5,8 @@ import Study.SpringCloud.GYB.rabbitmq.MQSender;
 import Study.SpringCloud.GYB.redis.RedisClusterService;
 import Study.SpringCloud.GYB.redis.RedisService;
 import Study.SpringCloud.GYB.redis.UserKey;
-import Study.SpringCloud.GYB.result.CodeMsg;
+import Study.SpringCloud.GYB.result.CodeMessageEnum;
+
 import Study.SpringCloud.GYB.result.Result;
 import Study.SpringCloud.GYB.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +77,7 @@ public class SampleController {
     @RequestMapping("/error")
     @ResponseBody
     public Result<String> error() {
-        return Result.error(CodeMsg.SESSION_ERROR);
+        return Result.error(CodeMessageEnum.SESSION_ERROR);
     }
     
     @RequestMapping("/hello/themaleaf")

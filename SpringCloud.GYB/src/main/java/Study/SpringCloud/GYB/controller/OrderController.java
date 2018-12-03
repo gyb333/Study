@@ -3,7 +3,8 @@ package Study.SpringCloud.GYB.controller;
 import Study.SpringCloud.GYB.domain.MiaoshaUser;
 import Study.SpringCloud.GYB.domain.OrderInfo;
 import Study.SpringCloud.GYB.redis.RedisService;
-import Study.SpringCloud.GYB.result.CodeMsg;
+import Study.SpringCloud.GYB.result.CodeMessageEnum;
+
 import Study.SpringCloud.GYB.result.Result;
 import Study.SpringCloud.GYB.service.GoodsService;
 import Study.SpringCloud.GYB.service.MiaoshaUserService;
@@ -39,11 +40,11 @@ public class OrderController {
     public Result<OrderDetailVo> info(Model model, MiaoshaUser user,
 									  @RequestParam("orderId") long orderId) {
     	if(user == null) {
-    		return Result.error(CodeMsg.SESSION_ERROR);
+    		return Result.error(CodeMessageEnum.SESSION_ERROR);
     	}
     	OrderInfo order = orderService.getOrderById(orderId);
     	if(order == null) {
-    		return Result.error(CodeMsg.ORDER_NOT_EXIST);
+    		return Result.error(CodeMessageEnum.ORDER_NOT_EXIST);
     	}
     	long goodsId = order.getGoodsId();
     	GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);

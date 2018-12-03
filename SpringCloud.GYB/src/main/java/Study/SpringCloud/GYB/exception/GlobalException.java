@@ -1,20 +1,21 @@
 package Study.SpringCloud.GYB.exception;
 
 
-import Study.SpringCloud.GYB.result.CodeMsg;
+import Study.SpringCloud.GYB.result.CodeMessageEnum;
+
 
 public class GlobalException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 	
-	private CodeMsg cm;
+	private CodeMessageEnum cm;
 	
-	public GlobalException(CodeMsg cm) {
+	public GlobalException(CodeMessageEnum cm) {
 		super(cm.toString());
 		this.cm = cm;
 	}
 
-	public CodeMsg getCm() {
+	public CodeMessageEnum getCm() {
 		return cm;
 	}
 

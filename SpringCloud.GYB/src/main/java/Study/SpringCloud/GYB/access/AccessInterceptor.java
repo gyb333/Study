@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import Study.SpringCloud.GYB.domain.MiaoshaUser;
 import Study.SpringCloud.GYB.redis.AccessKey;
 import Study.SpringCloud.GYB.redis.RedisService;
-import Study.SpringCloud.GYB.result.CodeMsg;
+import Study.SpringCloud.GYB.result.CodeMessageEnum;
+
 import Study.SpringCloud.GYB.result.Result;
 import Study.SpringCloud.GYB.service.MiaoshaUserService;
 import org.apache.commons.lang3.StringUtils;
@@ -51,7 +52,7 @@ public class AccessInterceptor  extends HandlerInterceptorAdapter{
 			String key = request.getRequestURI();
 			if(needLogin) {
 				if(user == null) {
-					render(response, CodeMsg.SESSION_ERROR);
+					render(response, CodeMessageEnum.SESSION_ERROR);
 					return false;
 				}
 				key += "_" + user.getId();
@@ -65,14 +66,14 @@ public class AccessInterceptor  extends HandlerInterceptorAdapter{
 	    	}else if(count < maxCount) {
 	    		 redisService.incr(ak, key);
 	    	}else {
-	    		render(response, CodeMsg.ACCESS_LIMIT_REACHED);
+	    		render(response, CodeMessageEnum.ACCESS_LIMIT_REACHED);
 	    		return false;
 	    	}
 		}
 		return true;
 	}
 	
-	private void render(HttpServletResponse response, CodeMsg cm)throws Exception {
+	private void render(HttpServletResponse response, CodeMessageEnum cm)throws Exception {
 		response.setContentType("application/json;charset=UTF-8");
 		OutputStream out = response.getOutputStream();
 		String str  = JSON.toJSONString(Result.error(cm));

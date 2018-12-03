@@ -8,7 +8,8 @@ import Study.SpringCloud.GYB.domain.MiaoshaUser;
 import Study.SpringCloud.GYB.exception.GlobalException;
 import Study.SpringCloud.GYB.redis.MiaoshaUserKey;
 import Study.SpringCloud.GYB.redis.RedisService;
-import Study.SpringCloud.GYB.result.CodeMsg;
+import Study.SpringCloud.GYB.result.CodeMessageEnum;
+
 import Study.SpringCloud.GYB.util.MD5Util;
 import Study.SpringCloud.GYB.util.UUIDUtil;
 import Study.SpringCloud.GYB.vo.LoginVo;
@@ -47,7 +48,7 @@ public class MiaoshaUserService {
 		//取user
 		MiaoshaUser user = getById(id);
 		if(user == null) {
-			throw new GlobalException(CodeMsg.MOBILE_NOT_EXIST);
+			throw new GlobalException(CodeMessageEnum.MOBILE_NOT_EXIST);
 		}
 		//更新数据库
 		MiaoshaUser toBeUpdate = new MiaoshaUser();
@@ -77,21 +78,21 @@ public class MiaoshaUserService {
 
 	public String login(HttpServletResponse response, LoginVo loginVo) {
 		if(loginVo == null) {
-			throw new GlobalException(CodeMsg.SERVER_ERROR);
+			throw new GlobalException(CodeMessageEnum.SERVER_ERROR);
 		}
 		String mobile = loginVo.getMobile();
 		String formPass = loginVo.getPassword();
 		//判断手机号是否存在
 		MiaoshaUser user = getById(Long.parseLong(mobile));
 		if(user == null) {
-			throw new GlobalException(CodeMsg.MOBILE_NOT_EXIST);
+			throw new GlobalException(CodeMessageEnum.MOBILE_NOT_EXIST);
 		}
 		//验证密码
 		String dbPass = user.getPassword();
 		String saltDB = user.getSalt();
 		String calcPass = MD5Util.formPassToDBPass(formPass, saltDB);
 		if(!calcPass.equals(dbPass)) {
-			throw new GlobalException(CodeMsg.PASSWORD_ERROR);
+			throw new GlobalException(CodeMessageEnum.PASSWORD_ERROR);
 		}
 		//生成cookie
 		String token	 = UUIDUtil.uuid();

@@ -18,7 +18,8 @@ import Study.SpringCloud.GYB.redis.GoodsKey;
 import Study.SpringCloud.GYB.redis.MiaoshaKey;
 import Study.SpringCloud.GYB.redis.OrderKey;
 import Study.SpringCloud.GYB.redis.RedisService;
-import Study.SpringCloud.GYB.result.CodeMsg;
+import Study.SpringCloud.GYB.result.CodeMessageEnum;
+
 import Study.SpringCloud.GYB.result.Result;
 import Study.SpringCloud.GYB.service.GoodsService;
 import Study.SpringCloud.GYB.service.MiaoshaService;
@@ -103,28 +104,28 @@ public class MiaoshaController implements InitializingBean {
 								   @PathVariable("path") String path) {
     	model.addAttribute("user", user);
     	if(user == null) {
-    		return Result.error(CodeMsg.SESSION_ERROR);
+    		return Result.error(CodeMessageEnum.SESSION_ERROR);
     	}
     	//验证path
     	boolean check = miaoshaService.checkPath(user, goodsId, path);
     	if(!check){
-    		return Result.error(CodeMsg.REQUEST_ILLEGAL);
+    		return Result.error(CodeMessageEnum.REQUEST_ILLEGAL);
     	}
     	//内存标记，减少redis访问
     	boolean over = localOverMap.get(goodsId);
     	if(over) {
-    		return Result.error(CodeMsg.MIAO_SHA_OVER);
+    		return Result.error(CodeMessageEnum.MIAO_SHA_OVER);
     	}
     	//预减库存
     	long stock = redisService.decr(GoodsKey.getMiaoshaGoodsStock, ""+goodsId);//10
     	if(stock < 0) {
     		 localOverMap.put(goodsId, true);
-    		return Result.error(CodeMsg.MIAO_SHA_OVER);
+    		return Result.error(CodeMessageEnum.MIAO_SHA_OVER);
     	}
     	//判断是否已经秒杀到了
     	MiaoshaOrder order = orderService.getMiaoshaOrderByUserIdGoodsId(user.getId(), goodsId);
     	if(order != null) {
-    		return Result.error(CodeMsg.REPEATE_MIAOSHA);
+    		return Result.error(CodeMessageEnum.REPEATE_MIAOSHA);
     	}
     	//入队
     	MiaoshaMessage mm = new MiaoshaMessage();
@@ -161,7 +162,7 @@ public class MiaoshaController implements InitializingBean {
     		@RequestParam("goodsId")long goodsId) {
     	model.addAttribute("user", user);
     	if(user == null) {
-    		return Result.error(CodeMsg.SESSION_ERROR);
+    		return Result.error(CodeMessageEnum.SESSION_ERROR);
     	}
     	long result  =miaoshaService.getMiaoshaResult(user.getId(), goodsId);
     	return Result.success(result);
@@ -175,11 +176,11 @@ public class MiaoshaController implements InitializingBean {
     		@RequestParam(value="verifyCode", defaultValue="0")int verifyCode
     		) {
     	if(user == null) {
-    		return Result.error(CodeMsg.SESSION_ERROR);
+    		return Result.error(CodeMessageEnum.SESSION_ERROR);
     	}
     	boolean check = miaoshaService.checkVerifyCode(user, goodsId, verifyCode);
     	if(!check) {
-    		return Result.error(CodeMsg.REQUEST_ILLEGAL);
+    		return Result.error(CodeMessageEnum.REQUEST_ILLEGAL);
     	}
     	String path  =miaoshaService.createMiaoshaPath(user, goodsId);
     	return Result.success(path);
@@ -191,7 +192,7 @@ public class MiaoshaController implements InitializingBean {
     public Result<String> getMiaoshaVerifyCod(HttpServletResponse response,MiaoshaUser user,
     		@RequestParam("goodsId")long goodsId) {
     	if(user == null) {
-    		return Result.error(CodeMsg.SESSION_ERROR);
+    		return Result.error(CodeMessageEnum.SESSION_ERROR);
     	}
     	try {
     		BufferedImage image  = miaoshaService.createVerifyCode(user, goodsId);
@@ -202,7 +203,7 @@ public class MiaoshaController implements InitializingBean {
     		return null;
     	}catch(Exception e) {
     		e.printStackTrace();
-    		return Result.error(CodeMsg.MIAOSHA_FAIL);
+    		return Result.error(CodeMessageEnum.MIAOSHA_FAIL);
     	}
     }
 }

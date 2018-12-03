@@ -16,7 +16,7 @@ public class Result<T> {
 	/**
 	 *  失败时候的调用
 	 * */
-	public static  <T> Result<T> error(CodeMsg codeMsg){
+	public static  <T> Result<T> error(CodeMessageEnum codeMsg){
 		return new Result<T>(codeMsg);
 	}
 	
@@ -29,10 +29,10 @@ public class Result<T> {
 		this.msg = msg;
 	}
 	
-	private Result(CodeMsg codeMsg) {
+	private Result(CodeMessageEnum codeMsg) {
 		if(codeMsg != null) {
 			this.code = codeMsg.getCode();
-			this.msg = codeMsg.getMsg();
+			this.msg = codeMsg.getMessage();
 		}
 	}
 	
