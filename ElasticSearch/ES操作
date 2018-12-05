@@ -1,0 +1,280 @@
+RESTful接口URL的格式：
+http://Master:9200/<index>/<type>/[<id>]
+其中index、type是必须提供的。
+id是可选的，不提供es会自动生成。
+index、type将信息进行分层，利于管理。
+index可以理解为数据库；type理解为数据表；id相当于数据库表中记录的主键，是唯一的。
+
+
+#向store索引中添加一些书籍
+curl -H "Content-Type:application/json" -XPUT 'http://Master:9200/store/books/1' -d '{
+  "title": "Elasticsearch: The Definitive Guide",
+  "name" : {
+    "first" : "Zachary",
+    "last" : "Tong"
+  },
+  "publish_date":"2015-02-06",
+  "price":"49.99"
+}'
+
+#在linux中通过curl的方式查询
+curl -XGET 'http://Second:9200/store/books/1'
+
+#通过浏览器查询
+http://Slave:9200/store/books/1
+
+
+#在添加一个书的信息
+curl -H "Content-Type:application/json" -XPUT 'http://Second:9200/store/books/2' -d '{
+  "title": "Elasticsearch Blueprints",
+  "name" : {
+    "first" : "Vineeth",
+    "last" : "Mohan"
+  },
+  "publish_date":"2015-06-06",
+  "price":"35.99"
+}'
+
+
+# 通过ID获得文档信息
+curl -XGET 'http://Second:9200/store/books/1'
+
+#在浏览器中查看
+http://Second:9200/store/books/1
+
+# 通过_source获取指定的字段
+curl -XGET 'http://Master:9200/store/books/1?_source=title'
+curl -XGET 'http://Master:9200/store/books/1?_source=title,price'
+curl -XGET 'http://Master:9200/store/books/1?_source'
+
+#可以通过覆盖的方式更新
+curl -H "Content-Type:application/json" -XPUT 'http://Master:9200/store/books/1' -d '{
+  "title": "Elasticsearch: The Definitive Guide",
+  "name" : {
+    "first" : "Zachary",
+    "last" : "Tong"
+  },
+  "publish_date":"2016-02-06",
+  "price":"99.99"
+}'
+
+# 或者通过 _update  API的方式单独更新你想要更新的
+curl -H "Content-Type:application/json" -XPOST 'http://Master:9200/store/books/1/_update' -d '{
+  "doc": {
+     "price" : 88.88
+  }
+}'
+
+curl -XGET 'http://Master:9200/store/books/1'
+
+#删除一个文档
+curl -XDELETE 'http://Master:9200/store/books/1'
+
+
+curl -XPUT 'http://Master:9200/store/books/4' -d '{
+  "title": "Elasticsearch: The Definitive Guide",
+  "author": "Guide",
+  "publish_date":"2016-02-06",
+  "price":"35.99"
+}'
+
+
+#https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html
+# 最简单filter查询
+# SELECT * FROM books WHERE price = 35.99
+# filtered 查询价格是35.99的
+# 返回的的分是1.0
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/store/books/_search' -d '{
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "term": {
+          "price": 35.99
+        }
+      }
+    }
+  }
+}'
+
+# 返回的的分是1.0
+curl -XGET 'http://Master:9200/store/books/_search' -d '{
+  "query": {
+    "constant_score": {
+      "filter": {
+        "term": {
+          "price": 35.99
+        }
+      }
+    }
+  }
+}'
+
+# 返回的的分是0.0
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/store/books/_search' -d '{
+    "query": {
+        "bool": {
+           "filter" : {
+                "term" : {
+                  "price" : 35.99
+                }
+            }
+        }
+    }
+}'
+
+#指定多个值
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/store/books/_search' -d '{
+    "query" : {
+        "bool" : {
+            "filter" : {
+                "terms" : {
+                    "price" : [35.99, 99.99]
+                  }
+              }
+        }
+    }
+}'
+
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/store/books/_search' -d '{
+    "query" : {
+        "bool" : {
+            "must": {
+                "match_all": {}
+            },
+            "filter" : {
+                "terms" : {
+                    "price" : [35.99, 99.99]
+                  }
+              }
+        }
+    }
+}'
+
+
+# SELECT * FROM books WHERE publish_date = "2015-02-06"
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/store/books/_search' -d '{
+  "query" : {
+    "bool" : {
+        "filter" : {
+           "term" : {
+              "publish_date" : "2015-02-06"
+            }
+          }
+      }
+  }
+}'
+
+# bool过滤查询，可以做组合过滤查询
+# SELECT * FROM books WHERE (price = 35.99 OR price = 99.99) AND publish_date != "2016-02-06"
+# 类似的，Elasticsearch也有 and, or, not这样的组合条件的查询方式
+# 格式如下：
+#  {
+#    "bool" : {
+#    "must" :     [],
+#    "should" :   [],
+#    "must_not" : [],
+#    }
+#  }
+#
+# must: 条件必须满足，相当于 and
+# should: 条件可以满足也可以不满足，相当于 or
+# must_not: 条件不需要满足，相当于 not
+
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/store/books/_search' -d '{
+  "query" : {
+    "bool" : {
+      "should" : [
+        { "term" : {"price" : 35.99}},
+        { "term" : {"price" : 99.99}}
+      ],
+      "must_not" : {
+        "term" : {"publish_date" : "2016-02-06"}
+      }
+    }
+  }
+}'
+
+
+# 嵌套查询
+# SELECT * FROM books WHERE price = 35.99 OR ( publish_date = "2016-02-06" AND price = 99.99 )
+
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/store/books/_search' -d '{
+    "query": {
+        "bool": {
+            "should": [
+                {
+                    "term": {
+                        "price": 35.99
+                    }
+                },
+                {
+                    "bool": {
+                        "must": [
+                            {
+                                "term": {
+                                    "publish_date": "2016-02-06"
+                                }
+                            },
+                            {
+                                "term": {
+                                    "price": 99.99
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}'
+
+# range范围过滤
+# SELECT * FROM books WHERE price >= 10 AND price < 99
+# gt :  > 大于
+# lt :  < 小于
+# gte :  >= 大于等于
+# lte :  <= 小于等于
+
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/store/books/_search' -d '{
+    "query": {
+        "range" : {
+            "price" : {
+                "gte" : 10,
+                "lt" : 99
+            }
+        }
+    }
+}
+
+#name和author都必须包含Guide，并且价钱等于33.99或者188.99
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/store/books/_search' -d '{
+    "query": {
+        "bool": {
+            "must": {
+                "multi_match": {
+                    "operator": "and",
+                    "fields": [
+                        "name",
+                        "author"
+                    ],
+                    "query": "Guide"
+                }
+            },
+            "filter": {
+                "terms": {
+                    "price": [
+                        35.99,
+                        188.99
+                    ]
+                }
+            }
+        }
+    }
+}'
+
+
+
+http://Master:9200/store/books/_search
