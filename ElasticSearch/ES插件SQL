@@ -1,0 +1,17 @@
+es安装SQL插件
+./bin/elasticsearch-plugin install https://github.com/NLPchina/elasticsearch-sql/releases/download/5.4.3.0/elasticsearch-sql-5.4.3.0.zip
+
+#然后将解压到plugins目录下的内容拷贝到其他es的节点的plugins目录
+
+下载SQL的Server
+wget https://github.com/NLPchina/elasticsearch-sql/releases/download/5.4.1.0/es-sql-site-standalone.zip
+
+用npm编译安装
+unzip es-sql-site-standalone.zip
+cd site-server/
+npm install express --save
+
+修改SQL的Server的端口
+vi site_configuration.json
+启动服务
+node node-server.js &

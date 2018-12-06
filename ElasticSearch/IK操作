@@ -1,0 +1,100 @@
+#创建索引名字叫news
+curl -H "Content-Type:application/json" -XPUT http://Master:9200/news
+
+#创建mapping（相当于数据中的schema信息，表名和字段名以及字段的类型）
+curl -H "Content-Type:application/json" -XPOST http://Master:9200/news/fulltext/_mapping -d'
+{
+        "properties": {
+            "content": {
+                "type": "text",
+                "analyzer": "ik_max_word",
+                "search_analyzer": "ik_max_word"
+            }
+        }
+
+}'
+
+
+curl -H "Content-Type:application/json" -XPOST http://Master:9200/news/fulltext/1 -d'
+{"content":"美国留给伊拉克的是个烂摊子吗"}'
+
+curl -H "Content-Type:application/json" -XPOST http://Master:9200/news/fulltext/2 -d'
+{"content":"公安部：各地校车将享最高路权"}'
+
+curl -H "Content-Type:application/json" -XPOST http://Master:9200/news/fulltext/3 -d'
+{"content":"中韩渔警冲突调查：韩警平均每天扣1艘中国渔船"}'
+
+curl -H "Content-Type:application/json" -XPOST http://Master:9200/news/fulltext/4 -d'
+{"content":"中国驻洛杉矶领事馆遭亚裔男子枪击 嫌犯已自首"}'
+
+curl -H "Content-Type:application/json" -XPOST http://Master:9200/news/fulltext/_search  -d'
+{
+    "query" : { "match" : { "content" : "中国" }},
+    "highlight" : {
+        "pre_tags" : ["<font color='red'>", "<tag2>"],
+        "post_tags" : ["</font>", "</tag2>"],
+        "fields" : {
+            "content" : {}
+        }
+    }
+}'
+
+-------------------------------------------------------------------
+
+
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/_analyze?pretty&analyzer=ik_max_word' -d '联想是全球最大的笔记本厂商'
+
+curl -H "Content-Type:application/json" -XGET 'https://Master:9200/_analyze?pretty&analyzer=ik_smart' -d '联想是全球最大的笔记本厂商'
+
+curl -H "Content-Type:application/json" -XPUT 'https://Master:9200/iktest?pretty' -d '{
+    "settings" : {
+        "analysis" : {
+            "analyzer" : {
+                "ik" : {
+                    "tokenizer" : "ik_max_word"
+                }
+            }
+        }
+    },
+    "mappings" : {
+        "article" : {
+            "dynamic" : true,
+            "properties" : {
+                "subject" : {
+                    "type" : "string",
+                    "analyzer" : "ik_max_word"
+                }
+            }
+        }
+    }
+}'
+
+curl -H "Content-Type:application/json" -XPUT 'https://Master:9200/iktest?pretty' -d '{
+    "settings" : {
+        "analysis" : {
+            "analyzer" : {
+                "ik" : {
+                    "tokenizer" : "ik_max_word"
+                }
+            }
+        }
+    },
+    "mappings" : {
+        "article" : {
+            "dynamic" : true,
+            "properties" : {
+                "subject" : {
+                    "type" : "string",
+                    "analyzer" : "ik_max_word"
+                }
+            }
+        }
+    }
+}'
+
+
+
+curl -H "Content-Type:application/json" -XGET 'http://Master:9200/_analyze?pretty&analyzer=ik_max_word' -d ‘中华人民共和国’
+
+---------------------------------------------------------------------------------------------
+
