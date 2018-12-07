@@ -1,3 +1,12 @@
+
+     curl -H "Content-Type:application/json" -XPUT 'http://Master:9200/player_info/player/1' -d '{ "name": "curry", "age": 29, "salary": 3500,"team": "war", "position": "pg"}'
+     curl -H "Content-Type:application/json" -XPUT 'http://Master:9200/player_info/player/2' -d '{ "name": "thompson", "age": 26, "salary": 2000,"team": "war", "position": "pg"}'
+     curl -H "Content-Type:application/json" -XPUT 'http://Master:9200/player_info/player/3' -d '{ "name": "irving", "age": 25, "salary": 2000,"team": "cav", "position": "pg"}'
+     curl -H "Content-Type:application/json" -XPUT 'http://Master:9200/player_info/player/4' -d '{ "name": "green", "age": 26, "salary": 2000,"team": "war", "position": "pf"}'
+     curl -H "Content-Type:application/json" -XPUT 'http://Master:9200/player_info/player/5' -d '{ "name": "james", "age": 33, "salary": 4000,"team": "cav", "position": "sf"}'
+
+
+
 es安装SQL插件
 ./bin/elasticsearch-plugin install https://github.com/NLPchina/elasticsearch-sql/releases/download/5.4.3.0/elasticsearch-sql-5.4.3.0.zip
 

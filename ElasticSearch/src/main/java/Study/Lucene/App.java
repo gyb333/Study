@@ -1,4 +1,4 @@
-package Study.ElasticSearch;
+package Study.Lucene;
 
 
 import org.apache.lucene.queryparser.classic.ParseException;

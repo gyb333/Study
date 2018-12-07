@@ -24,13 +24,15 @@ public class HelloWorld {
                     .put("cluster.name", "es")
                     .build();
             //创建client
-            TransportClient client = new PreBuiltTransportClient(settings).addTransportAddresses(
+            TransportClient client = new PreBuiltTransportClient(settings)
+                    .addTransportAddresses(
                     //用java访问ES用的端口是9300
                     new TransportAddress(InetAddress.getByName("Master"), 9300),
                     new TransportAddress(InetAddress.getByName("Second"), 9300),
                     new TransportAddress(InetAddress.getByName("Slave"), 9300));
             //搜索数据（.actionGet()方法是同步的，没有返回就等待）
-            GetResponse response = client.prepareGet("news", "fulltext", "1").execute().actionGet();
+            GetResponse response = client.prepareGet("news", "fulltext", "1")
+                    .execute().actionGet();
             //输出结果
             System.out.println(response);
             //关闭client

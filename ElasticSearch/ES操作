@@ -1,3 +1,5 @@
+npm run start >>.logs 2>&1 &
+
 RESTful接口URL的格式：
 http://Master:9200/<index>/<type>/[<id>]
 其中index、type是必须提供的。

@@ -28,7 +28,7 @@ public class AdminAPI {
     @Before
     public void init() throws Exception {
         //设置集群名称
-        Settings settings = Settings.builder().put("cluster.name", "my-es").build();
+        Settings settings = Settings.builder().put("cluster.name", "es").build();
         //创建client
         client = new PreBuiltTransportClient(settings).addTransportAddresses(
                 //用java访问ES用的端口是9300
@@ -103,25 +103,25 @@ public class AdminAPI {
                             //类型是integer
                             .field("type", "integer")
                             //不分词，但是建索引
-                            .field("index", "not_analyzed")
+                            .field("index", "true")
                             //在文档中存储
-                            .field("store", "yes")
+                            .field("store", "true")
                         .endObject()
                         //name属性
                         .startObject("name")
                             //string类型
-                            .field("type", "string")
+                            .field("type", "text")
                             //在文档中存储
-                            .field("store", "yes")
+                            .field("store", "true")
                             //建立索引
-                            .field("index", "analyzed")
+                            .field("index", "true")
                             //使用ik_smart进行分词
                             .field("analyzer", "ik_smart")
                         .endObject()
                     .endObject()
                 .endObject();
 
-        CreateIndexRequestBuilder prepareCreate = client.admin().indices().prepareCreate("user_info");
+        CreateIndexRequestBuilder prepareCreate = client.admin().indices().prepareCreate("userinfo");
         //管理索引（user_info）然后关联type（user）
         prepareCreate.setSettings(settings_map).addMapping("user", builder).get();
     }
@@ -131,8 +131,8 @@ public class AdminAPI {
      .startObject()
      .startObject("productIndex")
      .startObject("properties")
-     .startObject("title").field("type", "string").field("store", "yes").endObject()
-     .startObject("description").field("type", "string").field("index", "not_analyzed").endObject()
+     .startObject("title").field("type", "text").field("store", "true").endObject()
+     .startObject("description").field("type", "text").field("index", "true").endObject()
      .startObject("price").field("type", "double").endObject()
      .startObject("onSale").field("type", "boolean").endObject()
      .startObject("type").field("type", "integer").endObject()
@@ -147,9 +147,9 @@ public class AdminAPI {
 
     /**
      * index这个属性，no代表不建索引
-     * not_analyzed，建索引不分词
-     * analyzed 即分词，又建立索引
-     * expected [no], [not_analyzed] or [analyzed]
+     * true，建索引不分词
+     * true 即分词，又建立索引
+     * expected [no], [true] or [true]
      * @throws IOException
      */
 
@@ -167,11 +167,11 @@ public class AdminAPI {
                     .startObject("properties")
                         .startObject("id")
                             .field("type", "integer")
-                            .field("store", "yes")
+                            .field("store", "true")
                         .endObject()
                         .startObject("name")
-                            .field("type", "string")
-                            .field("index", "not_analyzed")
+                            .field("type", "text")
+                            .field("index", "true")
                         .endObject()
                         .startObject("age")
                             .field("type", "integer")
@@ -180,23 +180,25 @@ public class AdminAPI {
                             .field("type", "integer")
                         .endObject()
                         .startObject("team")
-                            .field("type", "string")
-                            .field("index", "not_analyzed")
+                            .field("type", "text")
+                            .field("fielddata", "true")
+                            .field("index", "true")
                         .endObject()
                         .startObject("position")
-                            .field("type", "string")
-                            .field("index", "not_analyzed")
+                            .field("type", "text")
+                            .field("fielddata", "true")
+                            .field("index", "true")
                         .endObject()
                         .startObject("description")
-                            .field("type", "string")
-                            .field("store", "no")
-                            .field("index", "analyzed")
+                            .field("type", "text")
+                            .field("store", "false")
+                            .field("index", "true")
                             .field("analyzer", "ik_smart")
                         .endObject()
                         .startObject("addr")
-                            .field("type", "string")
-                            .field("store", "yes")
-                            .field("index", "analyzed")
+                            .field("type", "text")
+                            .field("store", "true")
+                            .field("index", "true")
                             .field("analyzer", "ik_smart")
                         .endObject()
                     .endObject()
