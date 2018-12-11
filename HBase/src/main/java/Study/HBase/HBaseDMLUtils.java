@@ -102,6 +102,7 @@ public class HBaseDMLUtils {
 			Result result = table.get(get);
 			// 遍历整行结果中的所有kv单元格
 			CellScanner cellScanner = result.cellScanner();
+
 			while (cellScanner.advance()) {
 				Cell cell = cellScanner.current();
 

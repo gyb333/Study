@@ -1,4 +1,5 @@
-/** 
+
+/**
  * 启动hbase集群： start-hbase.sh
  * 启动完后，还可以在集群中找任意一台机器启动一个备用的master
  * hbase-daemon.sh start master 		#新启的这个master会处于backup状态
@@ -17,7 +18,8 @@
 	hbase会对插入的数据按顺序存储：
 		要点一：首先会按行键排序
 		要点二：同一行里面的kv会按列族排序，再按k排序
-
+http://master:16010
+http://master:16030
  */
 --			表名      列族名   列族名
 create 't_user_info','base_info','extra_info'

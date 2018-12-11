@@ -27,7 +27,7 @@
   <!-- 指定hadoop临时目录 -->
   <property>
     <name>hadoop.tmp.dir</name>
-    <value>/usr/local/BigData/hadoop3/tmp</value>
+    <value>/usr/local/bigdata/hadoop3/tmp</value>
   </property>
 
   <property>
