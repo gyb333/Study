@@ -43,12 +43,12 @@ public class ClientProtocolImpl implements ClientProtocol{
 	public ProtocolSignature getProtocolSignature(String protocol, long clientVersion, int clientMethodsHash)
 			throws IOException {
 		// TODO Auto-generated method stub
-		return new ProtocolSignature(VERSION, null);
+		return new ProtocolSignature(versionID, null);
 	}
 
 	public long getProtocolVersion(String protocol, long clientVersion) throws IOException {
 		// TODO Auto-generated method stub
-		return VERSION;
+		return versionID;
 	}
 	
 	

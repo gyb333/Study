@@ -1,0 +1,6 @@
+ RPC本质为消息处理模型，RPC屏蔽了底层不同主机间的通信细节，让进程调用远程的服务就像是本地的服务一样。
+
+ 可以采用基于JSON数据传输的RPC框架；
+ 可以使用NIO或直接使用Netty替代BIO实现；
+ 使用开源的序列化机制，如Hadoop Avro与Google protobuf等；
+ 服务注册可以使用Zookeeper进行管理，能够让应用更加稳定。

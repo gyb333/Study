@@ -24,12 +24,12 @@ public class ProtocolUtil {
      * @param os
      * @param response
      */
-    public static void writeResponse(OutputStream out, Response response) {
+    public static void writeResponse(OutputStream os, Response response) {
         try {
-            out.write(response.getEncode());
-            out.write(int2ByteArray(response.getResponseLength()));
-            out.write(Encode.GBK.getValue() == response.getEncode() ? response.getResponse().getBytes("GBK") : response.getResponse().getBytes("UTF8"));
-            out.flush();
+            os.write(response.getEncode());
+            os.write(int2ByteArray(response.getResponseLength()));
+            os.write(Encode.GBK.getValue() == response.getEncode() ? response.getResponse().getBytes("GBK") : response.getResponse().getBytes("UTF8"));
+            os.flush();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

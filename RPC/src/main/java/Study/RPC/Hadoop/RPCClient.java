@@ -13,7 +13,7 @@ public class RPCClient {
 		// TODO Auto-generated method stub
 		
 		final ClientProtocol proxy=(ClientProtocol)RPC.waitForProxy(ClientProtocol.class
-				, ClientProtocol.VERSION
+				, ClientProtocol.versionID
 				, new InetSocketAddress(RPCServer.SERVER_ADDRESS,RPCServer.SERVER_PORT)
 				, new Configuration());
 		String strRes=proxy.Hello("test");
