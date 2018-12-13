@@ -26,14 +26,14 @@ public class ConfigUtil {
 		try{		 
 			 
 			//config = new PropertiesConfiguration("hdfs.properties");
-	
+
 			config = new PropertiesConfiguration();
 			config.setEncoding("UTF-8");
-			config.load(HDFS_FILEPATH);
+			config.load("hdfs.properties");
 			
-			 //鏂囦欢淇敼涔嬪悗鑷姩鍔犺浇
+
             config.setReloadingStrategy(new FileChangedReloadingStrategy());
-            //閰嶇疆鏂囦欢鑷姩淇濆瓨
+
             config.setAutoSave(true);
 			
 		}catch(Exception ex){
@@ -124,7 +124,7 @@ public class ConfigUtil {
 	 
 		static {
 			try {
-				cache = ResourceBundle.getBundle(packagePath+"/hdfs");
+				cache = ResourceBundle.getBundle("hdfs");
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			}

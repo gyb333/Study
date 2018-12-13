@@ -1,6 +1,7 @@
 package Study.MapReduce;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -29,17 +30,18 @@ public class WordCount {
 				"org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider");
 
 
-//		conf.set("mapred.remote.os", "Linux");
+		conf.set("mapred.remote.os", "Linux");
 
 		return conf;
 	}
 
 	static {
 		try {
-			String path = System.getProperty("user.dir") + "\\Resources\\";
-			PropertyConfigurator.configure(path + "log4j.properties");
+
+			InputStream is =WordCount.class.getResourceAsStream("/log4j.properties");
+			PropertyConfigurator.configure(is);
 			
-//			System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
+			System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
 		} catch (UnsatisfiedLinkError e) {
 			System.err.println("Native code library failed to load.\n" + e);
 			System.exit(1);
@@ -48,9 +50,9 @@ public class WordCount {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
-//		System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
+		System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
 
-		Configuration conf = new Configuration();	// getConfiguration();
+		Configuration conf =new Configuration();// getConfiguration();
 
 
 		 
@@ -61,9 +63,9 @@ public class WordCount {
 
 		Job job = Job.getInstance(conf);
 
-		job.setJar("D:\\work\\Study\\MapReduce\\target\\MapReduce-0.0.1-SNAPSHOT.jar");
+//		job.setJar("D:\\work\\Study\\MapReduce\\target\\MapReduce-0.0.1-SNAPSHOT.jar");
 
-//		job.setJarByClass(WordCount.class);
+		job.setJarByClass(WordCount.class);
 
 		job.setMapperClass(WordCountMapper.class);
 		job.setReducerClass(WordCountReducer.class);
@@ -82,14 +84,14 @@ public class WordCount {
 		
 		
 		FileSystem fs =FileSystem.get(conf);
-		String strOutput="/wordcount/output";
+		String strOutput="/bigdata/wordcount/output";
 		Path path=new Path(strOutput);
 		if(fs.exists(path)) {
 			fs.delete(path);
 		}
 		
 		
-		FileInputFormat.setInputPaths(job, new Path("/wordcount/input"));
+		FileInputFormat.setInputPaths(job, new Path("/bigdata/wordcount/input"));
 		FileOutputFormat.setOutputPath(job, path);
 
 //		job.setNumReduceTasks(3);

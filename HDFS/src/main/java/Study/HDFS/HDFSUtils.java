@@ -1,10 +1,8 @@
 package Study.HDFS;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.BlockLocation;
@@ -18,8 +16,6 @@ import org.apache.hadoop.hdfs.protocol.DatanodeInfo;
 import org.apache.hadoop.io.IOUtils;
 import org.apache.log4j.Logger;
 
-import com.jcraft.jsch.ChannelSftp.LsEntry;
-
 public class HDFSUtils {
 
 	private static final Logger logger = Logger.getLogger(ConfigUtil.class);
@@ -32,6 +28,10 @@ public class HDFSUtils {
 
 	static {
 		try {
+			String path = HDFSUtils.class.getResource("/").getPath();
+			System.out.println(path);
+			path = System.getProperty("user.dir") + "\\Resources\\";
+			System.out.println(path);
 
 			conf = new Configuration();
 			conf.set("fs.defaultFS", HdfsConfig.FS_DEFAULTFS);
@@ -49,11 +49,8 @@ public class HDFSUtils {
 		}
 	}
 
-	public static synchronized Configuration getConfiguration() throws MalformedURLException {
+	public static synchronized Configuration getConfiguration()  {
 		Configuration conf = new Configuration();
-		String path = HDFSUtils.class.getResource("/").getPath();
-
-		path = System.getProperty("user.dir") + "\\Resources\\";
 		conf.addResource("core-site.xml");
 		conf.addResource("hdfs-site.xml");
 		conf.addResource("yarn-site.xml");
@@ -64,7 +61,7 @@ public class HDFSUtils {
 		FileSystem fs = null;
 
 		try {
-			fs = FileSystem.get(conf);
+			fs = FileSystem.get(getConfiguration());
 			Path path = new Path(strPath);
 
 			if (!fs.exists(path)) {
@@ -78,7 +75,7 @@ public class HDFSUtils {
 		}
 	}
 
-	public static void UplodeFile(String strPath, String strLocalPath) throws IOException, FileNotFoundException {
+	public static void UplodeFile(String strPath, String strLocalPath) throws IOException {
 		FileSystem fs = null;
 		FSDataOutputStream out = null;
 		FileInputStream in = null;
@@ -144,13 +141,7 @@ public class HDFSUtils {
 		}
 	}
 
-	/**
-	 * HDFS涔嬮棿鏂囦欢鐨勫鍒�
-	 * 
-	 * @param strPath
-	 * @param strFolder
-	 * @throws IOException
-	 */
+
 	public static void Copy(String strInPath, String strOutPath) throws IOException {
 		FileSystem fs = null;
 		FSDataInputStream hdfsIn = null;
@@ -168,13 +159,8 @@ public class HDFSUtils {
 		}
 	}
 
-	// 鏌ョ湅鏌愪釜鏂囦欢鍦℉DFS闆嗙兢涓殑浣嶇疆
-	/**
-	 * 
-	 * @throws IOException
-	 * @throws Exception
-	 */
-	public void GetLocation(String strPath) throws IOException {
+
+	public static void GetLocation(String strPath) throws IOException {
 
 		FileSystem fs = null;
 		try {
@@ -182,7 +168,7 @@ public class HDFSUtils {
 			Path path = new Path(strPath);
 			FileStatus fsFileStatus = fs.getFileStatus(path);
 
-			// 鑾峰緱鎵�鏈夌殑鍧楁墍鍦ㄧ殑浣嶇疆淇℃伅鍖呮嫭锛氫富鏈哄悕锛屽潡鍚嶇О銆佸潡澶у皬etc
+
 			BlockLocation[] blockLocations = fs.getFileBlockLocations(fsFileStatus, 0, fsFileStatus.getLen());
 
 			for (BlockLocation blockLocation : blockLocations) {
@@ -198,20 +184,15 @@ public class HDFSUtils {
 
 	}
 
-	/**
-	 * 鑾峰彇闆嗙兢涓墍鏈夌殑鑺傜偣鐨勫悕绉颁俊鎭�
-	 * 
-	 * @return
-	 * @throws IOException
-	 */
-	public DatanodeInfo[] GetCluster() throws IOException {
+
+	public static DatanodeInfo[] GetCluster() throws IOException {
 
 		FileSystem fs = null;
 		try {
 			fs = FileSystem.get(conf);
-			// 灏嗘枃浠剁郴缁熷己鍒惰浆鎹负鍒嗗竷寮忔枃浠剁郴缁�
+
 			DistributedFileSystem dfs = (DistributedFileSystem) fs;
-			// 鑾峰彇鏂囦欢绯荤粺涓暟鎹姸鎬佷俊鎭�
+
 			DatanodeInfo[] datanodeInfos = dfs.getDataNodeStats();
 			return datanodeInfos;
 		} finally {
