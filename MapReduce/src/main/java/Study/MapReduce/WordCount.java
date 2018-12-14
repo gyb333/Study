@@ -1,11 +1,14 @@
 package Study.MapReduce;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -13,92 +16,126 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.log4j.PropertyConfigurator;
 
- 
-
- 
 
 public class WordCount {
 
-	public static Configuration getConfiguration() {
-		Configuration conf = new Configuration();
-		conf.set("fs.defaultFS", "hdfs://ns");
-		conf.set("dfs.nameservices", "ns");
-		conf.set("dfs.ha.namenodes.ns", "nn1,nn2");
-		conf.set("dfs.namenode.rpc-address.ns.nn1", "hdfs://Master:9000");
-		conf.set("dfs.namenode.rpc-address.ns.nn2", "hdfs://Second:9000");
-		conf.set("dfs.client.failover.proxy.provider.ns",
-				"org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider");
+    private static final String path = System.getProperty("user.dir");
+
+    static {
+        try {
+
+            InputStream is = WordCount.class.getResourceAsStream("/log4j.properties");
+            PropertyConfigurator.configure(is);
+
+            //System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
+        } catch (UnsatisfiedLinkError e) {
+            System.err.println("Native code library failed to load.\n" + e);
+            System.exit(1);
+        }
+    }
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+        boolean isLocaltion = false;
+        String strOutput = "/bigdata/mapreduce/output/WordCount";
+        String strInput = "/bigdata/mapreduce/input/WordCount";
+        Path baseDir = new Path(path).getParent();
+
+        String strLocalInput = baseDir.toString() +"/Study/"+ strInput;
+        String strLocalOutput = baseDir.toString() +"/Study/"+ strOutput;
+
+        Configuration conf = new Configuration();
+
+        //设置用户
+        System.setProperty("HADOOP_USER_NAME", "root");
+        conf.set("mapreduce.app-submission.cross-platform", "true");
+        if (isLocaltion) {
+            System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
+            // 设置本地提交
+            conf.set("fs.defaultFS", "local");
+            conf.set("mapreduce.framework.name", "local");
+        }else {
+            conf.addResource("core-site.xml");
+            conf.addResource("hdfs-site.xml");
+            conf.addResource("yarn-site.xml");
+            conf.addResource("mapred-site.xml");
+            System.out.println(conf.get("mapreduce.framework.name","test"));
+        }
+
+        Job job = Job.getInstance(conf);
+
+        if (isLocaltion)
+            job.setJarByClass(WordCount.class);
+
+        else
+            job.setJar("D:\\work\\Study\\MapReduce\\target\\MapReduce-0.0.1-SNAPSHOT.jar");
 
 
-		conf.set("mapred.remote.os", "Linux");
+        job.setMapperClass(WordCountMapper.class);
+        job.setReducerClass(WordCountReducer.class);
 
-		return conf;
-	}
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(IntWritable.class);
 
-	static {
-		try {
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
 
-			InputStream is =WordCount.class.getResourceAsStream("/log4j.properties");
-			PropertyConfigurator.configure(is);
-			
-			System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
-		} catch (UnsatisfiedLinkError e) {
-			System.err.println("Native code library failed to load.\n" + e);
-			System.exit(1);
-		}
-	}
+//        //設置分區方案
+//        job.setPartitionerClass(MyPartitioner.class);
+//        job.setNumReduceTasks(4);
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+        //job.setCombinerClass(MyCombiner.class);
 
-		System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
+        Path pathOutput;
+        Path pathInput;
+        FileSystem fs = null;
+        try {
+            fs = FileSystem.get(conf);
+            if (isLocaltion) {
+                strInput = strLocalInput;
+                strOutput = strLocalOutput;
+            }
 
-		Configuration conf =new Configuration();// getConfiguration();
+            pathInput = new Path(strInput);
+            pathOutput = new Path(strOutput);
+            if (fs.exists(pathOutput)) {
+                fs.delete(pathOutput,true);
+            }
+            // 上传到HDFS
+            if (!isLocaltion) {
+                if (fs.exists(pathInput)) {
+                    fs.delete(pathInput,true);
+                }
+                FSDataOutputStream out = null;
+                FileInputStream in = null;
+                try {
+                    out = fs.create(pathInput);
+                    in = new FileInputStream(strLocalInput);
+                    IOUtils.copyBytes(in, out, 1024, true);
+                } finally {
+                    IOUtils.closeStream(in);
+                    IOUtils.closeStream(out);
+                }
 
+            }
 
-		 
+            FileInputFormat.setInputPaths(job, pathInput);
+            FileOutputFormat.setOutputPath(job, pathOutput);
 
-		System.setProperty("HADOOP_USER_NAME", "root");
-
-		conf.set("mapreduce.app-submission.cross-platform", "true");
-
-		Job job = Job.getInstance(conf);
-
-//		job.setJar("D:\\work\\Study\\MapReduce\\target\\MapReduce-0.0.1-SNAPSHOT.jar");
-
-		job.setJarByClass(WordCount.class);
-
-		job.setMapperClass(WordCountMapper.class);
-		job.setReducerClass(WordCountReducer.class);
-
-		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(IntWritable.class);
-
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(IntWritable.class);
-
-		//設置分區方案
-		job.setPartitionerClass(MyPartitioner.class);
-		job.setNumReduceTasks(4);
-		
-		//job.setCombinerClass(MyCombiner.class);
-		
-		
-		FileSystem fs =FileSystem.get(conf);
-		String strOutput="/bigdata/wordcount/output";
-		Path path=new Path(strOutput);
-		if(fs.exists(path)) {
-			fs.delete(path);
-		}
-		
-		
-		FileInputFormat.setInputPaths(job, new Path("/bigdata/wordcount/input"));
-		FileOutputFormat.setOutputPath(job, path);
 
 //		job.setNumReduceTasks(3);
+            boolean res = job.waitForCompletion(true);
+            if (isLocaltion) {
+                fs.deleteOnExit(new Path("\\tmp"));
+                fs.deleteOnExit(new Path("\\usr"));
+            }
+            System.exit(res ? 0 : 1);
 
-		boolean res = job.waitForCompletion(true);
+        } finally {
+            if (fs != null) {
+                fs.close();
+            }
+        }
 
-		System.exit(res ? 0 : 1);
 
-	}
+    }
 }

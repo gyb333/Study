@@ -1,6 +1,7 @@
 package Study.MapReduce;
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
@@ -24,7 +25,9 @@ public  class DistributedJob  implements JobBase{
 
 	static {
 		try {
-			PropertyConfigurator.configure(path + "\\Resources\\log4j.properties");
+			InputStream is =WordCount.class.getResourceAsStream("/log4j.properties");
+			PropertyConfigurator.configure(is);
+			//PropertyConfigurator.configure(path + "\\Resources\\log4j.properties");
 			// 加载DLL
 //			System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
 			// 设置环境变量
@@ -63,8 +66,8 @@ public  class DistributedJob  implements JobBase{
 			Class<? extends Reducer> clsReducer, Class<?> clsMapOutputKey, Class<?> clsMapOutputValue,
 			Class<?> clsOutputKey, Class<?> clsOutputValue) throws Exception {
 
-		String strOutput = "/HadoopData/output/" + clsName;
-		String strInput = "/HadoopData/input/" + clsName;
+		String strOutput = "/bigdata/mapreduce/" + clsName;
+		String strInput = "/bigdata/mapreduce/input/"+clsName;
 		Path baseDir = new Path(path).getParent();
 		String strLocalInput = baseDir.toString() + strInput;
 		String strLocalOutput = baseDir.toString() + strOutput;
