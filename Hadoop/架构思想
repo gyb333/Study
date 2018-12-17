@@ -1,0 +1,49 @@
+HDFS存储的机制：
+
+
+Client 向 NameNode 发起文件写入的请求。
+NameNode 根据文件大小和文件块配置情况，返回给 Client 它所管理部分 DataNode 的信息。
+Client 将文件划分为多个 Block，根据 DataNode 的地址信息，按顺序写入到每一个 DataNode 块中。
+
+
+
+mapreduce的原理：
+
+
+
+
+
+
+讲述一下mapreduce的流程（shuffle的sort，partitions，group）
+
+首先是 Mapreduce经过SplitInput 输入分片 决定map的个数在用Record记录 key value。然后分为以下三个流程：
+
+Map：
+
+输入  key（long类型偏移量）  value（Text一行字符串）
+
+输出  key value
+
+Shuffle：、
+
+   合并（merge）map输出时先输出到环形内存，当内存使用率达到60%时开始溢出写入到文件，溢出文件都是小文件，所以就要合并他们，在这个构成中就会排序，根据key值比较排序
+
+   排序（sort）如果你自定义了key的数据类型要求你的类一定是WriteableCompartor的子类，不想继承WriteableCompartor，至少实现Writeable，这时你就必须在job上设置排序比较器job.setSortCmpartorClass(MyCompartor.class);而MyCompartor.class必须继承RawCompartor的类或子类
+
+   分区（partition）会根据map输出的结果分成几个文件为reduce准备，有几个reducetask就分成几个文件，在job上设置分区器job.setPartitionerClass(MyPartition.class)Myrtition.class要继承Partitioner这个类
+
+   分组（group）分区时会调用分组器，把同一分区中的相同key的数据对应的value制作成一个iterable，并且会在sort。在job上设置分组器。Job.setGroupCompartorClass(MyGroup.class)MyGroup.class必须继承RawCompartor的类跟子类
+
+上面的结果储存到本地文件中，而不是hdfs上
+
+上面只要有完成结果，reduce就开始复制上面的结果，通过http方式
+
+Reduce
+
+  输入key时map输出时的key value是分组器分的iterable
+
+  输出 key value
+
+  输出结果保存在hdfs上而不是本地文件中
+
+

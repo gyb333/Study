@@ -1,0 +1,32 @@
+
+从应用程序角度进行优化
+（1） 避免不必要的reduce任务
+如果mapreduce程序中reduce是不必要的，那么我们可以在map中处理数据, Reducer设置为0。这样避免了多余的reduce任务。
+（2） 为job添加一个Combiner
+为job添加一个combiner可以大大减少shuffle阶段从map task拷贝给远程reduce task的数据量。一般而言，combiner与reducer相同。
+（3） 根据处理数据特征使用最适合和简洁的Writable类型
+Text对象使用起来很方便，但它在由数值转换到文本或是由UTF8字符串转换到文本时都是低效的，且会消耗大量的CPU时间。当处理那些非文本的数据时，可以使用二进制的Writable类型，如IntWritable， FloatWritable等。二进制writable好处：避免文件转换的消耗；使map task中间结果占用更少的空间。
+（4） 重用Writable类型
+很多MapReduce用户常犯的一个错误是，在一个map/reduce方法中为每个输出都创建Writable对象。例如，你的Wordcout mapper方法可能这样写：
+
+public void map(...) {
+
+  for (String word : words) {
+    output.collect(new Text(word), new IntWritable(1));
+  }
+}
+这样会导致程序分配出成千上万个短周期的对象。Java垃圾收集器就要为此做很多的工作。更有效的写法是：
+class MyMapper … {
+  Text wordText = new Text();
+  IntWritable one = new IntWritable(1);
+  public void map(...) {
+    for (String word: words) {
+      wordText.set(word);
+      output.collect(wordText, one);
+    }
+  }
+}
+（5） 使用StringBuffer而不是String
+当需要对字符串进行操作时，使用StringBuffer而不是String，String是read-only的，如果对它进行修改，会产生临时对象，而StringBuffer是可修改的，不会产生临时对象。
+
+对参数进行调优：修改liunx服务器内核参数

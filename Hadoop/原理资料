@@ -1,0 +1,132 @@
+1.1.	下面哪个程序负责 HDFS 数据存储
+a)NameNode  b)Jobtracker  c)Datanode d)secondaryNameNode e)tasktracker
+答案 C datanode
+1.2.	HDfS 中的 block 默认保存几份？
+a)3 份 b)2 份 c)1 份 d)不确定
+答案 A 默认 3 份
+1.3.	下列哪个程序通常与NameNode在一个节点启动?
+a)SecondaryNameNode b)DataNode c)TaskTracker d)Jobtracker
+答案 D
+1.4.	HDFS 默认 Block Size
+a)32MB  b)64MB c)128MB
+答案：B
+1.5.	下列哪项通常是集群的最主要瓶颈
+a)CPU   b)网络 c)磁盘 IO  d)内存
+答案：C 磁盘
+首先集群的目的是为了节省成本，用廉价的 pc 机，取代小型机及大型机。小型机和大型机有什么特点？
+1.cpu 处理能力强
+2.内存够大，所以集群的瓶颈不可能是 a 和 d
+3.如果是互联网有瓶颈，可以让集群搭建内网。每次写入数据都要通过网络（集群是内网），然后还要写入 3 份数据，所以 IO 就会打折扣。
+1.6.	关于 SecondaryNameNode 哪项是正确的？
+a)它是 NameNode 的热备     b)它对内存没有要求
+c)它的目的是帮助 NameNode 合并编辑日志，减少 NameNode 启动时间
+d)SecondaryNameNode 应与 NameNode 部署到一个节点
+答案 C。
+1.7.	下列哪项可以作为集群的管理？
+a)Puppet b)Pdsh c)Cloudera Manager d)Zookeeper
+答案 D
+1.8.	Client 端上传文件的时候下列哪项正确
+a)数据经过 NameNode 传递给 DataNode
+b)Client 端将文件切分为 Block，依次上传
+c)Client 只上传数据到一台 DataNode，然后由 NameNode 负责 Block 复制工作
+答案 B
+分析：Client 向 NameNode 发起文件写入的请求。NameNode 根据文件大小和文件块配置情况，返回给 Client 它所管理部分 DataNode 的信息。
+Client 将文件划分为多个 Block，根据 DataNode 的地址信息，按顺序写入到每一个DataNode 块中。具体查看HDFS 体系结构简介及优缺点。
+1.9.	下列哪个是 Hadoop 运行的模式
+a)单机版 b)伪分布式 c)分布式
+答案 ABC 单机版,伪分布式只是学习用的。
+
+Hadoop的核心配置通过两个xml文件来完成：1，hadoop-default.xml；2，hadoop-site.xml。每个xml中都有一些属性，包括名称和值，
+Hadoop现在拥有5个配置文件：core-site.xml;hdfs-site.xml;mapred-site.xml;yarn-site.xml;workers。
+“jps”命令的用处？
+可以检查Namenode、Datanode、Task Tracker、 Job Tracker是否正常工作。
+NameNode DataNode zkfc JournalNode resourceManager NodeManager
+
+
+
+
+实现简单mapreduce：
+
+用mapreduce来实现下面需求？现在有10个文件夹,每个文件夹都有1000000个url.现在让你找出top1000000url。
+解答：topN
+
+Combiner的作用?
+combiner出现在map阶段的map方法后。
+combiner是reduce的实现，在map端运行计算任务，减少map端的输出数据。
+作用就是优化。但是combiner的使用场景是mapreduce的map和reduce输入输出一样。
+
+partition的默认实现是hashpartition，是map端将数据按照reduce个数取余，进行分区，不同的reduce来copy自己的数据。
+partition的作用是将数据分到不同的reduce进行计算，加快计算效果。
+
+
+列出hadoop进程名：
+旧版本：NameNode管理集群并记录datanode文件信息；SecondNameNode做冷备，对一定范围内数据做快照性备份；
+DataNode存储数据；JobTracker管理任务并将任务分配给TaskTracker；TaskTracker任务执行
+
+zkfc：周期性检测NameNode，管理并持有其在zookeeper中会话，Master选举
+在YARN中，ResourceManager负责集群中所有资源的统一管理和分配，它接收来自各个节点（NodeManager）的资源汇报信息，
+并把这些信息按照一定的策略分配给各个应用程序（实际上是ApplicationManager）。
+ NodeManager是YARN中单个节点的代理，它需要与应用程序的ApplicationMaster和集群管理者ResourceManager交互;
+ 它从ApplicationMaster上接收有关Container的命令并执行(比如启动、停止Contaner);
+ 向ResourceManager汇报各个Container运行状态和节点健康状况，并领取有关Container的命令（比如清理Container）。
+
+  hadoop job -list
+  hadoop job -kill job-id
+  hadoop-daemon.sh start datanode
+
+  Hadoop 作业调度器主要有三种：FIFO、Capacity Scheduler和Fair Scheduler
+  FIFO：先按照作业的优先级高低，再按照到达时间的先后选择被执行的作业
+  Capacity Scheduler：计算能力调度器，选择占用最小、优先级高的先执行
+  Fair Scheduler:公平调度，所有job具有相同的资源
+
+
+mapreduce怎么处理数据倾斜问题？
+数据倾斜：map/reduce程序执行时，reduce节点大部分执行完毕，但是有一个或者几个reduce节点运行很慢，
+导致整个程序的处理时间很长，这是因为某一个key的条数比其他key多很多（有时是百倍或者千倍之多），
+这条key所在的reduce节点所处理的数据量比其他节点就大很多，从而导致某几个节点迟迟运行不完，此称之为数据倾斜。
+用hadoop程序进行数据关联时，常碰到数据倾斜的情况，这里提供一种解决方法。
+自己实现partition类，用key和value相加取hash值：
+方式1：
+源代码：
+public int getPartition(K key, V value,int numReduceTasks) {
+    return (key.hashCode() & Integer.MAX_VALUE) % numReduceTasks;
+  }
+修改后
+public int getPartition(K key, V value,int numReduceTasks) {
+    return ((（key).hashCode()+value.hashCode()） & Integer.MAX_VALUE) % numReduceTasks;
+  }
+
+方式2：
+public class HashPartitioner<K, V> extends Partitioner<K, V> {
+private int aa= 0;
+  /** Use {@link Object#hashCode()} to partition. */
+  public int getPartition(K key, V value,int numReduceTasks) {
+    return (key.hashCode()+(aa++) & Integer.MAX_VALUE) % numReduceTasks;
+  }
+
+开发job时，是否可以去掉reduce阶段。
+可以。设置reduce数为0 即可。
+datanode在什么情况下不会备份
+datanode在强制关闭或者非正常断电不会备份。
+
+hdfs的体系结构
+hdfs有namenode、secondraynamenode、datanode组成。
+为n+1模式
+namenode负责管理datanode和记录元数据fsimage edits
+secondraynamenode负责合并日志
+datanode负责存储数据
+3个datanode中有一个datanode出现错误会怎样？
+这个datanode的数据会在其他的datanode上重新做备份。
+描述一下hadoop中，有哪些地方使用了缓存机制，作用分别是什么？
+在mapreduce提交job的获取id之后，会将所有文件存储到分布式缓存上，这样文件可以被所有的mapreduce共享。
+如何确定hadoop集群的健康状态
+通过页面监控,脚本监控。
+
+Mapreduce 的 map 数量 和 reduce 数量 怎么确定 ,怎么配置
+map的数量有数据块决定，reduce数量随便配置。
+
+
+
+
+
+
