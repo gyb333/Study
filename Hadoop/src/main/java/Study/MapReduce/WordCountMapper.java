@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class WordCountMapper extends Mapper<LongWritable,Text,Text,IntWritable> {
 	Text text = new Text();
-	IntWritable iw=new IntWritable();
+	IntWritable one=new IntWritable(1);
 
 	@Override
 	protected void map(LongWritable key, Text value, Context context)
@@ -19,8 +19,7 @@ public class WordCountMapper extends Mapper<LongWritable,Text,Text,IntWritable> 
 
 		for(String each:words) {
 			text.set(each);
-			iw.set(1);
-			context.write(text, iw);
+			context.write(text, one);
 		}
 		
 	}

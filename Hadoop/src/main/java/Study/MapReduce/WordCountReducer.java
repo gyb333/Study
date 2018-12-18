@@ -9,16 +9,17 @@ import java.util.Iterator;
 
 public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
 
-
+	private IntWritable result = new IntWritable();
 	@Override
 	protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
-		int count=0;	//重置每个Key的开始量
+		int sum = 0;	//重置每个Key的开始量
 		Iterator<IntWritable> it = values.iterator();	
 		while(it.hasNext()) {
-			IntWritable value = it.next();
-			count+=value.get();
+			IntWritable val = it.next();
+			sum += val.get();
 		}
-		context.write(key, new IntWritable(count));
+		result.set(sum);
+		context.write(key, result);
 		
 	}
 

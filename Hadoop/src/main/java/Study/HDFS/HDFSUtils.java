@@ -1,9 +1,13 @@
 package Study.HDFS;
 
+
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
 import org.apache.hadoop.hdfs.DistributedFileSystem;
 import org.apache.hadoop.hdfs.protocol.DatanodeInfo;
+
+
 import org.apache.hadoop.io.IOUtils;
 import org.apache.log4j.Logger;
 
@@ -74,6 +78,7 @@ public class HDFSUtils {
 		FileSystem fs = null;
 		FSDataOutputStream out = null;
 		FileInputStream in = null;
+
 		try {
 			fs = FileSystem.get(conf);
 			out = fs.create(new Path(strPath));

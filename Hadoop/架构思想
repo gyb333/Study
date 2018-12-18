@@ -1,16 +1,97 @@
-HDFS存储的机制：
+分布式文件存储HDFS：数据切割、制作副本、分散储存
+分布式运算编程框架mapreduce：拆解任务、分散处理、汇整结果
+分布式资源调度yarn：帮用户调度mapreduce程序，并合理分配运算资源
 
+NameNode：
+记录元数据信息：包括hdfs目录结构以及每个文件的块信息(块id，块副本数量，块的存放位置)
+NameNode实时的完整的元数据存储在内存中，还会在磁盘上存储在某个时间点上元数据镜像文件
+把引起元数据变化的客户端操作记录在edits日志文件中
+
+checkpoint操作：SecondaryNameNode会定期从NameNode上下载fsimage镜像和新生成的edits日志，
+然后加载fsimage镜像到内存中，顺序解析edits文件，对内存中的元数据对象进行整合修改，将内存
+元数据序列化成一个新的fsimage，并将新的fsimage镜像文件上传给NameNode
+
+提示：secondary namenode每次做checkpoint操作时，都需要从namenode上下载上次的fsimage镜像文件吗？
+第一次checkpoint需要下载，以后就不用下载了，因为自己的机器上就已经有了。
+
+DataNode负责存储数据,定期向NameNode发送心跳，定期汇报block信息
+
+combiner出现在map阶段的map方法后。
+combiner是reduce的实现，在map端运行计算任务，减少map端的输出数据。
+作用就是优化。但是combiner的使用场景是mapreduce的map和reduce输入输出一样。
+
+partition的默认实现是hashpartition，是map端将数据按照reduce个数取余，进行分区，不同的reduce来copy自己的数据。
+partition的作用是将数据分到不同的reduce进行计算，加快计算效果。
+
+
+HDFS存储的机制：
 
 Client 向 NameNode 发起文件写入的请求。
 NameNode 根据文件大小和文件块配置情况，返回给 Client 它所管理部分 DataNode 的信息。
 Client 将文件划分为多个 Block，根据 DataNode 的地址信息，按顺序写入到每一个 DataNode 块中。
 
+FileSystem与NameNode的DFSClient通信：通过ClientProtocol协议
+DataNode与NameNode通信的接口：DatanodeProtocol
+SecondaryNameNode(BackupNode)与NameNode通信的接口：NamenodeProtocol
+
+
+FileSystem ->DistributedFileSystem ->NameNode上DFSClient
+           ->FSDataOutputStream  ->DataNode ->pipeline ->DataNode
+           ->FSDataInputStream   ->DataNode
+                                 ->DataNode
+写数据流程
+1.Client发起文件上传请求，通过RPC与NameNode建立通讯，NameNode检查目标文件是否
+已存在，父目录是否存在，返回是否可以上传
+2.client请求第一个block块传输到哪些DataNode服务器上
+3.NameNode根据配置文件中指定的备份数量以及机架感知原理进行文件分配，
+返回可用的DataNode列表
+4.client请求3台DataNode中的一台A上传数据，A收到请求会继续调用B，
+然后B调用C，将整个pipeline建立完成后逐级返回client
+5.client开始往A上传第一个block，先读取磁盘数据到本地内存缓存，以packet为单位，A会传给B，B传给C，
+A每传一个packet会放入一个应答队列等待应答
+6.数据被分割成一个个packet数据包在pipeline上依次传输，
+在pipeline反方向上，逐个发送ack命令确认应答，最终由pipeline中的第一个DataNode节点A将
+pipeline ack发送给client确认
+7.当第一个block传输完成之后，client再次请求NameNode上传第二个block到服务器
+
+
+读数据流程
+1、 Client 向 NameNode 发起 RPC 请求，来确定请求文件 block 所在的位置；
+2、 NameNode会视情况返回文件的部分或者全部block列表，对于每个block，
+NameNode 都会返回含有该 block 副本的 DataNode 地址；
+3、 这些返回的 DN 地址，会按照集群拓扑结构得出 DataNode 与客户端的距离，
+然后进行排序，排序两个规则：网络拓扑结构中距离 Client 近的排靠前；心跳机制中超时汇报的 DN 状态为 STALE，这样的排靠后；
+4、 Client 选取排序靠前的 DataNode 来读取 block，如果客户端本身就是DataNode,
+那么将从本地直接获取数据；
+5、 底层上本质是建立 Socket Stream（FSDataInputStream），重复的调用父类
+DataInputStream 的 read 方法，直到这个块上的数据读取完毕；
+6、 当读完列表的 block 后，若文件读取还没有结束，客户端会继续向NameNode获取下一批的 block 列表；
+7、 读取完一个 block 都会进行 checksum 验证，如果读取 DataNode 时出现错误，
+客户端会通知 NameNode，然后再从下一个拥有该 block 副本的DataNode 继续读。
+8、 read 方法是并行的读取 block 信息，不是一块一块的读取；NameNode
+只是返回Client请求包含块的DataNode地址，并不是返回请求块的数据；
+9、 最终读取来所有的 block 会合并成一个完整的最终文件。
+
 
 
 mapreduce的原理：
 
+三组<K,V> 键值对类型
+input   <K1,V1>
+map <K2,V2>   combine <K2,V2>
+reduce <K3,V3>
 
-
+Map阶段：
+    第一阶段是把输入目录下文件按照一定的标准逐个进行逻辑切片，形成切片规划。默认情况下，Split size = Block size。每一个切片由一个MapTask 处理。（getSplits）
+	第二阶段是对切片中的数据按照一定的规则解析成<key,value>对。默认规则是把每一行文本内容解析成键值对。key 是每一行的起始位置(单位是字节)，value 是本行的文本内容。（TextInputFormat）
+	第三阶段是调用 Mapper 类中的 map 方法。上阶段中每解析出来的一个<k,v>，调用一次 map 方法。每次调用 map 方法会输出零个或多个键值对。
+	第四阶段是按照一定的规则对第三阶段输出的键值对进行分区。默认是只有一个区。分区的数量就是 Reducer 任务运行的数量。默认只有一个Reducer 任务。
+	第五阶段是对每个分区中的键值对进行排序。首先，按照键进行排序，对于键相同的键值对，按照值进行排序。比如三个键值对<2,2>、<1,3>、<2,1>，键和值分别是整数。那么排序后的结果是<1,3>、<2,1>、<2,2>。如果有第六阶段，那么进入第六阶段；如果没有，直接输出到文件中。
+	第六阶段是对数据进行局部聚合处理，也就是 combiner 处理。键相等的键值对会调用一次 reduce 方法。经过这一阶段，数据量会减少。 本阶段默认是没有的 
+Reducer阶段：
+    第一阶段是 Reducer 任务会主动从 Mapper 任务复制其输出的键值对。Mapper 任务可能会有很多，因此 Reducer 会复制多个 Mapper 的输出。
+	第二阶段是把复制到 Reducer 本地数据，全部进行合并，即把分散的数据合并成一个大的数据。再对合并后的数据排序。
+	第三阶段是对排序后的键值对调用 reduce 方法。键相等的键值对调用一次reduce 方法，每次调用会产生零个或者多个键值对。最后把这些输出的键值对写入到 HDFS 文件中。
 
 
 

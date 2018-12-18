@@ -50,13 +50,7 @@ NameNode DataNode zkfc JournalNode resourceManager NodeManager
 用mapreduce来实现下面需求？现在有10个文件夹,每个文件夹都有1000000个url.现在让你找出top1000000url。
 解答：topN
 
-Combiner的作用?
-combiner出现在map阶段的map方法后。
-combiner是reduce的实现，在map端运行计算任务，减少map端的输出数据。
-作用就是优化。但是combiner的使用场景是mapreduce的map和reduce输入输出一样。
 
-partition的默认实现是hashpartition，是map端将数据按照reduce个数取余，进行分区，不同的reduce来copy自己的数据。
-partition的作用是将数据分到不同的reduce进行计算，加快计算效果。
 
 
 列出hadoop进程名：
@@ -66,7 +60,7 @@ DataNode存储数据；JobTracker管理任务并将任务分配给TaskTracker；
 zkfc：周期性检测NameNode，管理并持有其在zookeeper中会话，Master选举
 在YARN中，ResourceManager负责集群中所有资源的统一管理和分配，它接收来自各个节点（NodeManager）的资源汇报信息，
 并把这些信息按照一定的策略分配给各个应用程序（实际上是ApplicationManager）。
- NodeManager是YARN中单个节点的代理，它需要与应用程序的ApplicationMaster和集群管理者ResourceManager交互;
+NodeManager是YARN中单个节点的代理，它需要与应用程序的ApplicationMaster和集群管理者ResourceManager交互;
  它从ApplicationMaster上接收有关Container的命令并执行(比如启动、停止Contaner);
  向ResourceManager汇报各个Container运行状态和节点健康状况，并领取有关Container的命令（比如清理Container）。
 
@@ -114,7 +108,8 @@ hdfs有namenode、secondraynamenode、datanode组成。
 为n+1模式
 namenode负责管理datanode和记录元数据fsimage edits
 secondraynamenode负责合并日志
-datanode负责存储数据
+datanode负责存储数据,定期向NameNode发送心跳，定期汇报block信息
+
 3个datanode中有一个datanode出现错误会怎样？
 这个datanode的数据会在其他的datanode上重新做备份。
 描述一下hadoop中，有哪些地方使用了缓存机制，作用分别是什么？
