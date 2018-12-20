@@ -46,7 +46,7 @@ public class FlowCount extends DistributedJob{
 		Class<?> clsOutputKey = Text.class;
 		Class<?> clsOutputValue = FlowBean.class;
 		new FlowCount().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
-				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue);
+				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue,false);
  
 	}
 }

@@ -7,11 +7,13 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public interface JobBase {
 
+
+
 	void setJobConfig(Job job);
 	
 	Configuration getConfiguration();
 	
 	void execJob(String clsName, boolean isLocaltion, Class<? extends Mapper> clsMapper,
                  Class<? extends Reducer> clsReducer, Class<?> clsMapOutputKey, Class<?> clsMapOutputValue,
-                 Class<?> clsOutputKey, Class<?> clsOutputValue) throws Exception;
+                 Class<?> clsOutputKey, Class<?> clsOutputValue,boolean isFile) throws Exception;
 }

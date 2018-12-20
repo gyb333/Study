@@ -74,24 +74,30 @@ public class HDFSUtils {
 		}
 	}
 
-	public static void UplodeFile(String strPath, String strLocalPath) throws IOException {
+	public static void UploadFile(String strPath, String strLocalPath) throws IOException {
 		FileSystem fs = null;
-		FSDataOutputStream out = null;
-		FileInputStream in = null;
-
 		try {
 			fs = FileSystem.get(conf);
+			UploadFile(fs,strPath,strLocalPath);
+		} finally {
+			if (fs != null) {
+				fs.close();
+			}
+
+		}
+	}
+
+
+	public  static void UploadFile(FileSystem fs,String strPath, String strLocalPath) throws IOException {
+		FSDataOutputStream out = null;
+		FileInputStream in = null;
+		try {
 			out = fs.create(new Path(strPath));
 			in = new FileInputStream(strLocalPath);
 			IOUtils.copyBytes(in, out, 1024, true);
 		} finally {
 			IOUtils.closeStream(out);
 			IOUtils.closeStream(in);
-
-			if (fs != null) {
-				fs.close();
-			}
-
 		}
 	}
 

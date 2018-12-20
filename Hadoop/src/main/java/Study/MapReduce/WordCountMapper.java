@@ -7,9 +7,15 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
+
+/**
+ * map阶段输出：排过序的<key,1> shuffle之后合并成<key,list<1,1,1,1,1>
+ */
 public class WordCountMapper extends Mapper<LongWritable,Text,Text,IntWritable> {
-	Text text = new Text();
-	IntWritable one=new IntWritable(1);
+
+	private final static IntWritable one=new IntWritable(1);
+
+	private Text word = new Text();
 
 	@Override
 	protected void map(LongWritable key, Text value, Context context)
@@ -18,8 +24,8 @@ public class WordCountMapper extends Mapper<LongWritable,Text,Text,IntWritable> 
 		String[] words = line.split(" ");
 
 		for(String each:words) {
-			text.set(each);
-			context.write(text, one);
+			word.set(each);
+			context.write(word, one);
 		}
 		
 	}

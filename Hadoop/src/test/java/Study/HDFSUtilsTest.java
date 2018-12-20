@@ -31,7 +31,7 @@ public class HDFSUtilsTest {
 	public void UplodeFile() throws IOException {
 		String strPath="D:\\work\\Study\\BigData\\test.dat";
 
-		HDFSUtils.UplodeFile(BasePath+"/test",strPath);
+		HDFSUtils.UploadFile(BasePath+"/test",strPath);
 		Assert.assertTrue(true);
 	}
 

@@ -7,6 +7,11 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 import java.util.Iterator;
 
+
+/**
+ * reduce阶段输入：
+ * key list<1,1,1,1>
+ */
 public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
 
 	private IntWritable result = new IntWritable();

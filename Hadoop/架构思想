@@ -81,23 +81,47 @@ input   <K1,V1>
 map <K2,V2>   combine <K2,V2>
 reduce <K3,V3>
 
-Map阶段：
-    第一阶段是把输入目录下文件按照一定的标准逐个进行逻辑切片，形成切片规划。默认情况下，Split size = Block size。每一个切片由一个MapTask 处理。（getSplits）
-	第二阶段是对切片中的数据按照一定的规则解析成<key,value>对。默认规则是把每一行文本内容解析成键值对。key 是每一行的起始位置(单位是字节)，value 是本行的文本内容。（TextInputFormat）
-	第三阶段是调用 Mapper 类中的 map 方法。上阶段中每解析出来的一个<k,v>，调用一次 map 方法。每次调用 map 方法会输出零个或多个键值对。
-	第四阶段是按照一定的规则对第三阶段输出的键值对进行分区。默认是只有一个区。分区的数量就是 Reducer 任务运行的数量。默认只有一个Reducer 任务。
-	第五阶段是对每个分区中的键值对进行排序。首先，按照键进行排序，对于键相同的键值对，按照值进行排序。比如三个键值对<2,2>、<1,3>、<2,1>，键和值分别是整数。那么排序后的结果是<1,3>、<2,1>、<2,2>。如果有第六阶段，那么进入第六阶段；如果没有，直接输出到文件中。
-	第六阶段是对数据进行局部聚合处理，也就是 combiner 处理。键相等的键值对会调用一次 reduce 方法。经过这一阶段，数据量会减少。 本阶段默认是没有的 
-Reducer阶段：
-    第一阶段是 Reducer 任务会主动从 Mapper 任务复制其输出的键值对。Mapper 任务可能会有很多，因此 Reducer 会复制多个 Mapper 的输出。
-	第二阶段是把复制到 Reducer 本地数据，全部进行合并，即把分散的数据合并成一个大的数据。再对合并后的数据排序。
-	第三阶段是对排序后的键值对调用 reduce 方法。键相等的键值对调用一次reduce 方法，每次调用会产生零个或者多个键值对。最后把这些输出的键值对写入到 HDFS 文件中。
+
+合并（Combine）和归并（Merge）的区别：
+两个键值对<“a”,1>和<“a”,1>，如果合并，会得到<“a”,2>，如果归并，会得到<“a”,<1,1>>
 
 
+Map阶段：MapTask
+    1.把输入目录下文件按照一定的标准逐个进行逻辑切片，形成切片规划。默认情况下，Split size = Block size。每一个切片由一个MapTask 处理。（getSplits）
+	2.对切片中的数据按照一定的规则解析成<key,value>对。默认规则是把每一行文本内容解析成键值对。key 是每一行的起始位置(单位是字节)，value 是本行的文本内容。（TextInputFormat）
+	3.调用 Mapper 类中的 map 方法。上阶段中每解析出来的一个<k,v>，调用一次 map 方法。每次调用 map 方法会输出零个或多个键值对。
+	4.按照一定的规则对map方法输出的键值对进行分区。默认是只有一个区。分区的数量就是 Reducer 任务运行的数量。默认只有一个Reducer 任务。
+	5.对每个分区中的键值对进行排序。首先，按照键进行排序，对于键相同的键值对，按照值进行排序。比如三个键值对<2,2>、<1,3>、<2,1>，键和值分别是整数。
+	那么排序后的结果是<1,3>、<2,1>、<2,2>。如果有第六阶段，那么进入第六阶段；如果没有，直接输出到文件中。
+	6.对数据进行局部聚合处理，也就是 combiner 处理。键相等的键值对会调用一次 reduce 方法。经过这一阶段，数据量会减少。 本阶段默认是没有的 
+Reducer阶段：ReduceTask
+    1.Reducer 任务会主动从 Mapper 任务复制其输出的键值对。Mapper 任务可能会有很多，因此 Reducer 会复制多个 Mapper 的输出。
+	2.把复制到 Reducer 本地数据，全部进行合并，即把分散的数据合并成一个大的数据。再对合并后的数据排序。
+	3.对排序后的键值对调用 reduce 方法。键相等的键值对调用一次reduce 方法，每次调用会产生零个或者多个键值对。最后把这些输出的键值对写入到 HDFS 文件中。
 
-讲述一下mapreduce的流程（shuffle的sort，partitions，group）
+Map端shuffle
 
-首先是 Mapreduce经过SplitInput 输入分片 决定map的个数在用Record记录 key value。然后分为以下三个流程：
+①分区partition
+
+②写入环形内存缓冲区
+
+③执行溢出写：排序sort--->合并combiner--->生成溢出写文件
+
+④归并merge
+
+
+Reduce端shuffle
+
+①复制copy
+
+②归并merge
+
+③reduce：根据分组处理
+
+
+讲述一下mapreduce的流程（shuffle的merge,sort，partitions，group）
+
+首先是 Mapreduce经过SplitInput 输入分片 决定mapTask的个数在用Record记录 key value。然后分为以下三个流程：
 
 Map：
 
@@ -105,15 +129,20 @@ Map：
 
 输出  key value
 
-Shuffle：、
+Shuffle：描述MapTask输出 到ReduceTask输入过程
 
-   合并（merge）map输出时先输出到环形内存，当内存使用率达到60%时开始溢出写入到文件，溢出文件都是小文件，所以就要合并他们，在这个构成中就会排序，根据key值比较排序
+   归并（merge）map输出时先输出到环形缓冲区内存，当内存使用率达到60%时开始溢出写入到文件，溢出文件都是小文件，
+   所以就要合并他们，在这个构成中就会排序，根据key值比较排序
 
-   排序（sort）如果你自定义了key的数据类型要求你的类一定是WriteableCompartor的子类，不想继承WriteableCompartor，至少实现Writeable，这时你就必须在job上设置排序比较器job.setSortCmpartorClass(MyCompartor.class);而MyCompartor.class必须继承RawCompartor的类或子类
+   排序（sort）如果你自定义了key的数据类型要求你的类一定是WriteableCompartor的子类，不想继承WriteableCompartor，
+   至少实现Writeable，这时你就必须在job上设置排序比较器job.setSortCmpartorClass(MyCompartor.class);
+   而MyCompartor.class必须继承RawCompartor的类或子类
 
-   分区（partition）会根据map输出的结果分成几个文件为reduce准备，有几个reducetask就分成几个文件，在job上设置分区器job.setPartitionerClass(MyPartition.class)Myrtition.class要继承Partitioner这个类
+   分区（partition）会根据map输出的结果分成几个文件为reduce准备，有几个reducetask就分成几个文件，
+   在job上设置分区器job.setPartitionerClass(MyPartition.class)Myrtition.class要继承Partitioner这个类
 
-   分组（group）分区时会调用分组器，把同一分区中的相同key的数据对应的value制作成一个iterable，并且会在sort。在job上设置分组器。Job.setGroupCompartorClass(MyGroup.class)MyGroup.class必须继承RawCompartor的类跟子类
+   分组（group）分区时会调用分组器，把同一分区中的相同key的数据对应的value制作成一个iterable，并且会在sort。
+   在job上设置分组器。Job.setGroupCompartorClass(MyGroup.class)MyGroup.class必须继承RawCompartor的类跟子类
 
 上面的结果储存到本地文件中，而不是hdfs上
 

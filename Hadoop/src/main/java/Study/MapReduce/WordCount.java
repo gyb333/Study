@@ -35,30 +35,31 @@ public class WordCount {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-        boolean isLocaltion = false;
+        boolean isLocaltion = true;
         String strOutput = "/bigdata/output/WordCount";
         String strInput = "/bigdata/input/WordCount";
         Path baseDir = new Path(path).getParent();
 
-        String strLocalInput = baseDir.toString() +"/Study/"+ strInput;
-        String strLocalOutput = baseDir.toString() +"/Study/"+ strOutput;
+        String strLocalInput = baseDir.toString() + "/Study" + strInput;
+        String strLocalOutput = baseDir.toString() + "/Study" + strOutput;
 
         Configuration conf = new Configuration();
 
-        //设置用户
-        System.setProperty("HADOOP_USER_NAME", "root");
-        conf.set("mapreduce.app-submission.cross-platform", "true");
+
         if (isLocaltion) {
             System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
             // 设置本地提交
             conf.set("fs.defaultFS", "local");
             conf.set("mapreduce.framework.name", "local");
-        }else {
+        } else {
+            //设置用户
+            System.setProperty("HADOOP_USER_NAME", "root");
+            conf.set("mapreduce.app-submission.cross-platform", "true");
             conf.addResource("core-site.xml");
             conf.addResource("hdfs-site.xml");
             conf.addResource("yarn-site.xml");
             conf.addResource("mapred-site.xml");
-            System.out.println(conf.get("mapreduce.framework.name","test"));
+            System.out.println(conf.get("mapreduce.framework.name", "test"));
         }
 
         Job job = Job.getInstance(conf);
@@ -80,7 +81,7 @@ public class WordCount {
         job.setOutputValueClass(IntWritable.class);
 
 //        //設置分區方案
-//        job.setPartitionerClass(MyPartitioner.class);
+        job.setPartitionerClass(MyPartitioner.class);
 //        job.setNumReduceTasks(4);
 
         //job.setCombinerClass(MyCombiner.class);
@@ -98,12 +99,12 @@ public class WordCount {
             pathInput = new Path(strInput);
             pathOutput = new Path(strOutput);
             if (fs.exists(pathOutput)) {
-                fs.delete(pathOutput,true);
+                fs.delete(pathOutput, true);
             }
             // 上传到HDFS
             if (!isLocaltion) {
                 if (fs.exists(pathInput)) {
-                    fs.delete(pathInput,true);
+                    fs.delete(pathInput, true);
                 }
                 FSDataOutputStream out = null;
                 FileInputStream in = null;
@@ -122,7 +123,7 @@ public class WordCount {
             FileOutputFormat.setOutputPath(job, pathOutput);
 
 
-//		job.setNumReduceTasks(3);
+
             boolean res = job.waitForCompletion(true);
             if (isLocaltion) {
                 fs.deleteOnExit(new Path("\\tmp"));

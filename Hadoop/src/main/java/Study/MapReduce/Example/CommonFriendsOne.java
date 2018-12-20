@@ -64,7 +64,7 @@ public class CommonFriendsOne extends DistributedJob{
 		Class<?> clsOutputKey = Text.class;
 		Class<?> clsOutputValue = Text.class;
 		new CommonFriendsOne().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
-				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue);
+				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue,false);
 
 	}
 

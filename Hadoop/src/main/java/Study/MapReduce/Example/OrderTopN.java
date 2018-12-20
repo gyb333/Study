@@ -110,7 +110,7 @@ public static class OrderTopnReducer extends Reducer< OrderBean, NullWritable,  
 		Class<?> clsOutputKey = OrderBean.class;
 		Class<?> clsOutputValue = NullWritable.class;
 		new OrderTopN().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
-				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue);
+				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue,false);
 
 	}
 
