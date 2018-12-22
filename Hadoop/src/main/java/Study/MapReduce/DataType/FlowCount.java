@@ -34,7 +34,31 @@ public class FlowCount extends DistributedJob{
 	}
 
 
-
+	/**
+	 * 13480253104     180, 180, 360
+	 * 13502468823     7515, 110529, 118044
+	 * 13560436666     8631, 111483, 120114
+	 * 13560439658     10665, 117375, 128040
+	 * 13602846565     12603, 120285, 132888
+	 * 13660577991     19563, 120975, 140538
+	 * 13719199419     19803, 120975, 140778
+	 * 13726230503     22284, 145656, 167940
+	 * 13726238888     24765, 170337, 195102
+	 * 13760778710     24885, 170457, 195342
+	 * 13826544101     25149, 170457, 195606
+	 * 13922314466     28157, 174177, 202334
+	 * 13925057413     39215, 222420, 261635
+	 * 13926251106     39455, 222420, 261875
+	 * 13926435656     39587, 223932, 263519
+	 * 15013685858     43246, 227470, 270716
+	 * 15920133257     46402, 230406, 276808
+	 * 15989002119     48340, 230586, 278926
+	 * 18211575961     49867, 232692, 282559
+	 * 18320173382     59398, 235104, 294502
+	 * 84138413        63514, 236536, 300050
+	 *
+	 * 根据手机所属省份分区
+	 */
 	public static void main(String[] args) throws Exception {
   
 		String clsName = FlowCount.class.getSimpleName();
@@ -46,7 +70,8 @@ public class FlowCount extends DistributedJob{
 		Class<?> clsOutputKey = Text.class;
 		Class<?> clsOutputValue = FlowBean.class;
 		new FlowCount().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
-				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue,false);
+				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue
+				,true);
  
 	}
 }

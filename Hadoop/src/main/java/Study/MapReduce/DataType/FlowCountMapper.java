@@ -9,6 +9,9 @@ import java.io.IOException;
 
 
 public class FlowCountMapper extends Mapper<LongWritable, Text, Text, FlowBean>{
+
+	private Text mKey=new Text();
+	private FlowBean mValue=new FlowBean();
 	@Override
 	protected void map(LongWritable key, Text value,  Context context)
 			throws IOException, InterruptedException {
@@ -17,10 +20,9 @@ public class FlowCountMapper extends Mapper<LongWritable, Text, Text, FlowBean>{
 		String phone=fields[1];
 		int upFlow = Integer.parseInt(fields[fields.length-3]);
 		int downFlow=Integer.parseInt(fields[fields.length-2]);
-		
-		context.write(new Text(phone), new FlowBean(upFlow, downFlow, phone));
-		
-
+		mKey.set(phone);
+		mValue.set(upFlow, downFlow, phone);
+		context.write(mKey, mValue);
 	}
 
 

@@ -10,6 +10,7 @@ public class FlowCountReducer extends Reducer<Text, FlowBean, Text, FlowBean>{
 
 	int upSum=0;
 	int downSum=0;
+	private FlowBean mValue=new FlowBean();
 	  @Override
 	protected void reduce(Text key, Iterable<FlowBean> values, Context context)
 			throws IOException, InterruptedException {
@@ -18,8 +19,8 @@ public class FlowCountReducer extends Reducer<Text, FlowBean, Text, FlowBean>{
 			 upSum+=each.getUpFlow();
 			 downSum+=each.getDownFlow();
 		 }
-		 
-		 context.write(key, new FlowBean(upSum, downSum, key.toString()));
+		  mValue.set(upSum, downSum, key.toString());
+		 context.write(key, mValue);
 	}
  
 

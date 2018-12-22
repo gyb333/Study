@@ -11,6 +11,7 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
+import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 import org.apache.hadoop.util.Tool;
 
 import java.io.IOException;
@@ -36,9 +37,10 @@ public class InvertedIndex   {
             @Override
             public void setJobConfig(Job job) {
                 job.setCombinerClass(MyCombiner.class);
+                job.setOutputFormatClass(SequenceFileOutputFormat.class);
             }
         };
-        job.execJob("InvertedIndex",false,MyMapper.class,MyReducer.class
+        job.execJob("InvertedIndex",true,MyMapper.class,MyReducer.class
                 ,Text.class,Text.class,Text.class,Text.class,false
         );
     }
@@ -68,11 +70,17 @@ public class InvertedIndex   {
 
         private Text word = new Text();
 
+        private String fileName;
         @Override
-        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        protected void setup(Context context) throws IOException, InterruptedException {
             //获取文件名字
             FileSplit fs = (FileSplit) context.getInputSplit();
-            String fileName = fs.getPath().getName();
+            fileName = fs.getPath().getName();
+        }
+
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
             String line = value.toString();
             String[] words = line.split(" ");
             for (String each : words) {

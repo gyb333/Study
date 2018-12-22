@@ -26,6 +26,13 @@ public class FlowBean implements Writable {
 		this.amountFlow=upFlow+downFlow;
 		this.phone = phone;
 	}
+
+	public void set(int upFlow, int downFlow, String phone) {
+		this.upFlow = upFlow;
+		this.downFlow = downFlow;
+		this.amountFlow=upFlow+downFlow;
+		this.phone = phone;
+	}
 	
 	@Override
 	public String toString() {

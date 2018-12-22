@@ -11,7 +11,10 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.io.File;
@@ -29,9 +32,9 @@ public class DistributedJob implements JobBase {
             InputStream is = WordCount.class.getResourceAsStream("/log4j.properties");
             PropertyConfigurator.configure(is);
             //PropertyConfigurator.configure(path + "\\Resources\\log4j.properties");
-            // ¼ÓÔØDLL
+
 //			System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
-            // ÉèÖÃ»·¾³±äÁ¿
+
             System.setProperty("HADOOP_USER_NAME", "root");
 
 
@@ -75,17 +78,16 @@ public class DistributedJob implements JobBase {
         //String osName = System.getProperty("os.name");
 
 
-        Configuration conf = new Configuration();    // Ä¬ÈÏÖ»¼ÓÔØcore-default.xml core-site.xml
+        Configuration conf = new Configuration();    // Ä¬ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½core-default.xml core-site.xml
 
 
         conf.set("mapreduce.app-submission.cross-platform", "true");
         if (isLocaltion) {
-            // ÉèÖÃ±¾µØÌá½»
             conf.set("fs.defaultFS", "local");
             conf.set("mapreduce.framework.name", "local");
             System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
         } else {
-            //ÉèÖÃÓÃ»§
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
             System.setProperty("HADOOP_USER_NAME", "root");
             conf.set("mapreduce.app-submission.cross-platform", "true");
             conf.addResource("core-site.xml");
@@ -103,7 +105,7 @@ public class DistributedJob implements JobBase {
             job.setJar("D:\\work\\Study\\Hadoop\\target\\Hadoop-0.0.1-SNAPSHOT.jar");
 
         job.setMapperClass(clsMapper);
-        setJobConfig(job);
+
 
         job.setMapOutputKeyClass(clsMapOutputKey);
         job.setMapOutputValueClass(clsMapOutputValue);
@@ -111,6 +113,12 @@ public class DistributedJob implements JobBase {
         job.setReducerClass(clsReducer);
         job.setOutputKeyClass(clsOutputKey);
         job.setOutputValueClass(clsOutputValue);
+        //é»˜è®¤çš„è¾“å…¥ç»„ä»¶
+        job.setInputFormatClass(TextInputFormat.class);
+        //é»˜è®¤çš„è¾“å‡ºç»„ä»¶
+        job.setOutputFormatClass(TextOutputFormat.class);
+//        job.setOutputFormatClass(SequenceFileOutputFormat.class);
+        setJobConfig(job);
 
         Path pathOutput;
         Path pathInput;
@@ -127,7 +135,7 @@ public class DistributedJob implements JobBase {
             if (fs.exists(pathOutput)) {
                 fs.delete(pathOutput);
             }
-            // ÉÏ´«µ½HDFS
+
             if (!isLocaltion) {
                 if (fs.exists(pathInput)) {
                     fs.delete(pathInput);

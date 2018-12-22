@@ -1,8 +1,8 @@
 package Study.MapReduce.Example;
 
 
-import Study.MapReduce.Beans.OrderBean;
 import Study.MapReduce.DistributedJob;
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -14,26 +14,17 @@ import java.io.IOException;
 public class OrderTopN  extends DistributedJob{
 
 
-	/**
-	 * 
-	 * ¸ù¾İOrderId ·ÖÇø
-	 *
-	 */
+
 	public static class OrderIdPartitioner extends Partitioner<OrderBean, NullWritable>{
 
 		@Override
 		public int getPartition(OrderBean key, NullWritable value, int numPartitions) {
-			// °´ÕÕ¶©µ¥ÖĞµÄOrderIDÀ´·Ö·¢Êı¾İ
+
 			return (key.getOrderId().hashCode() & Integer.MAX_VALUE) % numPartitions;
 		}
 	 	
 	}
-	
-	/**
-	 * 
-	 * ¸ù¾İOrderId ·Ö×é
-	 *
-	 */
+
 	public static class OrderIdGroupingComparator extends WritableComparator{
 
 		public OrderIdGroupingComparator() {
@@ -60,8 +51,8 @@ public class OrderTopN  extends DistributedJob{
 	}
 	
 	public static class OrderTopNMapper extends Mapper<LongWritable, Text, OrderBean, NullWritable>{
-		OrderBean orderBean = new OrderBean();
-		NullWritable v = NullWritable.get();
+		private OrderBean orderBean = new OrderBean();
+		private static final NullWritable v = NullWritable.get();
 		
 		@Override
 		protected void map(LongWritable key, Text value,Context context)
@@ -75,42 +66,51 @@ public class OrderTopN  extends DistributedJob{
 		}
 		
 	}
-	
-	
-	
-public static class OrderTopnReducer extends Reducer< OrderBean, NullWritable,  OrderBean, NullWritable>{
-		
-		/**
-		 * ËäÈ»reduce·½·¨ÖĞµÄ²ÎÊıkeyÖ»ÓĞÒ»¸ö£¬µ«ÊÇÖ»Òªµü´úÆ÷µü´úÒ»´Î£¬keyÖĞµÄÖµ¾Í»á±ä
-		 */
+
+
+	/**
+	 * reduceè·å–æ•°æ®æ˜¯å·²ç»æ’è¿‡åºçš„
+	 */
+	public static class OrderTopNReducer extends Reducer< OrderBean, NullWritable,  OrderBean, NullWritable>{
+
+		private  int topn;
+		@Override
+		protected void setup(Context context) throws IOException, InterruptedException {
+			Configuration conf = context.getConfiguration();
+			topn = conf.getInt("top.n", 3);
+		}
+
 		@Override
 		protected void reduce(OrderBean key, Iterable<NullWritable> values,Context context)
 				throws IOException, InterruptedException {
 			int i=0;
 			for (NullWritable v : values) {
 				context.write(key, v);
-				if(++i==3) return;
+				if(++i==topn) return;
 			}
 			
 		}
 		
 		
 	}
-	
-	
-	
+
+
+	/**
+	 * åˆ†ç»„topN
+	 */
 	public static void main(String[] args) throws Exception {
 		 
 		String clsName = OrderTopN.class.getSimpleName();
 		boolean isLocaltion = false;
 		Class<? extends Mapper> clsMapper = OrderTopNMapper.class;
-		Class<? extends Reducer> clsReducer = OrderTopnReducer.class;
+		Class<? extends Reducer> clsReducer = OrderTopNReducer.class;
 		Class<?> clsMapOutputKey = OrderBean.class;
 		Class<?> clsMapOutputValue = NullWritable.class;
 		Class<?> clsOutputKey = OrderBean.class;
 		Class<?> clsOutputValue = NullWritable.class;
 		new OrderTopN().execJob(clsName, isLocaltion, clsMapper, clsReducer, 
-				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue,false);
+				clsMapOutputKey, clsMapOutputValue, clsOutputKey, clsOutputValue
+				,true);
 
 	}
 

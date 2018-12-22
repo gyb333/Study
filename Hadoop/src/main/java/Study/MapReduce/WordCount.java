@@ -35,7 +35,7 @@ public class WordCount {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-        boolean isLocaltion = true;
+        boolean isLocaltion = false;
         String strOutput = "/bigdata/output/WordCount";
         String strInput = "/bigdata/input/WordCount";
         Path baseDir = new Path(path).getParent();
