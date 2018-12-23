@@ -27,6 +27,19 @@ public class DistributedJob implements JobBase {
     private static final String path = System.getProperty("user.dir");
 
     private Job job;
+    private String strInput;
+
+    public String getStrInput() {
+        return strInput;
+    }
+
+    private String strLocalInput;
+
+    public String getStrLocalInput() {
+        return strLocalInput;
+    }
+
+
     static {
         try {
             InputStream is = WordCount.class.getResourceAsStream("/log4j.properties");
@@ -67,13 +80,12 @@ public class DistributedJob implements JobBase {
 
     public void execJob(String clsName, boolean isLocaltion, Class<? extends Mapper> clsMapper,
                         Class<? extends Reducer> clsReducer, Class<?> clsMapOutputKey, Class<?> clsMapOutputValue,
-                        Class<?> clsOutputKey, Class<?> clsOutputValue,boolean isFile) throws Exception {
-
+                        Class<?> clsOutputKey, Class<?> clsOutputValue, boolean isFile) throws Exception {
 
         String strOutput = "/bigdata/output/" + clsName;
-        String strInput = "/bigdata/input/" + clsName;
+        strInput = "/bigdata/input/" + clsName;
         Path baseDir = new Path(path).getParent();
-        String strLocalInput = baseDir.toString() + "/Study" + strInput;
+        strLocalInput = baseDir.toString() + "/Study" + strInput;
         String strLocalOutput = baseDir.toString() + "/Study" + strOutput;
         //String osName = System.getProperty("os.name");
 
@@ -81,20 +93,24 @@ public class DistributedJob implements JobBase {
         Configuration conf = new Configuration();    // Ĭ��ֻ����core-default.xml core-site.xml
 
 
-        conf.set("mapreduce.app-submission.cross-platform", "true");
+
         if (isLocaltion) {
+//            conf.set("fs.defaultFS","file:///");
             conf.set("fs.defaultFS", "local");
             conf.set("mapreduce.framework.name", "local");
-            System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
+
         } else {
-            //�����û�
             System.setProperty("HADOOP_USER_NAME", "root");
-            conf.set("mapreduce.app-submission.cross-platform", "true");
             conf.addResource("core-site.xml");
             conf.addResource("hdfs-site.xml");
             conf.addResource("yarn-site.xml");
             conf.addResource("mapred-site.xml");
         }
+        conf.setBoolean("fs.hdfs.impl.disable.cache", true);
+        System.setProperty("hadoop.home.dir", "D:\\Program Files\\hadoop-3.0.0");
+        conf.set("mapreduce.app-submission.cross-platform", "true");
+
+
 
         Job job = Job.getInstance(conf);
 
@@ -110,15 +126,20 @@ public class DistributedJob implements JobBase {
         job.setMapOutputKeyClass(clsMapOutputKey);
         job.setMapOutputValueClass(clsMapOutputValue);
 
-        job.setReducerClass(clsReducer);
-        job.setOutputKeyClass(clsOutputKey);
-        job.setOutputValueClass(clsOutputValue);
+        if (clsReducer != null)
+            job.setReducerClass(clsReducer);
+        if (clsOutputKey != null)
+            job.setOutputKeyClass(clsOutputKey);
+        if (clsOutputValue != null)
+            job.setOutputValueClass(clsOutputValue);
+
+
         //默认的输入组件
         job.setInputFormatClass(TextInputFormat.class);
         //默认的输出组件
         job.setOutputFormatClass(TextOutputFormat.class);
 //        job.setOutputFormatClass(SequenceFileOutputFormat.class);
-        setJobConfig(job);
+
 
         Path pathOutput;
         Path pathInput;
@@ -131,35 +152,23 @@ public class DistributedJob implements JobBase {
             }
 
             pathInput = new Path(strInput);
+            if (!isLocaltion) {
+                HDFSUtils.uploadFile2HDFS(fs, strInput, strLocalInput, isFile);
+            }
             pathOutput = new Path(strOutput);
             if (fs.exists(pathOutput)) {
-                fs.delete(pathOutput);
+                fs.delete(pathOutput,true);
             }
 
-            if (!isLocaltion) {
-                if (fs.exists(pathInput)) {
-                    fs.delete(pathInput);
-                }
-                if(isFile) {
-                    HDFSUtils.UploadFile(fs,strInput,strLocalInput);
-                }else{
-                    File[] files = FileUtils.GetFiles(strLocalInput);
-                    for(File file :files){
-                        HDFSUtils.UploadFile(fs,strInput+"/"+file.getName(), file.getPath());
-                    }
-                }
 
-            }
-
-            if(isFile){
+            if (isFile) {
                 FileInputFormat.setInputPaths(job, pathInput);
-            }else
-            {
-                FileInputFormat.addInputPath(job,pathInput);
+            } else {
+                FileInputFormat.addInputPath(job, pathInput);
             }
 
             FileOutputFormat.setOutputPath(job, pathOutput);
-
+            setJobConfig(job);
 //            job.setNumReduceTasks(3);
 
 

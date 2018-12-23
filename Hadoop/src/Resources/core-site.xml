@@ -44,5 +44,8 @@
 		<name>hadoop.proxyuser.root.hosts</name>
 		<value>*</value>
 	</property>
-
+	<property>
+		<name>fs.hdfs.impl.disable.cache</name>
+		<value>true</value>
+	</property>
 </configuration>

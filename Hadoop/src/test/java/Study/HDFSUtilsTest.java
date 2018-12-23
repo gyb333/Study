@@ -65,4 +65,11 @@ public class HDFSUtilsTest {
 		Assert.assertTrue(true);
 	}
 
+
+	@Test
+	public void DownloadFileTest() throws IOException {
+		String strPath="/bigdata/input/JoinCache/user";
+		HDFSUtils.DownloadFile(strPath,"D:"+strPath);
+		Assert.assertTrue(true);
+	}
 }
