@@ -1,7 +1,7 @@
 package Study.MapReduce.TopN;
 
 import Study.MapReduce.DistributedJob;
-import com.sun.source.util.Trees;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
