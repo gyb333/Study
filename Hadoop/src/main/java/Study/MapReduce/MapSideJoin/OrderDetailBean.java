@@ -1,4 +1,4 @@
-package Study.MapReduce.Join;
+package Study.MapReduce.MapSideJoin;
 
 import org.apache.hadoop.io.WritableComparable;
 

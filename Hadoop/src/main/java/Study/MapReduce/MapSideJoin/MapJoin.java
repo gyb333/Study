@@ -1,13 +1,10 @@
-package Study.MapReduce.Join;
+package Study.MapReduce.MapSideJoin;
 
 import Study.HDFS.HDFSHelper;
 import Study.MapReduce.DistributedJob;
-import org.apache.commons.lang.ObjectUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -19,6 +16,11 @@ import java.net.URISyntaxException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 小数据全部加载到内存，按关键字建立索引。
+ * Map-side Join    Broadcast join
+ * map阶段没有对数据瘦身，shuffle的网络传输和排序性能很低。
+ */
 public class MapJoin extends DistributedJob {
 
     private static final Boolean isLocaltion = false;

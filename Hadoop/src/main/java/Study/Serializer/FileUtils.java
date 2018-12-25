@@ -75,7 +75,7 @@ public class FileUtils {
      * @return
      * @throws IOException
      */
-    public static byte[] toByteArray2(String filename) throws IOException {
+    public static byte[] toByteArrayNIO(String filename) throws IOException {
 
         File f = new File(filename);
         if (!f.exists()) {
@@ -117,7 +117,7 @@ public class FileUtils {
      * @return
      * @throws IOException
      */
-    public static byte[] toByteArray3(String filename) throws IOException {
+    public static byte[] toByteArrayMapped(String filename) throws IOException {
 
         FileChannel fc = null;
         try {
