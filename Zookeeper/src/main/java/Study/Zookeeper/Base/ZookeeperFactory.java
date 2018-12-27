@@ -39,7 +39,6 @@ public class ZookeeperFactory {
 		ZooKeeper zooKeeper = new ZooKeeper(connectString, sessionTimeout, new Watcher() {
 			// 为避免连接还未完成就执行zookeeper的get/create/exists操作引起的
 			//（KeeperErrorCode = ConnectionLoss)  等Zookeeper的连接完成才返回实例
-			@Override
 			public void process(WatchedEvent event) {
 				if (event.getState() == Event.KeeperState.SyncConnected) {
 					if (event.getType()==EventType.None && null==event.getPath()){

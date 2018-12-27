@@ -1,0 +1,49 @@
+zkServer.sh服务器脚本文件,设置super:super
+String m = DigestAuthenticationProvider.generateDigest("super:super");
+super:gG7s8t3oDEtIqF6DM9LlI/R+9Ss=
+
+找到改行：
+nohup $JAVA "-Dzookeeper.log.dir=${ZOO_LOG_DIR}" "-Dzookeeper.root.logger=${ZOO_LOG4J_PROP}" "-Dzookeeper.DigestAuthenticationProvider.superDigest=super:gG7s8t3oDEtIqF6DM9LlI/R+9Ss=" \
+    -cp "$CLASSPATH" $JVMFLAGS $ZOOMAIN "$ZOOCFG" > "$_ZOO_DAEMON_OUT" 2>&1 < /dev/null &
+
+
+zkServer.sh  restart
+
+
+zkCli.sh -timeout 5000 -server Master:2181
+addauth digest super:super
+
+查看根目录节点：ls /
+create /Test/test 'test-data'
+get  /Test/test
+set /Test/test "hello world"
+getAcl /Test/test
+'world,'anyone
+: cdrwa
+setAcl /Test/test digest:root:qiTlqPLK7XM2ht3HMn02qRpkKIE=:cdrwa
+cZxid = 0x700000033
+ctime = Thu Aug 30 22:40:15 PDT 2018
+mZxid = 0x700000033
+mtime = Thu Aug 30 22:40:15 PDT 2018
+pZxid = 0x700000033
+cversion = 0
+dataVersion = 0
+aclVersion = 1
+ephemeralOwner = 0x0
+dataLength = 9
+numChildren = 0
+addauth digest root:root
+get  /Test/test
+stat /Test
+sync /
+delete /Test/test
+rmr /Test
+
+创建临时结点
+create -e /node_3/node1 234
+创建持久结点
+create -s /node_3/node1 234
+get node_3
+set node_3 333
+
+

@@ -2,6 +2,7 @@ package Study.MapReduce;
 
 import org.apache.hadoop.conf.Configuration;
 
+
 public class Test {
 
 	public static void TestConfiguration() {

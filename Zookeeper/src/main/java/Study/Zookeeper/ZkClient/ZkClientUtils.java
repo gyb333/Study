@@ -24,10 +24,23 @@ public class ZkClientUtils {
 	public static void updateNode(String path, Object data, final int expectedVersion) {
 		  zkClient.writeData(path, data, expectedVersion);
 	}
+	public static void updateData(String path, Object data) {
+		// 更新节点中的对象
+		zkClient.writeData(path, data);
+
+	}
+
 	
 	public static void deleteNode(String path) {
 		  zkClient.delete(path);
 	}
+
+	public static boolean deleteNodeByCascade(String path) {
+		// 返回 true表示节点成功 ，false表示删除失败
+		// 删除含有子节点的节点
+		return zkClient.deleteRecursive(path);
+	}
+
 	
 	public static boolean existsNode(String path) {
 		  return zkClient.exists(path);
@@ -37,6 +50,12 @@ public class ZkClientUtils {
 	public static  <T extends Object> T getNode(String path,Stat stat) {
 		 
 		return (T)zkClient.readData(path,stat);
+	}
+
+	public static  <T extends Object> T getNode(String path) {
+		Stat stat = new Stat();
+		// 获取 节点中的对象
+		return getNode(path, stat);
 	}
 	
 	
