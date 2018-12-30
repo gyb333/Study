@@ -61,7 +61,6 @@ public class DistributedSimpleQueue<T> {
 				return null;
 			}
 			Collections.sort(list, new Comparator<String>() {
-				@Override
 				public int compare(String lhs, String rhs) {
 					return getNodeNumber(lhs, Node_NAME).compareTo(getNodeNumber(rhs, Node_NAME));
 				}

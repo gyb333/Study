@@ -30,6 +30,7 @@ public class ZookeeperUtils {
             e.printStackTrace();
         }
         if(zookeeper!=null)zookeeper.addAuthInfo("digest", "root:root".getBytes());
+
     }
 
     public static boolean createZNodeAuth(String path, String data, CreateMode mode) {
@@ -37,7 +38,7 @@ public class ZookeeperUtils {
         try {
             if (zookeeper.exists(path, true) == null) {
 
-                ACL aclIp = new ACL(Perms.READ | Perms.WRITE, new Id("ip", "10.228.222.65"));
+                ACL aclIp = new ACL(Perms.READ | Perms.WRITE, new Id("ip", "10.228.188.155"));
                 ACL aclDigest = new ACL(Perms.READ | Perms.WRITE,
                         new Id("digest", DigestAuthenticationProvider.generateDigest("root:root")));
                 ArrayList<ACL> acls = new ArrayList<ACL>();

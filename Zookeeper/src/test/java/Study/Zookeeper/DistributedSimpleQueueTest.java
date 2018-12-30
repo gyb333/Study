@@ -1,18 +1,20 @@
 package Study.Zookeeper;
 
+import Study.Zookeeper.Queue.DistributedSimpleQueue;
+import Study.Zookeeper.ZkClient.ZkClientFactory;
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.serialize.SerializableSerializer;
 
 import junit.framework.TestCase;
 
 public class DistributedSimpleQueueTest extends TestCase {
-	
-	
+
+	ZkClient zkClient = ZkClientFactory.getInstance();
 	
 	public void testApp()
     {
-		ZkClient zkClient = new ZkClient("Master:2181,Second:2181,slave:2181", 5000, 5000, new SerializableSerializer());
-		DistributedSimpleQueue<User> queue = new DistributedSimpleQueue<User>(zkClient,"/Queue");
+
+		DistributedSimpleQueue<User> queue = new DistributedSimpleQueue<User>("/Queue");
 		
 		User user1 = new User();
 		user1.setId("1");

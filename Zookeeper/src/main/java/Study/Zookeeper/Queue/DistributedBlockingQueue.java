@@ -28,8 +28,6 @@ public class DistributedBlockingQueue<T> extends DistributedSimpleQueue<T>{
 			
 			final CountDownLatch    latch = new CountDownLatch(1);
 			final IZkChildListener childListener = new IZkChildListener() {
-				
-				@Override
 				public void handleChildChange(String parentPath, List<String> currentChilds)
 						throws Exception {
 					latch.countDown();
