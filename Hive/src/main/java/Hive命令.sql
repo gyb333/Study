@@ -6,7 +6,10 @@
  * schema(模式，元信息存放到数据库中)
  * 数据库和表都是路径。
  * hive在写操作是不校验，读时校验。
- *
+
+ *开启metastore: nohup hive --service metastore &
+ *开启hiveserver2: nohup hive --service hiveserver2 &
+ *set hive.execution.engine=spark;
  *
  * 检查hive server2是否启动：   netstat -anp |grep 10000
  * 后台启动hiveserver2
@@ -23,7 +26,7 @@
  * set hive.cli.print.header=true; 			#显示查询结果时显示字段名称
  * set hive.exec.mode.local.auto=true;		#可以让hive将mrjob提交给本地运行器运行
  * set hive.enforce.bucketing = true;		#指定开启分桶
- * set mapreduce.job.reduces=4;
+ * set mapreduce.job.reduces=3;
  * 
  * 元数据都储存在mysql：use hive用户库; 
  * SELECT * FROM version v;       	#查看hive版本
@@ -57,7 +60,7 @@
  * 
  * create database if not exists dbname; #创建库
  * 
- * alter database dbname set dbproperties('edited-by'='joe'); #修改库(不能删除或“重置”数据库属性)
+ * alter database dbname set dbproperties('edited-by'='gyb333'); #修改库(不能删除或“重置”数据库属性)
  * 
  * describe database extended dbname; 	#查询库
  * 
@@ -90,7 +93,7 @@
  *
  * 插入模式里输出^A先按一下 ctrl-v 再按 ctrl-a代表'\001'
  * 
- * CREATE [EXTERNAL] TABLE if not exists tbeHive (id INT, name STRING);		 
+ * CREATE [EXTERNAL] TABLE if not exists tbeHive (id INT, name STRING)
 	row format delimited 
  	fields terminated by '\001'  
 	collection items terminated by '\002' 
@@ -106,11 +109,11 @@
  * 修改已存在的列定义：alter table tbeHive change userid uid string;
  * 
  * #创建分区表:分区标识不能存在于表字段中
- * CREATE TABLE tbpHive (id INT, name STRING) PARTITIONED BY (sex STRING);
+ * CREATE TABLE tbpHive (id INT, name STRING) PARTITIONED BY (province STRING,city STRING);
  * 
  * alter table tbpHive [add|drop] partition(province='hebei',city='baoding') #添加分区
  *
- *	插入单条数据： insert into table t_seq values('10','xx','beijing',28);
+ *	插入单条数据： insert into table tbpHive values(10,'test','hunan','changsha');
  *
  * 导入插入数据(加载到HDFS)
  * load data local inpath 'path/filename' [overwrite] into table 表名;	#复制：从本地数据导入Hive表

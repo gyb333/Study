@@ -14,7 +14,7 @@ fields terminated by '\t'
 collection items terminated by ',';
 
 --导入数据
-load data local inpath '/usr/local/BigData/hivedata/array.dat' into table t_stu_subjects;
+load data local inpath '/usr/local/data/array.dat' into table t_stu_subjects;
 
 select  id,array_contains(subjects,'语文') from t_stu_subjects;
 
@@ -85,7 +85,7 @@ e f g a
 b c d b
  */
 create table tb_wc(line string) row format delimited;
-load data local inpath '/usr/local/BigData/hivedata/words' into table tb_wc;
+load data local inpath '/usr/local/data/words' into table tb_wc;
 select a.word,count(1) cnt
 from 
 (select tmp.* from tb_wc lateral view explode(split(line,' ')) tmp as word) a
