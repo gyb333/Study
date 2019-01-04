@@ -65,7 +65,7 @@ object PartialFunction {
 
   def main(args: Array[String]): Unit = {
     println(func("a"))
-    println(func1("a"))
+    println(func1("b"))
 
     val arr = Array[Any](1, 2, 4, "你大爷的")
     val arr1 = Array[Int](1, 2, 4)

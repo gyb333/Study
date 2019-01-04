@@ -71,8 +71,8 @@ select 1+1 from dual;
 	
 select words.word,count(1) as counts
 from
-(select explode(split("a b c d e f a b c d e f g"," ")) as word 
-from dual
+(select explode(split("a b c d e f a b c d e f g"," ")) as word
+  from dual
 ) words
 group by word
 order by counts desc;

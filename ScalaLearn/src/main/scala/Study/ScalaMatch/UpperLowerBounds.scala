@@ -13,13 +13,14 @@ class Students(val name: String, val age: Int) {
 object UpperLowerBounds {
   def main(args: Array[String]): Unit = {
 
-    //        val cmpInt = new CmpLong(8L, 9L)
-    //        println(cmpInt.bigger)
+//            val cmpInt = new CmpLong(8L, 9L)
+//            println(cmpInt.bigger)
 
-//    val cmpcom = new CmpComm(1, 2) // 上界的时候会报错
+    val test = new CmpComm(1, 2) // 上界的时候会报错
+    println(test.bigger)
 //    val cmpcom = new CmpComm(Integer.valueOf(1), Integer.valueOf(2))
-//    val cmpcom = new CmpComm[Integer](1, 2)
-
+    val i = new CmpComm[Integer](1, 2)
+    println(i.bigger)
     import ImpicitsObject._
 
     val tom = new Students("Tom", 18)

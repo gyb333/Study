@@ -13,7 +13,7 @@ object Test {
 
     /**
      * 数据类型 Any ->
-     *             AnyVal -> 7 数据类型：Short Int Long double float char Byte， Boolean 、Unit(void) = ()
+     *             AnyVal -> 7 数据类型：Byte char Short Int Long float double、Boolean 、Unit(void) = ()
      *             AnyRef -> String
      *
      */
@@ -32,8 +32,8 @@ object Test {
      *     for(变量 <- 表达式/集合/数组; if 守卫)
      *     for(i <- 0 to 3; j <- 0 to 3 if i!=j)
      *     yield
-     *     to  0 to 3 =>返回一个0到3的范围区间，左右都是闭区间，都包含边界值
-     *     until 0 until 3 => 返回一个0到2的范围区间，左闭右开区间，包含左边边界值，不包含右边边界值
+     *     0 to 3 =>返回一个0到3的范围区间，左右都是闭区间，都包含边界值
+     *     0 until 3 => 返回一个0到2的范围区间，左闭右开区间，包含左边边界值，不包含右边边界值
      */
 
     /**
@@ -88,11 +88,8 @@ object Test {
     //        println(s"${stu.name}")
     //
     val i: Int = 12
-    val s = if (i > 10) {
-      i * i
-    } else {
-      100
-    }
+    val s = if (i > 10)  i * i  else   100
+
     //
     val r = if (i < 8) i // else 没有写， 编译器会自动推测出你什么都没有返回就是Unit
 

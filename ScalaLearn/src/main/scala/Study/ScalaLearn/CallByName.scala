@@ -6,12 +6,12 @@ object CallByName {
         System.nanoTime()
     }
 
-    def delayed(f: => Long): Unit = {
+    def delayedf(f: => Long): Unit = {
         println("delayed ===============")
         println("time = " + f)
     }
 
-    def delayed1(time: Long) = {
+    def delayed(time: Long) = {
         println("delayed1 ===============")
         println("time1 = " + time)
     }
@@ -19,13 +19,13 @@ object CallByName {
     def main(args:Array[String]):Unit={
       // 调用方式一
       val ct = currentTime _
-      delayed(ct())
+      delayedf(ct())
   
       println("----------------------")
   
       // 调用方式二
       val time = currentTime()
-      delayed1(time)
+      delayed(time)
     }
     
     

@@ -50,7 +50,8 @@ object Method {
 
     // 调用logBoundDate的时候, 只需要传递待传的message参数即可
     logBoundDate("fuck jerry ")
-     logBoundDate("fuck 涛涛 ")
+
+    logBoundDate("fuck 涛涛 ")
   }
 
   /**
@@ -58,9 +59,7 @@ object Method {
    */
   def add(args: Int*): Int = {
     var sum = 0
-    for (v <- args) {
-      sum += v
-    }
+    for (v <- args)sum += v
     sum
   }
 

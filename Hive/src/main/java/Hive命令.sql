@@ -7,16 +7,35 @@
  * 数据库和表都是路径。
  * hive在写操作是不校验，读时校验。
 
- *开启metastore: nohup hive --service metastore &
- *开启hiveserver2: nohup hive --service hiveserver2 &
+
+ *return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask (state=08S01,code=2);
+ *namenode处于safemode状态，然后进入namenode所在节点通过使用
+  hdfs dfsadmin -safemode leave命令退出安全模式，就可以解决问题。
+  
+Exit code is 143 Container exited with a non-zero exit code 143
+hive (default)> SET mapreduce.map.memory.mb;
+		mapreduce.map.memory.mb=512
+hive (default)> SET mapreduce.reduce.memory.mb;
+		mapreduce.reduce.memory.mb=512
+hive (default)> SET yarn.nodemanager.vmem-pmem-ratio;
+		yarn.nodemanager.vmem-pmem-ratio=4.2
+因此，单个map和reduce分配物理内存512M；虚拟内存限制512*4.2=2.1G；
+单个reduce处理数据量超过内存1G的限制导致；设置 mapreduce.reduce.memory.mb=1024 解决
+这就是说当资源不够是，AppMaster会kill掉reduce释放资源给map。解决办法是调整mapreduce.job.reduce.slowstart.completedmaps参数，默认为0.05，即map完成0.05后reduce就开始copy，如果集群资源不够，有可能导致reduce把资源全抢光，可以把这个参数调整到0.8，map完成80%后才开始reduce copy。
+SET mapreduce.job.reduce.slowstart.completedmaps=0.8
+
+schematool -dbType mysql -initSchema
+
+ *开启metastore: hive --service metastore
+ *开启hiveserver2: hive --service hiveserver2
+ *客户端连接hive：beeline -u jdbc:hive2://Master:10000 -n root
  *set hive.execution.engine=spark;
  *
  * 检查hive server2是否启动：   netstat -anp |grep 10000
  * 后台启动hiveserver2
  * 		nohup hiveserver2 1>/dev/null 2>&1 &
  * 		nohup hive --service hiveserver2 >/dev/null 2>&1 &
- * 客户端连接hive：beeline -u jdbc:hive2://Master:10000 -n root 
- * 
+ *
  * hive命令模型
  * hive>dfs -lsr /                         	//显示dfs下文件：路径/库/表/文件
  * hive>dfs -rmr /目录                 				//dfs命令，删除目录
@@ -106,7 +125,7 @@
  * 
  * 添加列：ALTER TABLE tbeHive add COLUMNS (address string,age int);
  * 全部替换：ALTER TABLE tbeHive REPLACE COLUMNS (id int,name string,address string,age int);
- * 修改已存在的列定义：alter table tbeHive change userid uid string;
+ * 修改已存在的列定义：alter table tbeHive change id uid string;
  * 
  * #创建分区表:分区标识不能存在于表字段中
  * CREATE TABLE tbpHive (id INT, name STRING) PARTITIONED BY (province STRING,city STRING);
@@ -146,6 +165,6 @@
  *  drop一个内部表时，表的元信息和表数据目录都会被删除；
  *  drop一个外部表时，只删除表的元信息，表的数据目录不会删除； 
  *
- *
+
  *
  */

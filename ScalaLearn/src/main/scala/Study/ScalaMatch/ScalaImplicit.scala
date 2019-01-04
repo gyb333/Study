@@ -53,14 +53,16 @@ object ScalaImplicit {
   /**
    * 定义一个隐式的方法
    */
-  implicit def double2Int(double: Double) = {
-    println("---double2Int---")
-    double.toInt
-  }
   implicit val fdouble2Int = (double: Double) => {
     println("---fdouble2Int---")
     double.toInt
   }
+
+  implicit def double2Int(double: Double) = {
+    println("---double2Int---")
+    double.toInt
+  }
+
   
   
   // 隐式类 - 只能在静态对象中使用
@@ -91,7 +93,7 @@ object ScalaImplicit {
     println(age)
 
     import ImpicitsObject._
-    val file = new File("D:\\log\\2017-09-21\\access.log")
+    var file = new File("D:\\work\\Study\\bigdata\\Test.dat")
 
     println("Count = " + file.count())
     println(s"FileContent = ${file.read}")

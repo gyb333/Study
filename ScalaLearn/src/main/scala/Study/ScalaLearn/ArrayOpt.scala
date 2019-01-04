@@ -11,7 +11,7 @@ object ArrayOpt {
    *
    * 可变集合：长度可变，内容可变
    * 不可变集合：长度不可变，内容也不可变
-   *
+   *val arr = Array[Int](1, 3, 5, 8, 9)
    */
 
   /**
@@ -31,18 +31,20 @@ object ArrayOpt {
    *         get => Option[String]
    *         getOrElse("key", defaultValue) => String
    *
-   *     Set
+   *     Set：适合存无序非重复数据，进行快速查找海量元素的等场景
    *         存储的元素是无序的，且里面的元素是没有重复的
-   *
-   *     元组中可以分任意类型的数据, 最多可以放22个
+   *        Set(1,1,2,3)
+   *     Tuple：元组中可以分任意类型的数据, 最多可以放22个
    *         (1, true, "", Object)
    *         获取元组中的元素 tuple._2
    *
-   *     Seq Nil
+   *     Seq Nil：Seq是列表，适合存有序重复数据，进行快速插入/删除元素等场景
    *         Seq 中分为head tail
    *         第一个元素就是head
    *         剩余的都是tail
    *         List(9) head=9 tail=Nil
+    *        var seq = Seq[String]()
+    *         seq = seq :+ "hello"
    *
    *     Option Some None
    *         Some 和 None都是Option子类
@@ -84,13 +86,11 @@ object ArrayOpt {
    */
   def main(args: Array[String]): Unit = {
     
-    val list = List(3, 5, 1)
-    println(list.par.sum)
-    println(list.fold(0)(_ + _))
+
     println("----------------------------------")
     ParallelSeq
 
-    //    ArrayTest
+    ArrayTest
 
     HelloWords()
     None
@@ -98,6 +98,8 @@ object ArrayOpt {
 
   def ParallelSeq = {
     val list = List(1, 2, 3, 4, 5)
+    println(list.par.sum)
+    println(list.fold(10)(_ + _))
     println(list.par.fold(10)(_ + _))
 
     println(list.par.foldLeft(10)(_ + _))
@@ -133,12 +135,12 @@ object ArrayOpt {
     arr1.flatMap(_.split(" ")).foreach(println)
 
     // 求每个单词出现的数量 word count
-
+    println("求每个单词出现的数量 word count")
     //Array("hello","hello","tom", "hello", "jerry")
     val r3 = arr1.flatMap(x => x.split(" "))
       .groupBy(x => x)
-      //      .map(x => x._2.length)
-      .mapValues(x => x.length).toList.sortBy(x => -x._2)
+            .map(x =>(x._1,x._2.length)).toList.sortBy(x => -x._2)
+//      .mapValues(x => x.length).toList.sortBy(x => -x._2)
 
     println(r3)
   }

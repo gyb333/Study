@@ -45,9 +45,7 @@ object AnimalObject {
 
   def main(args: Array[String]): Unit = {
     val cat = new AnimalImpl("Cat") with Dog {
-
       override val name = "fox"
-
       override def run(): Unit = {
         println("----")
       }
