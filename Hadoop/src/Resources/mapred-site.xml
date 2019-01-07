@@ -32,10 +32,20 @@
 	</property>
 
 	<property>
-		<name>mapreduce.application.classpath</name>
-		<value>$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*
-		</value>
+		<!--Directory where history files are written by MapReduce jobs.-->
+		<name>mapreduce.jobhistory.intermediate-done-dir</name>
+		<value>/bigdata/hadoop/mr/tmp</value>
 	</property>
+
+	<property>
+	<!--Directory where history files are managed by the MR JobHistory Server.-->
+	<name>mapreduce.jobhistory.done-dir</name>
+	<value>/bigdata/hadoop/mr</value>
+	</property>
+
+
+
+
 
 	<!-- <property> <name>yarn.app.mapreduce.am.env</name> <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value> 
 		</property> <property> <name>mapreduce.map.env</name> <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value> 
@@ -51,22 +61,6 @@
 		</description>
 	</property>
 
-
-
-	<property>
-		<name>mapreduce.application.classpath</name>
-		<value>
-			/usr/local/hadoop3/etc/hadoop,
-			/usr/local/hadoop3/share/hadoop/common/*,
-			/usr/local/hadoop3/share/hadoop/common/lib/*,
-			/usr/local/hadoop3/share/hadoop/hdfs/*,
-			/usr/local/hadoop3/share/hadoop/hdfs/lib/*,
-			/usr/local/hadoop3/share/hadoop/mapreduce/*,
-			/usr/local/hadoop3/share/hadoop/mapreduce/lib/*,
-			/usr/local/hadoop3/share/hadoop/yarn/*,
-			/usr/local/hadoop3/share/hadoop/yarn/lib/*
-		</value>
-	</property>
 
 
 	<property>
@@ -109,6 +103,28 @@
 		　　<name>mapreduce.reduce.java.opts</name>
 		　　<value>-Xmx1024M</value>
 	</property>
+
+	<!--<property>-->
+		<!--<name>mapreduce.application.classpath</name>-->
+		<!--<value>$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*-->
+		<!--</value>-->
+	<!--</property>-->
+
+	<property>
+		<name>mapreduce.application.classpath</name>
+		<value>
+			/usr/local/hadoop/etc/hadoop,
+			/usr/local/hadoop/share/hadoop/common/*,
+			/usr/local/hadoop/share/hadoop/common/lib/*,
+			/usr/local/hadoop/share/hadoop/hdfs/*,
+			/usr/local/hadoop/share/hadoop/hdfs/lib/*,
+			/usr/local/hadoop/share/hadoop/mapreduce/*,
+			/usr/local/hadoop/share/hadoop/mapreduce/lib/*,
+			/usr/local/hadoop/share/hadoop/yarn/*,
+			/usr/local/hadoop/share/hadoop/yarn/lib/*
+		</value>
+	</property>
+
 </configuration>
 
  

@@ -1,0 +1,35 @@
+1.安装JDK1.8以上
+2.解压spark-2.3.0.tgz
+3.cd spark-2.3.0 执行命令
+
+./dev/make-distribution.sh --name "hadoop2-without-hive" --tgz "-Pyarn,hadoop-provided,hadoop-2.7,parquet-provided,orc-provided"
+
+4.修改Spark配置文件
+5.修改Hive配置文件
+<property>
+  <name>spark.yarn.jars</name>
+  <value>hdfs://Master:8020/spark-jars/*</value>
+</property>
+把jars上传到hdfs上
+6.拷贝mysql驱动到hive/libs/ 与 spark/jars/ 下
+
+ hive --service metastore
+
+ netstat -anp |grep 10000
+
+ beeline -u jdbc:hive2://Master:10000
+
+set hive.execution.engine=spark;
+
+create table test (f1 string,f2 string) stored as orc;
+
+insert into test values(1,2);
+
+select words.word,count(1) as counts
+from
+(select explode(split("a b c d e f a b c d e f g"," ")) as word
+) words
+group by word
+order by counts desc;
+
+

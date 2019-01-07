@@ -1,0 +1,76 @@
+1、Java8安装成功
+2、zookeeper安装成功
+3、hadoop2.7.5 HA安装成功
+4、Scala安装成功（不安装进程也可以启动）
+设置环境变量
+tar -zxvf spark-2.3.0-bin-hadoop2.7.tgz -C /usr/local/
+cp spark-env.sh.template spark-env.sh
+export JAVA_HOME=/usr/local/jdk1.8
+#export SCALA_HOME=/usr/local/scala
+export HADOOP_HOME=/usr/local/hadoop3
+export HADOOP_CONF_DIR=/usr/local/hadoop3/etc/hadoop
+export SPARK_WORKER_MEMORY=1024m
+export SPARK_WORKER_CORES=3
+export SPARK_DAEMON_JAVA_OPTS="-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=Master:2181,Second:2181,Slave:2181 -Dspark.deploy.zookeeper.dir=/spark2"
+cp slaves.template slaves
+Master
+Second
+Slave
+
+cp sbin/start-all.sh sbin/start-spark-all.sh
+cp sbin/stop-all.sh sbin/stop-spark-all.sh
+
+
+spark2.3/sbin/start-all.sh
+spark2.3/sbin/start-master.sh
+http://master:8080/
+执行第一个Spark程序
+spark-submit \
+--class org.apache.spark.examples.SparkPi \
+--master spark://Master:7077,Second:7077 \
+--executor-memory 1024m \
+--total-executor-cores 2 \
+/usr/local/spark2.3/examples/jars/spark-examples_2.11-2.3.1.jar 1000
+
+
+启动spark shell
+spark-shell \
+--master spark://Master:7077,Second:7077 \
+--executor-memory 1024m \
+--total-executor-cores 2
+
+vi BigData/sparkdata/helloworld.dat
+you,jump
+i,jump
+you,jump
+i,jump
+jump
+
+hdfs dfs -put BigData/sparkdata/helloworld.dat /spark2.3/
+sc.textFile("/bigdata/input/WordCount").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).saveAsTextFile("/bigdata/output")
+hadoop fs -cat /bigdata/output/p*
+
+启动Spark on YARN
+ spark-shell --master yarn --deploy-mode client
+
+
+
+
+spark-sql on hive:拷贝core-site.xml hive-site.xml 到spark 的conf目录下
+
+
+
+ spark-sql --master spark://Master:7077
+
+
+
+
+
+
+
+
+
+
+
+
+

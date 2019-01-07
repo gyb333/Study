@@ -23,14 +23,14 @@
     <name>dfs.replication</name>
     <value>3</value>
   </property>
-  <property>  
-    <name>dfs.blocksize</name>  
-    <value>31457280</value>  
-  </property>  
-  <property>  
-    <name>dfs.namenode.fs-limits.min-block-size</name>  
-    <value>31457280</value>  
-  </property>  
+  <!--<property>  -->
+    <!--<name>dfs.blocksize</name>  -->
+    <!--<value>31457280</value>  -->
+  <!--</property>  -->
+  <!--<property>  -->
+    <!--<name>dfs.namenode.fs-limits.min-block-size</name>  -->
+    <!--<value>31457280</value>  -->
+  <!--</property>  -->
   <property>
     <name>dfs.permissions</name>
     <value>false</value>
@@ -38,11 +38,11 @@
   <!-- 配置namenode和datanode的工作目录-数据存储目录 -->
   <property>
     <name>dfs.name.dir</name>
-    <value>/usr/local/bigdata/hadoop3/name</value>
+    <value>/usr/local/bigdata/hadoop/name</value>
   </property>
   <property>
     <name>dfs.data.dir</name>
-    <value>/usr/local/bigdata/hadoop3/data</value>
+    <value>/usr/local/bigdata/hadoop/data</value>
   </property>
   
    <!-- 启用webhdfs -->
@@ -91,7 +91,7 @@
   <!-- 指定JournalNode在本地磁盘存放数据的位置 -->
   <property>
     <name>dfs.journalnode.edits.dir</name>
-    <value>/usr/local/bigdata/hadoop3/journaldata</value>
+    <value>/usr/local/bigdata/hadoop/journaldata</value>
   </property>
   <!-- 开启NameNode失败自动切换 -->
   <property>

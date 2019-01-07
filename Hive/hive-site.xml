@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?><!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<configuration>
+    <property>
+        <name>hive.materializedview.fileformat</name>
+        <value>TextFile</value>
+        <description>
+            Expects one of [none, textfile, sequencefile, rcfile, orc].
+            Default file format for CREATE MATERIALIZED VIEW statement
+        </description>
+    </property>
+    <property>
+        <name>hive.exec.scratchdir</name>
+        <value>/bigdata/hive3/tmp</value>
+    </property>
+    <property>
+        <name>hive.metastore.warehouse.dir</name>
+        <value>/bigdata/hive3/warehouse</value>
+    </property>
+    <property>
+        <name>hive.querylog.location</name>
+        <value>/bigdata/hive3/log</value>
+    </property>
+    <property>
+            <name>hive.metastore.uris</name>
+            <value>thrift://Master:9083</value>
+            <description>Thrift URI for the remote metastore. Used by metastore client to connect to remote metastore.</description>
+    </property>
+
+    <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:mysql://Master:3306/hive3?createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>com.mysql.cj.jdbc.Driver</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>root</value>
+    </property>
+
+    <!-- hive on mr-->
+
+    <!--<property>-->
+        <!--<name>mapred.job.tracker</name>-->
+        <!--<value>http://Master:9001</value>-->
+    <!--</property>-->
+    <!--<property>-->
+        <!--<name>mapreduce.framework.name</name>-->
+        <!--<value>yarn</value>-->
+    <!--</property>-->
+
+    <!--hive on spark or spark on yarn -->
+    <property>
+        <name>hive.execution.engine</name>
+        <value>spark</value>
+    </property>
+    <property>
+        <name>spark.home</name>
+        <value>/usr/local/spark2.3</value>
+    </property>
+    <property>
+        <name>spark.master</name>
+        <value>spark://Master:7077,Second:7077</value>
+    </property>
+    <property>
+        <name>spark.submit.deployMode</name>
+        <value>client</value>
+    </property>
+    <property>
+        <name>spark.eventLog.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>spark.eventLog.dir</name>
+        <value>hdfs://ns/bigdata/spark/log</value>
+    </property>
+    <property>
+        <name>spark.serializer</name>
+        <value>org.apache.spark.serializer.KryoSerializer</value>
+    </property>
+    <property>
+        <name>spark.executor.memeory</name>
+        <value>512m</value>
+    </property>
+    <property>
+        <name>spark.driver.memeory</name>
+        <value>512m</value>
+    </property>
+    <property>
+        <name>spark.executor.extraJavaOptions</name>
+        <value>-XX:+PrintGCDetails -Dkey=value -Dnumbers="one two three"</value>
+    </property>
+</configuration>
