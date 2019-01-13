@@ -7,6 +7,7 @@ import java.io.ObjectOutputStream
 
 class MapTask extends Serializable {
 
+
   //以后该如何执行，根据RDD的转换关系（调用那个方法，传入了什么函数）
 
   def m1(path: String): String = {

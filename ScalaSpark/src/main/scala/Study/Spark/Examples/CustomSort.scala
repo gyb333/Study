@@ -45,7 +45,7 @@ object CustomSort {
     implicit val rules = Ordering[(Int, Int)].on[(String, Int, Int)](t => (-t._3, t._2))
     result = result.sortBy(f => f)
 
-    println(result.collect.toBuffer)
+    println(result.collect.take(5).toBuffer)
 
   }
 }
