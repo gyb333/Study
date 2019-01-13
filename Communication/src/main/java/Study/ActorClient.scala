@@ -1,5 +1,6 @@
 package Study
 
+import akka.actor.{Actor, ActorSelection, ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
 import scala.io.StdIn
@@ -42,7 +43,7 @@ object ClientActor{
     val clientSystem = ActorSystem("client", config)
 
     // 创建dispatch | mailbox
-    val actorRef = clientSystem.actorOf(Props(new ClientActor(serverHost, serverPort.toInt)), "NMW-002")
+    val actorRef = clientSystem.actorOf(Props(new ActorClient(serverHost, serverPort.toInt)), "NMW-002")
 
     actorRef ! "start" // 自己给自己发送了一条消息 到自己的mailbox => receive
 

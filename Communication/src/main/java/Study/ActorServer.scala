@@ -1,5 +1,6 @@
 package Study
 
+import akka.actor.{Actor, ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
 
@@ -30,7 +31,7 @@ object ActorServer{
          |akka.remote.netty.tcp.port=$port
           """.stripMargin)
     val as=ActorSystem("Server",config)
-    val sa=as.actorOf(Props[ServerActor], "gyb")
+    val sa=as.actorOf(Props[ActorServer], "gyb")
     sa ! "start"
   }
 }
