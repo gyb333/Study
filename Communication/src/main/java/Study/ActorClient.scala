@@ -25,7 +25,7 @@ class ActorClient (host: String, port: Int) extends Actor {
 
 }
 
-object ClientActor{
+object ActorClient{
   def main(args: Array[String]): Unit = {
     val host = "127.0.0.1"
     val port  = 8089
