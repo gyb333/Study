@@ -1,7 +1,6 @@
 package Study.ScalaSpark
 
-import akka.actor.{ Actor, ActorSystem, Props }
-
+import akka.actor.{Actor, ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
 import scala.concurrent.duration._

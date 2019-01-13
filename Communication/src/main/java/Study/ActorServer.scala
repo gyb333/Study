@@ -2,6 +2,8 @@ package Study
 
 import com.typesafe.config.ConfigFactory
 
+
+
 class ActorServer extends Actor{
   override def receive:Receive={
     case "start" => println("老娘已就绪 ！")
