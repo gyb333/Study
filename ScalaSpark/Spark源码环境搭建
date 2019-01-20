@@ -1,0 +1,34 @@
+https://codeload.github.com/apache/spark/zip/v1.3.0
+https://codeload.github.com/apache/spark/zip/v2.1.3
+
+git clone git://github.com/apache/spark.git -b branch-1.3
+git clone git://github.com/apache/spark.git -b branch-2.3
+
+解压文件，有需要可以修改pom.xml文件，调整对应的版本
+     <java.version>1.7</java.version>
+     <hadoop.version>2.4.1</hadoop.version>
+     <protobuf.version>2.5.0</protobuf.version>
+     <hbase.version>0.98.9-hadoop2</hbase.version>
+     <zookeeper.version>3.4.6</zookeeper.version>
+
+
+打开git-shell,cd 到解压目录
+windows输入命令：mvn -DskipTests clean package
+liunx输入命令： ./build/mvn -DskipTests clean package
+
+运行 spark-shell
+
+idea 导入项目，运行example中的例子，如果出现错误，
+则在Maven Projects找到对应该项目，右键点击Generate Sources and Update Folders
+
+在Run 配置运行参数
+ VM options: -Dspark.master=local
+ 勾选 provide的
+
+
+ build.sbt文件中的
+
+libraryDependencies += "org.apache.spark" % "spark-core_2.11" % "2.1.1" % "provide"
+改成
+libraryDependencies += "org.apache.spark" % "spark-core_2.11" % "2.1.1" % "compile"
+

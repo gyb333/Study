@@ -3,6 +3,16 @@ package Study.ScalaSpark
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 
+import scala.reflect.ClassTag
+class T[T: ClassTag](){
+  def func=(index: Int, iter: Iterator[T]) => {
+    iter.map(x => "[partID:" + index + ", val: " + x + "]")
+  }
+
+}
+
+
+
 object RDDAPI {
 
   def main(args: Array[String]): Unit = {
@@ -18,8 +28,11 @@ object RDDAPI {
     val funcInt = (index: Int, iter: Iterator[Int]) => {
       iter.map(x => "[partID:" + index + ", val: " + x + "]")
     }
+
+
+
     val rdd = sc.parallelize(List(1, 2, 3, 4, 5, 6, 7, 8, 9), 2)
-    rdd.mapPartitionsWithIndex(funcInt).collect.foreach(println)
+    rdd.mapPartitionsWithIndex(new T[Int].func).collect.foreach(println)
 
     //-------------------------------------------------------------------------------------------
     //-------------------------------------------------------------------------------------------
@@ -95,7 +108,7 @@ object RDDAPI {
     def funcTuple(index: Int, iter: Iterator[(String, Int)]): Iterator[String] = {
       iter.map(x => "[partID:" + index + ", val: " + x + "]")
     }
-    pairRDD.mapPartitionsWithIndex(funcTuple).collect.foreach(println)
+    pairRDD.mapPartitionsWithIndex(new T[(String,Int)].func).collect.foreach(println)
     println("-----------------------------------")
     pairRDD.aggregateByKey(0)(math.max(_, _), _ + _).collect.foreach(println)
     //Array[(String, Int)] = Array((dog,12), (cat,17), (mouse,6))
