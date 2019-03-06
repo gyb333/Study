@@ -20,4 +20,6 @@ make MALLOC=libc && make install
 mkdir /usr/local/redis
 cp /usr/local/src/redis-5.0.0/redis.conf /usr/local/redis
 11.修改所有机器的配置文件redis.conf
-daemonize yes  #redis后台运行appendonly yes  #开启aof日志，它会每次写操作都记录一条日志bind 192.168.1.207
+daemonize yes  #redis后台运行
+appendonly yes  #开启aof日志，它会每次写操作都记录一条日志
+bind 192.168.1.207
