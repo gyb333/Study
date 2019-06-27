@@ -46,7 +46,7 @@ public class DistributedJob implements JobBase {
             PropertyConfigurator.configure(is);
             //PropertyConfigurator.configure(path + "\\Resources\\log4j.properties");
 
-//			System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
+			System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
 
             System.setProperty("HADOOP_USER_NAME", "root");
 

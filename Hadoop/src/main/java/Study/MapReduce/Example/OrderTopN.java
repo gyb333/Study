@@ -101,7 +101,7 @@ public class OrderTopN  extends DistributedJob{
 	public static void main(String[] args) throws Exception {
 		 
 		String clsName = OrderTopN.class.getSimpleName();
-		boolean isLocaltion = false;
+		boolean isLocaltion = true;
 		Class<? extends Mapper> clsMapper = OrderTopNMapper.class;
 		Class<? extends Reducer> clsReducer = OrderTopNReducer.class;
 		Class<?> clsMapOutputKey = OrderBean.class;

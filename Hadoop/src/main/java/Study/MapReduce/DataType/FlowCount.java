@@ -62,7 +62,7 @@ public class FlowCount extends DistributedJob{
 	public static void main(String[] args) throws Exception {
   
 		String clsName = FlowCount.class.getSimpleName();
-		boolean isLocaltion = false;
+		boolean isLocaltion = true;
 		Class<? extends Mapper> clsMapper = FlowCountMapper.class;
 		Class<? extends Reducer> clsReducer = FlowCountReducer.class;
 		Class<?> clsMapOutputKey = Text.class;

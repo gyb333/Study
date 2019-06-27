@@ -140,7 +140,7 @@ public class PageTopN {
 
     public static void main(String[] args) throws Exception {
         new DistributedJob().execJob(PageTopN.class.getSimpleName(),
-                false,PageTopNMapper.class,PageTopNReducer.class,
+                true,PageTopNMapper.class,PageTopNReducer.class,
                 Text.class,IntWritable.class,Text.class,IntWritable.class,true
         );
 

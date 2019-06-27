@@ -27,7 +27,7 @@ public class WordCount {
             InputStream is = WordCount.class.getResourceAsStream("/log4j.properties");
             PropertyConfigurator.configure(is);
 
-            //System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
+            System.load("D:\\Program Files\\hadoop-3.0.0\\bin\\hadoop.dll");
         } catch (UnsatisfiedLinkError e) {
             System.err.println("Native code library failed to load.\n" + e);
             System.exit(1);
@@ -35,7 +35,7 @@ public class WordCount {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-        boolean isLocaltion = false;
+        boolean isLocaltion = true;
         String strOutput = "/bigdata/output/WordCount";
         String strInput = "/bigdata/input/WordCount";
         Path baseDir = new Path(path).getParent();

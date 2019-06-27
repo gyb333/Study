@@ -18,7 +18,21 @@ import java.util.Collections;
  * D:A,E,F,L
  * 输出
  * B-C：A
- */
+ **/
+
+/**
+ * 输入
+ * A:B,C,D,F,E,O
+ * B:A,C,E,K
+ * C:F,A,D,I
+ * D:A,E,F,L
+ *
+ * 输出
+ *B A
+ *C A
+ * */
+
+
 public class CommonFriendsOne extends DistributedJob {
 
     public static class CommonFriendsOneMapper extends Mapper<LongWritable, Text, Text, Text> {
@@ -79,7 +93,7 @@ public class CommonFriendsOne extends DistributedJob {
 
     public static void main(String[] args) throws Exception {
         String clsName = CommonFriendsOne.class.getSimpleName();
-        boolean isLocaltion = false;
+        boolean isLocaltion = true;
         Class<? extends Mapper> clsMapper = CommonFriendsOneMapper.class;
         Class<? extends Reducer> clsReducer = CommonFriendsOneReducer.class;
         Class<?> clsMapOutputKey = Text.class;
