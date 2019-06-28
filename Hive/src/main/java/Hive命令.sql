@@ -11,7 +11,9 @@
  *return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask (state=08S01,code=2);
  *namenode处于safemode状态，然后进入namenode所在节点通过使用
   hdfs dfsadmin -safemode leave命令退出安全模式，就可以解决问题。
-  
+
+  set yarn.resourcemanager.zk-address=zkMaster:2181,zkSecond:2181,zkSlave:2181;
+
 Exit code is 143 Container exited with a non-zero exit code 143
 hive (default)> SET mapreduce.map.memory.mb;
 		mapreduce.map.memory.mb=512
@@ -21,7 +23,8 @@ hive (default)> SET yarn.nodemanager.vmem-pmem-ratio;
 		yarn.nodemanager.vmem-pmem-ratio=4.2
 因此，单个map和reduce分配物理内存512M；虚拟内存限制512*4.2=2.1G；
 单个reduce处理数据量超过内存1G的限制导致；设置 mapreduce.reduce.memory.mb=1024 解决
-这就是说当资源不够是，AppMaster会kill掉reduce释放资源给map。解决办法是调整mapreduce.job.reduce.slowstart.completedmaps参数，默认为0.05，即map完成0.05后reduce就开始copy，如果集群资源不够，有可能导致reduce把资源全抢光，可以把这个参数调整到0.8，map完成80%后才开始reduce copy。
+这就是说当资源不够是，AppMaster会kill掉reduce释放资源给map。
+解决办法是调整mapreduce.job.reduce.slowstart.completedmaps参数，默认为0.05，即map完成0.05后reduce就开始copy，如果集群资源不够，有可能导致reduce把资源全抢光，可以把这个参数调整到0.8，map完成80%后才开始reduce copy。
 SET mapreduce.job.reduce.slowstart.completedmaps=0.8
 
 schematool -dbType mysql -initSchema

@@ -34,7 +34,7 @@ create table t_access(username string,month string,counts int)
 row format delimited 
 fields terminated by ',';
 
-load data local inpath '/usr/local/BigData/hivedata/t_access.dat' into table t_access;
+load data local inpath '/usr/local/data/t_access.dat' into table t_access;
 
 select username,month,counts,
 sum(counts) over(partition by username order by month 

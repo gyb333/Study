@@ -77,6 +77,13 @@ from
 group by word
 order by counts desc;
 
+select words.word,count(1) as counts
+from
+(select explode(split("a b c d e f a b c d e f g"," ")) as word
+) words
+group by word
+order by counts desc;
+
 --利用explode和lateral view 实现hive版的wordcount
 /*
 a b c d e f g
@@ -116,7 +123,7 @@ create table tb_kc(name string,kcId string,score int)
 row format delimited
 fields terminated by ',';
 
-load data local inpath '/usr/local/BigData/hivedata/kc' into table tb_kc;
+load data local inpath '/usr/local/data/kc' into table tb_kc;
 
 select *,row_number() over(partition by name order by score desc) as rank from tb_kc;
 /*

@@ -25,7 +25,7 @@ DATE (Note: Only available starting with Hive 0.12.0)
 create table t_customer(id int,name string,birthday date)
 row format delimited fields terminated by ',';
 --然后导入数据
-load data local inpath '/root/customer.dat' into table t_customer;
+load data local inpath '/usr/local/data/customer.dat' into table t_customer;
 
 /*
 字符串类型
@@ -53,7 +53,7 @@ row format delimited fields terminated by ','
 collection items terminated by ':';
 
 --导入数据：
-load data local inpath '/usr/local/BigData/hivedata/movie.dat' into table t_movie;
+load data local inpath '/usr/local/data/movie.dat' into table t_movie;
 
 --查询：
 select * from t_movie;
@@ -78,7 +78,7 @@ row format delimited fields terminated by ','
 collection items terminated by '#'
 map keys terminated by ':';
 
-load data local inpath '/usr/local/BigData/hivedata/person.dat' into table t_person;
+load data local inpath '/usr/local/data/person.dat' into table t_person;
 select * from t_person;
 
 --## 取map字段的指定key的值
@@ -113,7 +113,7 @@ create table t_person_struct(id int,name string,info struct<age:int,sex:string,a
 row format delimited fields terminated by ','
 collection items terminated by ':';
 
-load data local inpath '/usr/local/BigData/hivedata/person_struct.dat' into table t_person_struct;
+load data local inpath '/usr/local/data/person_struct.dat' into table t_person_struct;
 
 select * from t_person_struct;
 select id,name,info.age from t_person_struct;
