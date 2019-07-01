@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cd71e4e-dd9b-447e-8f7b-20f7c91124c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoDB/MongoDB操作" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoDB操作" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoDB/MongoDB集群操作" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoDB集群操作" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoDB/mongod.conf" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/mongod.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoDB/mongos.conf" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/mongos.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoDB/src/main/java/Study/MongoSparkRDD.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Redis/Redis安装" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Redis/Redis安装" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Redis/Redis集群操作" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Redis/Redis集群操作" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Redis/create-cluster" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Redis/create-cluster" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Redis/redisManager.sh" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Redis/redisManager.sh" afterDir="false" />
-    </list>
+    <list default="true" id="2cd71e4e-dd9b-447e-8f7b-20f7c91124c5" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/ScalaLearn/target/" />
     <ignored path="$PROJECT_DIR$/ScalaSpark/target/" />
     <ignored path="$PROJECT_DIR$/RPC/target/" />
@@ -47,6 +33,7 @@
     <session id="-1959379138">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -80,49 +67,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Storm/src/main/java/Study/Storm/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Storm/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-566" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Redis/src/main/java/Study/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Redis/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1494" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MongoDB/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -244,7 +189,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561969794192" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561969898050" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -295,12 +240,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561967073050</updated>
-      <workItem from="1561967077500" duration="2640000" />
+      <workItem from="1561967077500" duration="2802000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2640000" />
+    <option name="totallyTimeSpent" value="2802000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -623,7 +568,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Redis/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1494" />
+        <state relative-caret-position="362">
+          <caret line="64" column="10" lean-forward="true" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+        </state>
       </provider>
     </entry>
   </component>
