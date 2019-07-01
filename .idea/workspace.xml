@@ -1,7 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2cd71e4e-dd9b-447e-8f7b-20f7c91124c5" name="Default Changelist" comment="" />
+    <list default="true" id="2cd71e4e-dd9b-447e-8f7b-20f7c91124c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/Flume.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/Resources/ag1.conf" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/ag1.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/Resources/kafka-hdfs.conf" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/kafka-hdfs.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/src/main/java/Study/Flume/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/src/main/java/Study/Flume/Interceptor/JsonInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/Interceptor/JsonInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/src/main/java/Study/Flume/Source/TailFileSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/Source/TailFileSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/src/tail" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/tail" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/src/test/java/Study/Flume/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/src/命令" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/命令" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flume/src/目录采集" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/目录采集" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/HBase.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/HBase命令.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBase命令.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseDDLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseDDLUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseDMLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseDMLUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseUtilsOld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseUtilsOld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/resources/core-site.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/resources/hbase-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/hbase-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/test/java/Study/HBase/DDLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HBase/src/test/java/Study/HBase/DMLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/ConfigUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/ConfigUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/HDFSHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/HDFSHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/HDFSUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/HDFSUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/HdfsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/HdfsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DataType/FlowBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DataType/FlowCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowCount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DataType/FlowCountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowCountMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DataType/FlowCountReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowCountReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DistributedJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DistributedJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/Example/CommonFriendsOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/Example/CommonFriendsOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/Example/OrderBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/Example/OrderBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/Example/OrderTopN.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/Example/OrderTopN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/HmbbsCleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/HmbbsCleaner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/InvertedIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/InvertedIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/JobBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/JobBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/MapSideJoin/MapJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/MapSideJoin/MapJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/MapSideJoin/OrderDetailBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/MapSideJoin/OrderDetailBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/MapSideJoin/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/MapSideJoin/UserBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/MyPartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/MyPartitioner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/CompareKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/CompareKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/GroupingComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/GroupingComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/OrderIDPartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/OrderIDPartitioner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/ReduceJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/ReduceJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/ReduceSideFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/ReduceSideFlag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/TopN/PageTopN.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/TopN/PageTopN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/WordCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/WordCount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/WordCountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/WordCountMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/WordCountReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/WordCountReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/CompressUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/CompressUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/FastJsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/FastJsonUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/ProtostuffUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/ProtostuffUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/SerializationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/SerializationBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/SerializerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/SerializerUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/WritableUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/WritableUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/test/java/Study/FileUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/test/java/Study/FileUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/test/java/Study/HDFSUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/test/java/Study/HDFSUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hadoop/src/test/java/Study/SerializationBeanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/test/java/Study/SerializationBeanTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/Hive on Spark 安装配置" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive on Spark 安装配置" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/Hive.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/hive-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/hive-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive命令.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive命令.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive复杂处理.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive复杂处理.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive复杂数据类型.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive复杂数据类型.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive常用函数.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive常用函数.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive窗口处理函数.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive窗口处理函数.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive自定义函数开发.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive自定义函数开发.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Study/Hive/HiveJdbcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/HiveJdbcClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/Kafka.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Resources/KafkaConsumer.Properties" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/KafkaConsumer.Properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Resources/KafkaOld.Properties" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/KafkaOld.Properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Resources/KafkaProducer.Properties" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/KafkaProducer.Properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/CommonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/CounterInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/CounterInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/CustomPartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/CustomPartitioner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/KfkConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/KfkConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/KfkProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/KfkProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/LogProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/LogProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/LogStreamApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/LogStreamApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/TimeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/TimeInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/技术思想.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/技术思想.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/笔记.txt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/ScalaLearn/target/" />
     <ignored path="$PROJECT_DIR$/ScalaSpark/target/" />
     <ignored path="$PROJECT_DIR$/RPC/target/" />
@@ -33,41 +139,60 @@
     <session id="-1959379138">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="iml" value="4" />
-          <entry key="java" value="27" />
-          <entry key="scala" value="3" />
-          <entry key="xml" value="13" />
+          <entry key="classpath" value="1" />
+          <entry key="iml" value="5" />
+          <entry key="java" value="47" />
+          <entry key="properties" value="2" />
+          <entry key="scala" value="4" />
+          <entry key="xml" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="IDEA_MODULE" value="4" />
-          <entry key="JAVA" value="27" />
-          <entry key="Scala" value="3" />
-          <entry key="XML" value="13" />
+          <entry key="Eclipse" value="1" />
+          <entry key="IDEA_MODULE" value="5" />
+          <entry key="JAVA" value="47" />
+          <entry key="Properties" value="2" />
+          <entry key="Scala" value="4" />
+          <entry key="XML" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="xml" value="1" />
+          <entry key="xml" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="XML" value="1" />
+          <entry key="XML" value="19" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Hadoop/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="22" column="53" lean-forward="true" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+              <folding>
+                <element signature="n#build#0;n#project#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,6 +200,13 @@
         <option value="Scala Object" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>hadoop-common</find>
+      <find>hadoop-mapreduce-client-core</find>
+      <find>hadoop-mapreduce-client-common</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,6 +217,7 @@
         <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
         <option value="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoSparkRDD.scala" />
         <option value="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala" />
+        <option value="$PROJECT_DIR$/Hadoop/pom.xml" />
       </list>
     </option>
   </component>
@@ -128,68 +261,55 @@
           <expand>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="MapReduce" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="MapReduce" type="462c0819:PsiDirectoryNode" />
+              <item name="DataType" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561969898050" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561973732641" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -203,10 +323,11 @@
       <recent name="Study" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\work\Study\JavaBase\src\main\java\MongoDB" />
-      <recent name="D:\work\Study\JavaBase\src\main\java\Redis" />
-      <recent name="D:\work\Study\JavaBase\src\main\java" />
-      <recent name="D:\work\Study\BigData\Sqoop" />
+      <recent name="D:\work\Study\Hadoop\src\Resources" />
+      <recent name="D:\work\Study\Hadoop\src\main\java\Kafka" />
+      <recent name="D:\work\Study\Hadoop\src\main\java\Flume" />
+      <recent name="D:\work\Study\Hadoop\src\main\java\Hive" />
+      <recent name="D:\work\Study\Hadoop\src\main\java\HBase" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -241,11 +362,13 @@
       <option name="presentableId" value="Default" />
       <updated>1561967073050</updated>
       <workItem from="1561967077500" duration="2802000" />
+      <workItem from="1561970046404" duration="1080000" />
+      <workItem from="1561971196141" duration="2532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2802000" />
+    <option name="totallyTimeSpent" value="6414000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -259,21 +382,49 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Capture Tool" />
-      <window_info id="Web" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18869936" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19296375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Spring" />
-      <window_info anchor="bottom" id="Terminal" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.329718" />
-      <window_info anchor="bottom" id="Java Enterprise" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" weight="0.329718" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.329718" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="BPMNPalette" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19083156" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -281,52 +432,24 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="BPMNPalette" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Designer" order="0" />
-      <window_info id="Image Layers" order="1" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Web" order="5" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.18869936" />
-      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Spring" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="3" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Java Enterprise" order="4" />
-      <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" />
-      <window_info anchor="bottom" id="Run" order="9" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="BPMNPalette" order="2" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Bean Validation" order="7" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="8" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="BPMNPalette" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,31 +459,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Sqoop/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-262" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hive/src/main/java/Study/Hive/HiveJdbcClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1479">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mybatis/Mybatis.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AOP/AOP.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/DynamicProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/ITask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -375,21 +473,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AOP/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="26" selection-start-line="26" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/AOP/pom.xml" />
     <entry file="file://$PROJECT_DIR$/Communication/Communication.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-194" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConcurrencySynchronization/ConcurrencySynchronization.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ConcurrencySynchronization/ConcurrencySynchronization.iml" />
     <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/MultiThreadShareData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
@@ -425,20 +515,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConcurrencySynchronization/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1204">
-          <caret line="7" column="40" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Communication/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ConcurrencySynchronization/pom.xml" />
     <entry file="jar://D:/Java/jdk1.8/src.zip!/java/lang/Runnable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -450,9 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -484,13 +558,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Nats/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-348">
-          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="44" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Nats/pom.xml" />
     <entry file="file://$PROJECT_DIR$/JavaBase/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -498,9 +566,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mybatis/src/main/java/Study/App.java">
+    <entry file="file://$PROJECT_DIR$/Mybatis/src/main/java/Study/App.java" />
+    <entry file="file://$PROJECT_DIR$/Storm/src/main/java/Study/Storm/App.java" />
+    <entry file="file://$PROJECT_DIR$/Storm/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/Redis/src/main/java/Study/App.java" />
+    <entry file="file://$PROJECT_DIR$/MongoDB/src/main/java/Study/MongoSparkRDD.scala" />
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoSparkRDD.scala" />
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MongoDB/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/MongoDB/src/main/java/Study/App.java" />
+    <entry file="file://$PROJECT_DIR$/Redis/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/HBase/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/Resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HBase/src/resources/log4j.properties" />
+    <entry file="file://$PROJECT_DIR$/HBase/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Serializer/SerializerUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hive/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/Communication/src/main/java/Study/IOServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Communication/src/main/java/Study/ActorServer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Communication/src/main/java/Study/IOClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
@@ -512,64 +630,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Storm/src/main/java/Study/Storm/App.java">
+    <entry file="file://$PROJECT_DIR$/Flume/Flume.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flume/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="522">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Storm/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-566" />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Flume/.classpath">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Redis/src/main/java/Study/App.java">
+    <entry file="file://$PROJECT_DIR$/Communication/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        <state relative-caret-position="29">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MongoDB/src/main/java/Study/MongoSparkRDD.scala">
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Flume/Source/TailFileSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-943">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="1218">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoSparkRDD.scala">
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Flume/Interceptor/JsonInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        <state relative-caret-position="304">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MongoDB/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MongoDB/src/main/java/Study/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Redis/pom.xml">
+    <entry file="file://$PROJECT_DIR$/Kafka/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
-          <caret line="64" column="10" lean-forward="true" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+          <caret line="47" column="21" selection-start-line="27" selection-start-column="8" selection-end-line="47" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Kafka/TimeInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Kafka/CounterInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/GroupingComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hadoop/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="22" column="53" lean-forward="true" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+          <folding>
+            <element signature="n#build#0;n#project#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

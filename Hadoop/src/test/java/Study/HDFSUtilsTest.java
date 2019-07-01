@@ -1,7 +1,7 @@
 package Study;
 
 
-import Study.HDFS.HDFSUtils;
+import HDFS.HDFSUtils;
 import org.apache.hadoop.hdfs.protocol.DatanodeInfo;
 import org.junit.Assert;
 import org.junit.Test;

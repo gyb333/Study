@@ -1,6 +1,6 @@
 package Study;
 
-import Study.HDFS.FileUtils;
+import HDFS.FileUtils;
 import org.junit.Test;
 
 import java.io.File;

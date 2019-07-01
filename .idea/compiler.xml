@@ -9,12 +9,8 @@
         <module name="Bicycle" />
         <module name="Communication" />
         <module name="ElasticSearch" />
-        <module name="Flume" />
         <module name="Hadoop" />
-        <module name="HBase" />
-        <module name="Hive" />
         <module name="JavaBase" />
-        <module name="Kafka" />
         <module name="RPC" />
         <module name="ScalaLearn" />
         <module name="ScalaSpark" />
@@ -24,6 +20,10 @@
     <bytecodeTargetLevel>
       <module name="AOP" target="1.5" />
       <module name="ConcurrencySynchronization" target="1.8" />
+      <module name="Flume" target="1.5" />
+      <module name="HBase" target="1.8" />
+      <module name="Hive" target="1.5" />
+      <module name="Kafka" target="1.5" />
       <module name="MongoDB" target="1.8" />
       <module name="Mybatis" target="1.7" />
       <module name="Nats" target="1.8" />

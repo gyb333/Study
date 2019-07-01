@@ -5,10 +5,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/RPC/pom.xml" />
-        <option value="$PROJECT_DIR$/Hive/pom.xml" />
-        <option value="$PROJECT_DIR$/Flume/pom.xml" />
-        <option value="$PROJECT_DIR$/HBase/pom.xml" />
-        <option value="$PROJECT_DIR$/Kafka/pom.xml" />
         <option value="$PROJECT_DIR$/Hadoop/pom.xml" />
         <option value="$PROJECT_DIR$/Bicycle/pom.xml" />
         <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
