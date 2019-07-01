@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="AOP" />
+        <module name="Bicycle" />
+        <module name="Communication" />
+        <module name="ConcurrencySynchronization" />
+        <module name="ElasticSearch" />
+        <module name="Flume" />
+        <module name="Hadoop" />
+        <module name="HBase" />
+        <module name="Hive" />
+        <module name="JavaBase" />
+        <module name="Kafka" />
+        <module name="MongoDB" />
+        <module name="Mybatis" />
+        <module name="Nats" />
+        <module name="Redis" />
+        <module name="RPC" />
+        <module name="ScalaLearn" />
+        <module name="ScalaSpark" />
+        <module name="Sqoop" />
+        <module name="Storm" />
+        <module name="Zookeeper" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
