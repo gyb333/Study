@@ -2,16 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cd71e4e-dd9b-447e-8f7b-20f7c91124c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/hydra.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HadoopData/Hive3/Test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HadoopData/input/CommonFriendsOne" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HadoopData/input/FlowCount" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HadoopData/input/OrderTopN" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HadoopData/input/rating.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HadoopData/input/request.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/AOP.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/Cglib/CglibProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/Cglib/CglibProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/DynamicProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/DynamicProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/ITask.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/ITask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/RealTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/RealTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/StaticProxy/ProxyPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/StaticProxy/ProxyPattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/StaticProxy/TaskProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/StaticProxy/TaskProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AOP/src/test/java/Study/AOP/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/ConcurrencySynchronization.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/BlockingQueueCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/BlockingQueueCommunication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/BlockingQueueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/BlockingQueueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CacheDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CacheDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CallableAndFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CallableAndFuture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CollectionModifyExceptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CollectionModifyExceptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/ConditionCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/ConditionCommunication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CountdownLatchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CountdownLatchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CyclicBarrierTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CyclicBarrierTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/ExchangerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/ExchangerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/LockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/LockTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/ReadWriteLockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/ReadWriteLockTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/SemaphoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/SemaphoreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/ThreadPoolTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/ThreadPoolTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/MultiThreadShareData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/MultiThreadShareData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/ThreadLocalShareData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/ThreadLocalShareData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/ThreadScopeShareData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/ThreadScopeShareData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/TraditionalThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/TraditionalThreadCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThreadCommunication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/TraditionalThreadSynchronized.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThreadSynchronized.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/TraditionalTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/StudyCompletableFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/StudyCompletableFuture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Common/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Common/CommonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Common/ConfigUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Common/ConfigUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Common/SQLBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Common/SQLBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/DAO/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/DAO/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/DAO/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/IDAO/IBaseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/IDAO/IBaseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/IDAO/IStudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/IDAO/IStudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/IDAO/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/IDAO/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/BaseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/BaseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/DAOException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/DataSource/ConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/DataSource/ConnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/IRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/IRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/IRowsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/IRowsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/JdbcUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/JdbcUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/MySqlFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/MySqlFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/PreparedSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/PreparedSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/RowsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/RowsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/SQLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/SQLUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/TypeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/TypeUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/Mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/Mapper/StudentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/Mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/Mapper/StudentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/MybatisUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/MybatisUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/domain/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/domain/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/MybatisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/MybatisTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/StudentDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/StudentDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nats/Nats.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nats/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nats/src/main/java/Study/NatsAuthHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsAuthHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nats/src/main/java/Study/NatsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nats/src/main/java/Study/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Nats/Publisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Nats/src/main/java/Study/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Nats/Subscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sqoop/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sqoop/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sqoop/Sqoop.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sqoop/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sqoop/src/main/java/Sqoop2基础命令.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Sqoop/Sqoop2基础命令.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sqoop/src/main/java/Sqoop基础命令.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Sqoop/Sqoop基础命令.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sqoop/src/main/java/Study/Sqoop/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sqoop/src/test/java/Study/Sqoop/AppTest.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/ScalaLearn/target/" />
     <ignored path="$PROJECT_DIR$/ScalaSpark/target/" />
@@ -48,10 +126,102 @@
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="iml" value="4" />
+          <entry key="java" value="22" />
+          <entry key="xml" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="IDEA_MODULE" value="4" />
+          <entry key="JAVA" value="22" />
+          <entry key="XML" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
     </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/StudyCompletableFuture.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsAuthHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/Publisher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/Subscriber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JavaBase/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="87" selection-start-line="87" selection-end-line="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -95,6 +265,93 @@
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
               <item name="Study" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="Nats" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="Nats" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="Nats" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
+              <item name="Nats" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -106,10 +363,23 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561967366184" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561969073211" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="Study" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\Study\JavaBase\src\main\java" />
+      <recent name="D:\work\Study\BigData\Sqoop" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -142,12 +412,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561967073050</updated>
-      <workItem from="1561967077500" duration="287000" />
+      <workItem from="1561967077500" duration="1972000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287000" />
+    <option name="totallyTimeSpent" value="1972000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -158,21 +437,22 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Web" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1108742" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18869936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Spring" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.329718" />
       <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Version Control" weight="0.329718" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="right" id="Palette" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="BPMNPalette" />
@@ -185,6 +465,41 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info id="Image Layers" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Web" order="5" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.18869936" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Spring" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" order="3" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" />
+      <window_info anchor="bottom" id="Run" order="9" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="BPMNPalette" order="2" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Bean Validation" order="7" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="8" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -192,11 +507,254 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Sqoop/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-262" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hive/src/main/java/Study/Hive/HiveJdbcClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1479">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mybatis/Mybatis.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AOP/AOP.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mybatis/src/main/java/Study/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/DynamicProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/ITask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/RealTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AOP/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="26" selection-start-line="26" selection-end-line="30" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Communication/Communication.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-194" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConcurrencySynchronization/ConcurrencySynchronization.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/MultiThreadShareData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="69" column="6" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/ThreadLocalShareData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/ThreadScopeShareData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThreadCommunication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConcurrencySynchronization/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1204">
+          <caret line="7" column="40" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Communication/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Java/jdk1.8/src.zip!/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/StudyCompletableFuture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsAuthHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/Publisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/Subscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Nats/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-348">
+          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="44" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+  </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>scala-sdk-2.11.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>JavaBase</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -4,19 +4,16 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/AOP/pom.xml" />
         <option value="$PROJECT_DIR$/RPC/pom.xml" />
         <option value="$PROJECT_DIR$/Hive/pom.xml" />
         <option value="$PROJECT_DIR$/Flume/pom.xml" />
         <option value="$PROJECT_DIR$/HBase/pom.xml" />
         <option value="$PROJECT_DIR$/Kafka/pom.xml" />
         <option value="$PROJECT_DIR$/Redis/pom.xml" />
-        <option value="$PROJECT_DIR$/Sqoop/pom.xml" />
         <option value="$PROJECT_DIR$/Storm/pom.xml" />
         <option value="$PROJECT_DIR$/Hadoop/pom.xml" />
         <option value="$PROJECT_DIR$/Bicycle/pom.xml" />
         <option value="$PROJECT_DIR$/MongoDB/pom.xml" />
-        <option value="$PROJECT_DIR$/Mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
         <option value="$PROJECT_DIR$/Zookeeper/pom.xml" />
         <option value="$PROJECT_DIR$/ScalaLearn/pom.xml" />
@@ -24,7 +21,6 @@
         <option value="$PROJECT_DIR$/Communication/pom.xml" />
         <option value="$PROJECT_DIR$/ElasticSearch/pom.xml" />
         <option value="$PROJECT_DIR$/SpringCloud.GYB/pom.xml" />
-        <option value="$PROJECT_DIR$/ConcurrencySynchronization/pom.xml" />
       </list>
     </option>
   </component>

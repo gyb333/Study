@@ -1,18 +1,13 @@
 package Study.JavaBase;
 
-import java.sql.Array;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import Study.DAO.StudentDAO;
-import Study.domain.Student;
+import Base.DAO.StudentDAO;
+import Base.domain.Student;
 
  
 public class StudentDAOTest {

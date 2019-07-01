@@ -6,10 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AOP" />
         <module name="Bicycle" />
         <module name="Communication" />
-        <module name="ConcurrencySynchronization" />
         <module name="ElasticSearch" />
         <module name="Flume" />
         <module name="Hadoop" />
@@ -18,16 +16,20 @@
         <module name="JavaBase" />
         <module name="Kafka" />
         <module name="MongoDB" />
-        <module name="Mybatis" />
-        <module name="Nats" />
         <module name="Redis" />
         <module name="RPC" />
         <module name="ScalaLearn" />
         <module name="ScalaSpark" />
-        <module name="Sqoop" />
         <module name="Storm" />
         <module name="Zookeeper" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AOP" target="1.5" />
+      <module name="ConcurrencySynchronization" target="1.8" />
+      <module name="Mybatis" target="1.7" />
+      <module name="Nats" target="1.8" />
+      <module name="Sqoop" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

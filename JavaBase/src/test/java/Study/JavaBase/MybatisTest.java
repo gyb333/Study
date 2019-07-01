@@ -8,9 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
  
-import Study.Mybatis.MybatisUtils;
-import Study.Mybatis.Mapper.StudentMapper;
-import Study.domain.Student;
+import Base.Mybatis.MybatisUtils;
+import Base.Mybatis.Mapper.StudentMapper;
+import Base.domain.Student;
 
 public class MybatisTest {
 
