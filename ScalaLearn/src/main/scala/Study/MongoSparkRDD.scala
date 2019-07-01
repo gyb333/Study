@@ -1,9 +1,5 @@
 package Study
 
-import com.mongodb.spark.MongoSpark
-import org.apache.spark.sql.SparkSession
-import org.apache.spark.{SparkConf, SparkContext}
-
 object MongoSparkRDD {
 
   val mongodbURL="mongodb://Master:27200,Second:27200,Slave:27200/"

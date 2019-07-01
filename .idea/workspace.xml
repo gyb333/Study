@@ -2,94 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cd71e4e-dd9b-447e-8f7b-20f7c91124c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/hydra.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/AOP.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/Cglib/CglibProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/Cglib/CglibProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/DynamicProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/DynamicProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/ITask.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/ITask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/RealTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/RealTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/StaticProxy/ProxyPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/StaticProxy/ProxyPattern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/src/main/java/Study/AOP/StaticProxy/TaskProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/AOP/StaticProxy/TaskProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP/src/test/java/Study/AOP/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/ConcurrencySynchronization.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/BlockingQueueCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/BlockingQueueCommunication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/BlockingQueueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/BlockingQueueTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CacheDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CacheDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CallableAndFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CallableAndFuture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CollectionModifyExceptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CollectionModifyExceptionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/ConditionCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/ConditionCommunication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CountdownLatchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CountdownLatchTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/CyclicBarrierTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/CyclicBarrierTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/ExchangerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/ExchangerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/LockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/LockTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/ReadWriteLockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/ReadWriteLockTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/SemaphoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/SemaphoreTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/ThreadPoolTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/ThreadPoolTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/HighGrade/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/HighGrade/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/MultiThreadShareData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/MultiThreadShareData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/ThreadLocalShareData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/ThreadLocalShareData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/ThreadScopeShareData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/ThreadScopeShareData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/TraditionalThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/TraditionalThreadCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThreadCommunication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/TraditionalThreadSynchronized.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThreadSynchronized.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/Study/TraditionalTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcurrencySynchronization/src/main/java/StudyCompletableFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/StudyCompletableFuture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Common/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Common/CommonUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Common/ConfigUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Common/ConfigUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Common/SQLBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Common/SQLBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/DAO/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/DAO/StudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/IDAO/IBaseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/IDAO/IBaseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/IDAO/IStudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/IDAO/IStudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/IDAO/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/IDAO/IUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/BaseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/BaseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/DAOException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/DataSource/ConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/DataSource/ConnectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/IRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/IRowMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/IRowsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/IRowsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/JdbcUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/JdbcUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/MySqlFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/MySqlFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/PreparedSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/PreparedSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/RowsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/RowsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/SQLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/SQLUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/JDBC/TypeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/JDBC/TypeUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/Mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/Mapper/StudentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/Mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/Mapper/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/MybatisUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/MybatisUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/Mybatis/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/Mybatis/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/domain/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/domain/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/main/java/Study/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Base/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/MybatisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/MybatisTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/StudentDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/StudentDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nats/Nats.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nats/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nats/src/main/java/Study/NatsAuthHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsAuthHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nats/src/main/java/Study/NatsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nats/src/main/java/Study/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Nats/Publisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nats/src/main/java/Study/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Nats/Subscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sqoop/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sqoop/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sqoop/Sqoop.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sqoop/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sqoop/src/main/java/Sqoop2基础命令.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Sqoop/Sqoop2基础命令.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sqoop/src/main/java/Sqoop基础命令.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Sqoop/Sqoop基础命令.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sqoop/src/main/java/Study/Sqoop/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sqoop/src/test/java/Study/Sqoop/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDB/MongoDB操作" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoDB操作" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDB/MongoDB集群操作" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoDB集群操作" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDB/mongod.conf" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/mongod.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDB/mongos.conf" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/mongos.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDB/src/main/java/Study/MongoSparkRDD.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Redis/Redis安装" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Redis/Redis安装" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Redis/Redis集群操作" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Redis/Redis集群操作" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Redis/create-cluster" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Redis/create-cluster" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Redis/redisManager.sh" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Redis/redisManager.sh" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/ScalaLearn/target/" />
     <ignored path="$PROJECT_DIR$/ScalaSpark/target/" />
@@ -129,15 +54,17 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="4" />
-          <entry key="java" value="22" />
-          <entry key="xml" value="10" />
+          <entry key="java" value="27" />
+          <entry key="scala" value="3" />
+          <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="4" />
-          <entry key="JAVA" value="22" />
-          <entry key="XML" value="10" />
+          <entry key="JAVA" value="27" />
+          <entry key="Scala" value="3" />
+          <entry key="XML" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -155,63 +82,54 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/StudyCompletableFuture.java">
+        <entry file="file://$PROJECT_DIR$/Storm/src/main/java/Study/Storm/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="174">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsAuthHandler.java">
+        <entry file="file://$PROJECT_DIR$/Storm/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
+            <state relative-caret-position="-566" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/Publisher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/Subscriber.java">
+        <entry file="file://$PROJECT_DIR$/Redis/src/main/java/Study/App.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="87">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JavaBase/pom.xml">
+        <entry file="file://$PROJECT_DIR$/Redis/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="87" selection-start-line="87" selection-end-line="87" />
+            <state relative-caret-position="-1494" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MongoDB/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="74" selection-start-line="74" selection-end-line="74" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Scala Object" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -220,6 +138,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoSparkRDD.scala" />
+        <option value="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala" />
       </list>
     </option>
   </component>
@@ -263,64 +183,21 @@
           <expand>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
               <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
               <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
               <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
               <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
@@ -328,29 +205,33 @@
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="Nats" type="462c0819:PsiDirectoryNode" />
+              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="Nats" type="462c0819:PsiDirectoryNode" />
+              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="Nats" type="462c0819:PsiDirectoryNode" />
+              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Study" type="462c0819:PsiDirectoryNode" />
-              <item name="Nats" type="462c0819:PsiDirectoryNode" />
+              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="Study" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -363,7 +244,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561969073211" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561969794192" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -377,6 +258,8 @@
       <recent name="Study" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\Study\JavaBase\src\main\java\MongoDB" />
+      <recent name="D:\work\Study\JavaBase\src\main\java\Redis" />
       <recent name="D:\work\Study\JavaBase\src\main\java" />
       <recent name="D:\work\Study\BigData\Sqoop" />
     </key>
@@ -412,12 +295,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561967073050</updated>
-      <workItem from="1561967077500" duration="1972000" />
+      <workItem from="1561967077500" duration="2640000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1972000" />
+    <option name="totallyTimeSpent" value="2640000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -525,13 +408,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AOP/AOP.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mybatis/src/main/java/Study/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/DynamicProxy.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -675,6 +551,79 @@
         <state relative-caret-position="435">
           <caret line="87" selection-start-line="87" selection-end-line="87" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mybatis/src/main/java/Study/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flume/src/main/java/Study/Flume/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Storm/src/main/java/Study/Storm/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Storm/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-566" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Redis/src/main/java/Study/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MongoDB/src/main/java/Study/MongoSparkRDD.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-943">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoSparkRDD.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MongoDB/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MongoDB/src/main/java/Study/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Redis/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1494" />
       </provider>
     </entry>
   </component>

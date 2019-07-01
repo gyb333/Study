@@ -15,21 +15,21 @@
         <module name="Hive" />
         <module name="JavaBase" />
         <module name="Kafka" />
-        <module name="MongoDB" />
-        <module name="Redis" />
         <module name="RPC" />
         <module name="ScalaLearn" />
         <module name="ScalaSpark" />
-        <module name="Storm" />
         <module name="Zookeeper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AOP" target="1.5" />
       <module name="ConcurrencySynchronization" target="1.8" />
+      <module name="MongoDB" target="1.8" />
       <module name="Mybatis" target="1.7" />
       <module name="Nats" target="1.8" />
+      <module name="Redis" target="1.7" />
       <module name="Sqoop" target="1.5" />
+      <module name="Storm" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

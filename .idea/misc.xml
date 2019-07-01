@@ -9,11 +9,8 @@
         <option value="$PROJECT_DIR$/Flume/pom.xml" />
         <option value="$PROJECT_DIR$/HBase/pom.xml" />
         <option value="$PROJECT_DIR$/Kafka/pom.xml" />
-        <option value="$PROJECT_DIR$/Redis/pom.xml" />
-        <option value="$PROJECT_DIR$/Storm/pom.xml" />
         <option value="$PROJECT_DIR$/Hadoop/pom.xml" />
         <option value="$PROJECT_DIR$/Bicycle/pom.xml" />
-        <option value="$PROJECT_DIR$/MongoDB/pom.xml" />
         <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
         <option value="$PROJECT_DIR$/Zookeeper/pom.xml" />
         <option value="$PROJECT_DIR$/ScalaLearn/pom.xml" />
