@@ -2,111 +2,113 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cd71e4e-dd9b-447e-8f7b-20f7c91124c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/Test.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/MongoSparkRDD.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/Flume.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/Resources/ag1.conf" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/ag1.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/Resources/kafka-hdfs.conf" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/kafka-hdfs.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/src/main/java/Study/Flume/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/src/main/java/Study/Flume/Interceptor/JsonInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/Interceptor/JsonInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/src/main/java/Study/Flume/Source/TailFileSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/Source/TailFileSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/src/tail" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/tail" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/src/test/java/Study/Flume/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/src/命令" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/命令" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flume/src/目录采集" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Flume/目录采集" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/HBase.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/HBase命令.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBase命令.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseDDLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseDDLUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseDMLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseDMLUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/main/java/Study/HBase/HBaseUtilsOld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HBase/HBaseUtilsOld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/resources/core-site.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/resources/hbase-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/hbase-site.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/resources/log4j.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/test/java/Study/HBase/DDLTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HBase/src/test/java/Study/HBase/DMLTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/Communication.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/src/main/java/Study/ActorClient.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/ActorClient.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/src/main/java/Study/ActorServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/ActorServer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/src/main/java/Study/IOClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/IOClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/src/main/java/Study/IOServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/IOServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/src/main/java/Study/Message.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/Message.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/src/main/java/Study/NIOServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/NIOServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/src/main/java/Study/NettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/NettyClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/src/main/java/Study/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/NettyServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Communication/src/main/java/Study/Test.scala" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Hadoop/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/ConfigUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/ConfigUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/HDFSHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/HDFSHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/HDFSUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/HDFSUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/HDFS/HdfsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/HDFS/HdfsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DataType/FlowBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DataType/FlowCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DataType/FlowCountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowCountMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DataType/FlowCountReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowCountReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/DistributedJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DistributedJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/Example/CommonFriendsOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/Example/CommonFriendsOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/Example/OrderBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/Example/OrderBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/Example/OrderTopN.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/Example/OrderTopN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/HmbbsCleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/HmbbsCleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/InvertedIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/InvertedIndex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/JobBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/JobBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/MapSideJoin/MapJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/MapSideJoin/MapJoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/MapSideJoin/OrderDetailBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/MapSideJoin/OrderDetailBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/MapSideJoin/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/MapSideJoin/UserBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/MyPartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/MyPartitioner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/CompareKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/CompareKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/GroupingComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/GroupingComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/OrderIDPartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/OrderIDPartitioner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/ReduceJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/ReduceJoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/ReduceSideJoin/ReduceSideFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/ReduceSideFlag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/TopN/PageTopN.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/TopN/PageTopN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/WordCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/WordCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/WordCountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/WordCountMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/MapReduce/WordCountReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/WordCountReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/CompressUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/CompressUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/FastJsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/FastJsonUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/ProtostuffUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/ProtostuffUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/SerializationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/SerializationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/SerializerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/SerializerUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/main/java/Study/Serializer/WritableUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Serializer/WritableUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/test/java/Study/FileUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/test/java/Study/FileUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/test/java/Study/HDFSUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/test/java/Study/HDFSUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hadoop/src/test/java/Study/SerializationBeanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/test/java/Study/SerializationBeanTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/Hive on Spark 安装配置" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive on Spark 安装配置" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/Hive.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/hive-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/hive-site.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive命令.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive命令.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive复杂处理.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive复杂处理.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive复杂数据类型.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive复杂数据类型.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive常用函数.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive常用函数.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive窗口处理函数.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive窗口处理函数.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Hive自定义函数开发.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/Hive自定义函数开发.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hive/src/main/java/Study/Hive/HiveJdbcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Hive/HiveJdbcClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/Kafka.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Resources/KafkaConsumer.Properties" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/KafkaConsumer.Properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Resources/KafkaOld.Properties" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/KafkaOld.Properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Resources/KafkaProducer.Properties" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/Resources/KafkaProducer.Properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/CommonUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/CounterInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/CounterInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/CustomPartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/CustomPartitioner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/KfkConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/KfkConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/KfkProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/KfkProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/LogProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/LogProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/LogStreamApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/LogStreamApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/Study/Kafka/TimeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/TimeInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/技术思想.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/技术思想.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Hadoop/src/main/java/Kafka/笔记.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/HTTP/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/HTTP/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/HTTP/Encode.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/HTTP/Encode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/HTTP/ExecHttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/HTTP/ExecHttpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/HTTP/ProtocolUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/HTTP/ProtocolUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/HTTP/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/HTTP/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/HTTP/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/HTTP/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/HTTP/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/HTTP/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Hadoop/ClientProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Hadoop/ClientProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Hadoop/ClientProtocolImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Hadoop/ClientProtocolImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Hadoop/RPCClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Hadoop/RPCClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Hadoop/RPCServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Hadoop/RPCServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Heartbeat/Cmder.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Heartbeat/Cmder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Heartbeat/HeartbeatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Heartbeat/HeartbeatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Heartbeat/HeartbeatEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Heartbeat/HeartbeatEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Heartbeat/HeartbeatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Heartbeat/HeartbeatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Heartbeat/HeartbeatHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Heartbeat/HeartbeatHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Heartbeat/HeartbeatLinstener.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Heartbeat/HeartbeatLinstener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Heartbeat/HeartbeatTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Heartbeat/HeartbeatTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Heartbeat/ServiceCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Heartbeat/ServiceCenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Provider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/SayHelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/SayHelloService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/SayHelloServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/SayHelloServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Simple/RPCClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Simple/RPCClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Simple/RPCServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Simple/RPCServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Simple/RPCServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Simple/RPCServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/src/main/java/Study/RPC/Simple/RPCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/Simple/RPCTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPC/功能职责" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/RPC/功能职责" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScalaLearn/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaLearn/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScalaSpark/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/ZK命令" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/ZK命令" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/Zookeeper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Zookeeper.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/Resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Client/AbstractBalanceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Client/AbstractBalanceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Client/BalanceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Client/BalanceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Client/ClientApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Client/ClientApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Client/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Client/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Client/ClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Client/ClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Client/DefaultBalanceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Client/DefaultBalanceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/BalanceUpdateProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/BalanceUpdateProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/DefaultBalanceUpdateProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/DefaultBalanceUpdateProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/DefaultRegistProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/DefaultRegistProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/IZkClientProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/IZkClientProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/RegistProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/RegistProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/ServerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/ServerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/ServerData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/ServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Balance/Server/ZooKeeperRegistContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Balance/Server/ZooKeeperRegistContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Base/ZookeeperAsyncUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Base/ZookeeperAsyncUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Base/ZookeeperFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Base/ZookeeperFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Base/ZookeeperUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Base/ZookeeperUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Curator/CuratorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Curator/CuratorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Curator/CuratorUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Curator/CuratorUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Lock/BaseDistributedLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Lock/BaseDistributedLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Lock/DistributedLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Lock/DistributedLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Lock/DistributedLockApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Lock/DistributedLockApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Lock/DistributedLockMutex.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Lock/DistributedLockMutex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Lock/SimpleDistributedLockMutex.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Lock/SimpleDistributedLockMutex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Lock/ZkClientExt.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Lock/ZkClientExt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/MasterElect/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/MasterElect/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/MasterElect/NodeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/MasterElect/NodeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/MasterElect/WorkServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/MasterElect/WorkServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/NameService/IdMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/NameService/IdMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/NameService/IdMakerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/NameService/IdMakerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Queue/DistributedBlockingQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Queue/DistributedBlockingQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Queue/DistributedSimpleQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Queue/DistributedSimpleQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Queue/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Queue/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Subscribe/ConfigNodeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Subscribe/ConfigNodeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Subscribe/CustomSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Subscribe/CustomSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Subscribe/ManagerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Subscribe/ManagerServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Subscribe/ServerNodeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Subscribe/ServerNodeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Subscribe/SubscribeZkClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Subscribe/SubscribeZkClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Subscribe/WorkServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Subscribe/WorkServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/Subscribe/ZkConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/Subscribe/ZkConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/ZkClient/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/ZkClient/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/ZkClient/ZkClientFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/ZkClient/ZkClientFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/main/java/Study/Zookeeper/ZkClient/ZkClientUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/ZkClient/ZkClientUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/test/java/Study/Zookeeper/DistributedBlockingQueueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zookeeper/src/test/java/Study/Zookeeper/DistributedBlockingQueueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/test/java/Study/Zookeeper/DistributedSimpleQueueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zookeeper/src/test/java/Study/Zookeeper/DistributedSimpleQueueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/test/java/Study/Zookeeper/ZkClient/ZKClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/test/java/ZKClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/test/java/Study/Zookeeper/ZookeeperUtilsAuthTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zookeeper/src/test/java/Study/Zookeeper/ZookeeperUtilsAuthTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/src/test/java/Study/Zookeeper/ZookeeperUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zookeeper/src/test/java/Study/Zookeeper/ZookeeperUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zookeeper/原理资料" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/原理资料" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/ScalaLearn/target/" />
     <ignored path="$PROJECT_DIR$/ScalaSpark/target/" />
@@ -139,54 +141,72 @@
     <session id="-1959379138">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="classpath" value="1" />
           <entry key="iml" value="5" />
-          <entry key="java" value="47" />
-          <entry key="properties" value="2" />
-          <entry key="scala" value="4" />
-          <entry key="xml" value="24" />
+          <entry key="java" value="69" />
+          <entry key="properties" value="4" />
+          <entry key="scala" value="15" />
+          <entry key="xml" value="36" />
+          <entry key="功能职责" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Eclipse" value="1" />
           <entry key="IDEA_MODULE" value="5" />
-          <entry key="JAVA" value="47" />
-          <entry key="Properties" value="2" />
-          <entry key="Scala" value="4" />
-          <entry key="XML" value="24" />
+          <entry key="JAVA" value="69" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Properties" value="4" />
+          <entry key="Scala" value="15" />
+          <entry key="XML" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="xml" value="19" />
+          <entry key="scala" value="1" />
+          <entry key="xml" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="XML" value="19" />
+          <entry key="Scala" value="1" />
+          <entry key="XML" value="28" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hadoop/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="22" column="53" lean-forward="true" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+            <state relative-caret-position="-4495">
+              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
               <folding>
                 <element signature="n#build#0;n#project#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/MongoSparkRDD.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="e#15#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -214,10 +234,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
         <option value="$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoSparkRDD.scala" />
-        <option value="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala" />
         <option value="$PROJECT_DIR$/Hadoop/pom.xml" />
+        <option value="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/Test.scala" />
+        <option value="$PROJECT_DIR$/ScalaLearn/pom.xml" />
+        <option value="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/scriptFile.scala" />
+        <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
+        <option value="$PROJECT_DIR$/ScalaSpark/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaBase/src/test/java/ZKClientTest.java" />
+        <option value="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/MongoSparkRDD.scala" />
       </list>
     </option>
   </component>
@@ -243,7 +269,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-142" />
     <option name="y" value="322" />
     <option name="width" value="1936" />
@@ -265,51 +291,89 @@
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ZooKeeper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ZooKeeper" type="462c0819:PsiDirectoryNode" />
+              <item name="ZkClient" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="MapReduce" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hadoop" type="462c0819:PsiDirectoryNode" />
+              <item name="ScalaSpark" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zookeeper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Zookeeper" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="MapReduce" type="462c0819:PsiDirectoryNode" />
-              <item name="DataType" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561973732641" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562037043388" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -323,11 +387,11 @@
       <recent name="Study" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\Study\JavaBase\src\main\java\ZooKeeper" />
+      <recent name="D:\work\Study\JavaBase\src\main" />
+      <recent name="D:\work\Study\JavaBase\src\main\java\RPC" />
       <recent name="D:\work\Study\Hadoop\src\Resources" />
       <recent name="D:\work\Study\Hadoop\src\main\java\Kafka" />
-      <recent name="D:\work\Study\Hadoop\src\main\java\Flume" />
-      <recent name="D:\work\Study\Hadoop\src\main\java\Hive" />
-      <recent name="D:\work\Study\Hadoop\src\main\java\HBase" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -364,11 +428,13 @@
       <workItem from="1561967077500" duration="2802000" />
       <workItem from="1561970046404" duration="1080000" />
       <workItem from="1561971196141" duration="2532000" />
+      <workItem from="1561973804665" duration="4831000" />
+      <workItem from="1562034998075" duration="1825000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6414000" />
+    <option name="totallyTimeSpent" value="13070000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -381,8 +447,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19296375" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19722815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -459,129 +526,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/ITask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/RealTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AOP/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/Communication/Communication.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-194" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConcurrencySynchronization/ConcurrencySynchronization.iml" />
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/MultiThreadShareData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="69" column="6" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/ThreadLocalShareData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/ThreadScopeShareData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/TraditionalThreadCommunication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConcurrencySynchronization/pom.xml" />
-    <entry file="jar://D:/Java/jdk1.8/src.zip!/java/lang/Runnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ConcurrencySynchronization/StudyCompletableFuture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsAuthHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/NatsUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/Publisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/Subscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Nats/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/JavaBase/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mybatis/src/main/java/Study/App.java" />
-    <entry file="file://$PROJECT_DIR$/Storm/src/main/java/Study/Storm/App.java" />
-    <entry file="file://$PROJECT_DIR$/Storm/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/Redis/src/main/java/Study/App.java" />
-    <entry file="file://$PROJECT_DIR$/MongoDB/src/main/java/Study/MongoSparkRDD.scala" />
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/MongoDB/MongoSparkRDD.scala" />
-    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MongoDB/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/MongoDB/src/main/java/Study/App.java" />
-    <entry file="file://$PROJECT_DIR$/Redis/pom.xml" />
     <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/HBase/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -602,81 +546,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Hive/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/Communication/src/main/java/Study/IOServer.java">
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/IOServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Communication/src/main/java/Study/ActorServer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Communication/src/main/java/Study/IOClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flume/src/main/java/Study/Flume/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flume/Flume.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flume/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flume/.classpath">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Communication/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Flume/Source/TailFileSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Flume/Interceptor/JsonInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kafka/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="47" column="21" selection-start-line="27" selection-start-column="8" selection-end-line="47" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Flume/src/main/java/Study/Flume/App.java" />
+    <entry file="file://$PROJECT_DIR$/Flume/Flume.iml" />
+    <entry file="file://$PROJECT_DIR$/Flume/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/Flume/.classpath" />
+    <entry file="file://$PROJECT_DIR$/Kafka/pom.xml" />
     <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Kafka/TimeInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -694,32 +575,271 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowBean.java">
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/GroupingComparator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="145">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ElasticSearch/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Flume/Source/TailFileSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/GroupingComparator.java">
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="232">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Flume/Interceptor/JsonInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/IOClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/NettyClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/NettyServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/NIOServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/Test.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Communication/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="66" selection-start-line="47" selection-start-column="3" selection-end-line="66" />
+          <folding>
+            <element signature="n#pluginManagement#0;n#build#0;n#project#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2088">
+          <caret line="72" column="53" selection-start-line="72" selection-start-column="53" selection-end-line="72" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/Message.scala">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/ActorClient.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding>
+            <element signature="e#23#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/ActorServer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="e#23#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaSpark/RDD.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <element signature="e#26#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/Hadoop/ClientProtocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/功能职责">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/Provider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/SayHelloService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/SayHelloServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RPC/src/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RPC/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/scriptFile.scala">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Zookeeper/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="79" column="21" selection-start-line="34" selection-start-column="8" selection-end-line="79" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Hadoop/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="22" column="53" lean-forward="true" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+        <state relative-caret-position="-4495">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding>
             <element signature="n#build#0;n#project#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1436">
+          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaSpark/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="135" column="21" selection-start-line="135" selection-start-column="21" selection-end-line="135" selection-end-column="21" />
+          <folding>
+            <element signature="n#build#0;n#project#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/StudentDAOTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/MybatisTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/test/java/ZKClientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/MongoSparkRDD.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#15#50#0" expanded="true" />
           </folding>
         </state>
       </provider>

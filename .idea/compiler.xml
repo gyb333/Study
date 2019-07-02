@@ -7,18 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Bicycle" />
-        <module name="Communication" />
         <module name="ElasticSearch" />
         <module name="Hadoop" />
         <module name="JavaBase" />
-        <module name="RPC" />
         <module name="ScalaLearn" />
         <module name="ScalaSpark" />
-        <module name="Zookeeper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AOP" target="1.5" />
+      <module name="Communication" target="8" />
       <module name="ConcurrencySynchronization" target="1.8" />
       <module name="Flume" target="1.5" />
       <module name="HBase" target="1.8" />
@@ -28,8 +26,10 @@
       <module name="Mybatis" target="1.7" />
       <module name="Nats" target="1.8" />
       <module name="Redis" target="1.7" />
+      <module name="RPC" target="1.5" />
       <module name="Sqoop" target="1.5" />
       <module name="Storm" target="1.5" />
+      <module name="Zookeeper" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
