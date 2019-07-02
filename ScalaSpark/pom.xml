@@ -135,6 +135,27 @@
 			<version>2.4.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.32.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-actor_2.11</artifactId>
+			<version>${akka.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-remote -->
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-remote_2.11</artifactId>
+			<version>${akka.version}</version>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>junit</groupId>

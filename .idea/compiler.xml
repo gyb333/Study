@@ -10,7 +10,6 @@
         <module name="ElasticSearch" />
         <module name="Hadoop" />
         <module name="JavaBase" />
-        <module name="ScalaLearn" />
         <module name="ScalaSpark" />
       </profile>
     </annotationProcessing>
@@ -27,6 +26,7 @@
       <module name="Nats" target="1.8" />
       <module name="Redis" target="1.7" />
       <module name="RPC" target="1.5" />
+      <module name="ScalaLearn" target="1.8" />
       <module name="Sqoop" target="1.5" />
       <module name="Storm" target="1.5" />
       <module name="Zookeeper" target="1.5" />
