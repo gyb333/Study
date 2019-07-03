@@ -2,100 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cd71e4e-dd9b-447e-8f7b-20f7c91124c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/Fly.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/MongoSparkRDD.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/RDD.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/activiti.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/AppayBill.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/AppayBill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/BuyBill.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/BuyBill.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/ExclusiveGateway.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/ExclusiveGateway.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/HelloActiviti.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/SequenceFlow.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/SequenceFlow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/AppayBillBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ExclusiveGetWay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessDefinitionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessInstanceAndTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessVariable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/SequenceFlow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/UserTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/ActorClient.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/Communication/ActorClient.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/ActorServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/Communication/ActorServer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/IOClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/Communication/IOClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/IOServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/Communication/IOServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/Message.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/Communication/Message.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/NIOServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/Communication/NIOServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/NettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/Communication/NettyClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/Communication/NettyServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Communication/Test.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/Communication/Test.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/ArrayOpt.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/ArrayOpt.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaLearn/ArrayOpt.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/CallByName.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/CallByName.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaLearn/CallByName.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/CallByValueAndName.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/CallByValueAndName.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaLearn/CallByValueAndName.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/Method.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/Method.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaLearn/Method.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/PartialFunction.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/PartialFunction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaLearn/PartialFunction.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/Test.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaLearn/Test.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaLearn/Test.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/CaseMatch.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/CaseMatch.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/CaseMatch.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/ImpicitsObject.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/ImpicitsObject.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/ImpicitsObject.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/ScalaCaseMatch.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/ScalaCaseMatch.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/ScalaCaseMatch.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/ScalaGenerics.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/ScalaGenerics.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/ScalaGenerics.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/ScalaImplicit.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/ScalaImplicit.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/ScalaImplicit.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/UpperLowerBounds.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaMatch/UpperLowerBounds.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/UpperLowerBounds.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/AbsClass.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/AbsClass.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/AbsClass.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/AbsClassImpl.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/AbsClassImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/AbsClassImpl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/Animal.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/Animal.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/Animal.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/Fly.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/Person.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/Person.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/Person.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/ScalaStatic.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/ScalaStatic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/ScalaStatic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/ScalaTrait.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/ScalaTrait.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/ScalaTrait.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/ScalaTraitImpl.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/ScalaTraitImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/ScalaTraitImpl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/StudentTrait.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/StudentTrait.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/StudentTrait.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/Teacher.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/ScalaObject/Teacher.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/Teacher.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/MongoSparkRDD.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaAkka/ClientActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaAkka/ClientActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaAkka/HelloActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaAkka/HelloActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaAkka/MessageProtocol.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaAkka/MessageProtocol.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaAkka/PingPongApp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaAkka/PingPongApp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaAkka/ServerActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaAkka/ServerActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaSpark/MessageProtocol.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/MessageProtocol.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaSpark/RDD.Properties" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/RDD.Properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaSpark/RDD.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaSpark/RDDAPI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/RDDAPI.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaSpark/SerializableTask.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/SerializableTask.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaSpark/SparkMaster.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/SparkMaster.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaSpark/SparkWorker.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/SparkWorker.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/CustomSort.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/CustomSort.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/FavTeacher.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/FavTeacher.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/GroupFavTeacher.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/GroupFavTeacher.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/IpLocation.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/IpLocation.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/JdbcRdd.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/JdbcRdd.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/MyUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/MyUtils.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/NoSerializable/Rules.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/NoSerializable/Rules.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/NoSerializable/RulesExecutor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/NoSerializable/RulesExecutor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/UDF.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/UDF.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/Spark/Examples/WordCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/Examples/WordCount.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkSQL/DataSources.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkSQL/DataSources.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkSQL/HiveOnSpark.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkSQL/HiveOnSpark.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkSQL/SQLDemo.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkSQL/SQLDemo.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkSQL/SQLOldDemo.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkSQL/SQLOldDemo.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkSQL/WorldCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkSQL/WorldCount.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkStreaming/DirectStream.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkStreaming/DirectStream.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkStreaming/KafkaDirectWordCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkStreaming/KafkaDirectWordCount.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkStreaming/KafkaWordCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkStreaming/KafkaWordCount.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkStreaming/Order/CalculateUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkStreaming/Order/CalculateUtils.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkStreaming/Order/IPUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkStreaming/Order/IPUtils.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkStreaming/Order/JedisConnectionPool.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkStreaming/Order/JedisConnectionPool.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkStreaming/Order/OrderCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkStreaming/Order/OrderCount.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkStreaming/StatefulKafkaWordCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkStreaming/StatefulKafkaWordCount.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/SparkStreaming/StreamingWordCount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/SparkStreaming/StreamingWordCount.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBase/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBase/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/ScalaLearn/target/" />
     <ignored path="$PROJECT_DIR$/ScalaSpark/target/" />
@@ -139,115 +64,118 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="BPMN_2_0/JavaBase" value="1" />
+          <entry key="Properties" value="1" />
+          <entry key="bpmn" value="16" />
+          <entry key="class" value="4" />
           <entry key="classpath" value="1" />
           <entry key="iml" value="5" />
-          <entry key="java" value="74" />
-          <entry key="properties" value="5" />
+          <entry key="java" value="90" />
+          <entry key="png" value="1" />
+          <entry key="properties" value="7" />
           <entry key="scala" value="28" />
-          <entry key="xml" value="38" />
+          <entry key="xml" value="50" />
           <entry key="功能职责" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="BPMN_EDITOR" value="16" />
+          <entry key="CLASS" value="4" />
           <entry key="Eclipse" value="1" />
           <entry key="IDEA_MODULE" value="5" />
-          <entry key="JAVA" value="74" />
+          <entry key="Image" value="1" />
+          <entry key="JAVA" value="90" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Properties" value="5" />
+          <entry key="Properties" value="8" />
           <entry key="Scala" value="28" />
-          <entry key="XML" value="38" />
+          <entry key="UML" value="3" />
+          <entry key="XML" value="48" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="java" value="502" />
           <entry key="scala" value="1" />
-          <entry key="xml" value="30" />
+          <entry key="xml" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="JAVA" value="502" />
           <entry key="Scala" value="1" />
-          <entry key="XML" value="30" />
+          <entry key="XML" value="60" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.spring.core.usages.trigger">
+        <counts>
+          <entry key="fixes.SpringFacetInspection.AddFacetFix" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/ScalaCaseMatch.scala">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/Fly.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/UpperLowerBounds.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/RDD.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/RDDAPI.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/ScalaSpark/SerializableTask.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/MongoSparkRDD.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/Teacher.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/ScalaGenerics.scala">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessInstanceAndTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            <state relative-caret-position="507">
+              <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessVariable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2204">
+              <caret line="97" column="36" lean-forward="true" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/SequenceFlow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1421">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1816#1832#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ExclusiveGetWay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1512">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1823#1839#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/UserTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#730#746#0" expanded="true" />
+                <element signature="e#2025#2041#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -259,6 +187,8 @@
       <list>
         <option value="Scala Trait" />
         <option value="Scala Object" />
+        <option value="BpmnFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -281,7 +211,6 @@
         <option value="$PROJECT_DIR$/ScalaLearn/pom.xml" />
         <option value="$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala" />
         <option value="$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/scriptFile.scala" />
-        <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
         <option value="$PROJECT_DIR$/JavaBase/src/test/java/ZKClientTest.java" />
         <option value="$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/MongoSparkRDD.scala" />
         <option value="$PROJECT_DIR$/Zookeeper/src/test/java/Zookeeper/AppTest.java" />
@@ -293,6 +222,18 @@
         <option value="$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/MongoSparkRDD.scala" />
         <option value="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaObject/Teacher.scala" />
         <option value="$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/ScalaGenerics.scala" />
+        <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/activiti.cfg.xml" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/HelloActiviti.bpmn" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/HelloActiviti.java" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/BuyBill.bpmn" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessDefinitionManager.java" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessInstanceAndTask.java" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/AppayBillBean.java" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessVariable.java" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/SequenceFlow.java" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ExclusiveGetWay.java" />
+        <option value="$PROJECT_DIR$/JavaBase/src/main/java/Activiti/UserTask.java" />
       </list>
     </option>
   </component>
@@ -318,13 +259,15 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-142" />
     <option name="y" value="322" />
     <option name="width" value="1936" />
     <option name="height" value="1036" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -336,72 +279,48 @@
           <expand>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaLearn" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaSpark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaSpark" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaSpark" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaSpark" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaSpark" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="ScalaBase" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Activiti" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaSpark" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="ScalaBase" type="462c0819:PsiDirectoryNode" />
-              <item name="ScalaObject" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaSpark" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaBase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="StudySpark" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="diagrams" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -414,7 +333,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562038004057" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562146320049" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -427,15 +347,18 @@
       <recent name="" />
       <recent name="Study" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\Study\JavaBase\src\main\Resources\diagrams" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Zookeeper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\Study\JavaBase\src\main\Resources" />
       <recent name="D:\work\Study\ScalaSpark\src\main" />
       <recent name="D:\work\Study\JavaBase\src\main\java\ZooKeeper" />
       <recent name="D:\work\Study\JavaBase\src\main" />
       <recent name="D:\work\Study\JavaBase\src\main\java\RPC" />
-      <recent name="D:\work\Study\Hadoop\src\Resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -450,7 +373,46 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ProcessInstanceAndTask">
+    <configuration name="HelloActiviti" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Activiti.HelloActiviti" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Activiti.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProcessDefinitionManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Activiti.ProcessDefinitionManager" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Activiti.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProcessInstanceAndTask" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Activiti.ProcessInstanceAndTask" />
+      <module name="JavaBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Activiti.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BicycleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Bicycle" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="Study.SpringBoot.Bicycle.BicycleApplication" />
@@ -458,6 +420,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.BicycleApplication" />
+      <item itemvalue="Application.HelloActiviti" />
+      <item itemvalue="Application.ProcessDefinitionManager" />
+      <item itemvalue="Application.ProcessInstanceAndTask" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ProcessInstanceAndTask" />
+        <item itemvalue="Application.ProcessDefinitionManager" />
+        <item itemvalue="Application.HelloActiviti" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -474,12 +449,12 @@
       <workItem from="1561971196141" duration="2532000" />
       <workItem from="1561973804665" duration="4831000" />
       <workItem from="1562034998075" duration="2083000" />
-      <workItem from="1562037191283" duration="690000" />
+      <workItem from="1562037191283" duration="25945000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14018000" />
+    <option name="totallyTimeSpent" value="39273000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -494,7 +469,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19936034" />
+      <window_info id="BPMN Editor" order="0" weight="0.12153518" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -502,9 +477,10 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="8" weight="0.19936034" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34056398" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -512,7 +488,7 @@
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.18980478" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.329718" />
@@ -521,12 +497,12 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="BPMNPalette" order="5" />
+      <window_info anchor="right" id="BPMNPalette" order="5" weight="0.1652452" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.32995737" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19083156" />
@@ -571,215 +547,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Kafka/CounterInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/ReduceSideJoin/GroupingComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ElasticSearch/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Flume/Source/TailFileSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/MapReduce/DataType/FlowCount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/src/main/java/Flume/Interceptor/JsonInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/Communication/IOClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/Communication/NettyClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/Communication/NettyServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/Communication/NIOServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/Communication/Test.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Communication/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/Communication/Message.scala">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/Communication/ActorClient.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#23#84#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/Communication/ActorServer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding>
-            <element signature="e#23#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaLearn/src/main/scala/Study/MongoSparkRDD.scala" />
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/ScalaSpark/RDD.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/Hadoop/ClientProtocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/功能职责">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/Provider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/SayHelloService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/RPC/SayHelloServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RPC/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/ZooKeeper/scriptFile.scala" />
-    <entry file="file://$PROJECT_DIR$/Zookeeper/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/JavaBase/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1436">
-          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/StudentDAOTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/test/java/Study/JavaBase/MybatisTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/Study/MongoSparkRDD.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1247">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hadoop/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4495">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding>
-            <element signature="n#build#0;n#project#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RPC/src/resources/log4j.properties" />
-    <entry file="file://$PROJECT_DIR$/JavaBase/src/test/java/Zookeeper/ZKClientTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JavaBase/src/test/java/Zookeeper/DistributedSimpleQueueTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -875,7 +642,7 @@
     <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/StudySpark/MongoSparkRDD.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
-          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -888,8 +655,328 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ScalaSpark/src/main/scala/ScalaBase/ScalaMatch/ScalaGenerics.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
+        <state relative-caret-position="246">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/DynamicProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/RealTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/AOP/ITask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/DBCP.Properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/HelloActiviti.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="uml://BPMN_2_0/flowPath=D:/work/Study/JavaBase/src/main/Resources/diagrams/HelloActiviti.xml">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>BPMN_2_0</ID>
+          <OriginalElement>flowPath=D:/work/Study/JavaBase/src/main/Resources/diagrams/HelloActiviti.xml</OriginalElement>
+          <nodes>
+            <node x="" y="">&lt;invalid&gt;</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="62.0" y="185.5" />
+          <SelectedNodes />
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Nats/Publisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/activiti.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="16" column="50" lean-forward="true" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/activiti/activiti-engine/7.1.0.M2/activiti-engine-7.1.0.M2.jar!/org/activiti/engine/runtime/ProcessInstance.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/HelloActiviti.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.jboss.jbpm.chart.editor.BpmnDesignerFileEditorProvider" />
+    </entry>
+    <entry file="uml://BPMN_2_0/JavaBase">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>BPMN_2_0</ID>
+          <OriginalElement>JavaBase</OriginalElement>
+          <nodes>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @81835</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TStartEvent @93026</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @93050</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @93032</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @93037</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TStartEvent @81829</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @81853</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TEndEvent @93029</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TEndEvent @81832</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @81840</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="129.0" y="185.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Details</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/HelloActiviti.bpmn">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-1728" />
+      </provider>
+      <provider editor-type-id="com.intellij.jboss.jbpm.chart.editor.BpmnDesignerFileEditorProvider" />
+      <provider selected="true" editor-type-id="bpmn-editor" />
+    </entry>
+    <entry file="uml://BPMN_2_0/flowPath=D:/work/Study/JavaBase/src/main/Resources/diagrams/BuyBill.xml">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>BPMN_2_0</ID>
+          <OriginalElement>flowPath=D:/work/Study/JavaBase/src/main/Resources/diagrams/BuyBill.xml</OriginalElement>
+          <nodes>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @94545</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @94572</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TStartEvent @94542</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TEndEvent @94581</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @94554</node>
+            <node x="" y="">interface com.intellij.jboss.jbpm.model.xml.bpmn20.TUserTask @94563</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="56.0" y="228.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Details</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/BuyBill.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.jboss.jbpm.chart.editor.BpmnDesignerFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/HelloActiviti.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createProcessEngine#0;class#HelloActiviti#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/activiti/activiti-engine/7.1.0.M2/activiti-engine-7.1.0.M2.jar!/org/activiti/engine/RepositoryService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4.jar!/org/apache/commons/io/FileUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1715">
+          <caret line="650" column="23" selection-start-line="650" selection-start-column="23" selection-end-line="650" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessDefinitionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="90" column="9" lean-forward="true" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/activiti/activiti-engine/7.1.0.M2/activiti-engine-7.1.0.M2.jar!/org/activiti/engine/runtime/Execution.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/activiti/activiti-engine/7.1.0.M2/activiti-engine-7.1.0.M2-sources.jar!/org/activiti/engine/repository/ProcessDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/activiti/activiti-engine/7.1.0.M2/activiti-engine-7.1.0.M2-sources.jar!/org/activiti/engine/runtime/ProcessInstance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/activiti/activiti-engine/7.1.0.M2/activiti-engine-7.1.0.M2-sources.jar!/org/activiti/engine/runtime/Execution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="59" column="28" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/activiti/activiti-engine/7.1.0.M2/activiti-engine-7.1.0.M2-sources.jar!/org/activiti/engine/runtime/ProcessInstanceQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3898">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/AppayBillBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-373">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#244#245#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#608#609#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2204">
+          <caret line="97" column="36" lean-forward="true" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/SequenceFlow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1421">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1816#1832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ExclusiveGetWay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1823#1839#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/AppayBill.bpmn">
+      <provider selected="true" editor-type-id="bpmn-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/SequenceFlow.bpmn">
+      <provider selected="true" editor-type-id="bpmn-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/ExclusiveGateway.bpmn">
+      <provider selected="true" editor-type-id="bpmn-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/Resources/diagrams/BuyBill.bpmn">
+      <provider selected="true" editor-type-id="bpmn-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/UserTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#730#746#0" expanded="true" />
+            <element signature="e#2025#2041#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaBase/src/main/java/Activiti/ProcessInstanceAndTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -951,6 +1038,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -138,5 +138,17 @@
 			<version>4.1.29.Final</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.activiti/activiti-engine -->
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-engine</artifactId>
+			<version>7.1.0.M2</version>
+		</dependency>
+
+
+
+
+
+
 	</dependencies>
 </project>
