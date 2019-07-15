@@ -14,8 +14,7 @@ import java.util.Map;
 
 //连线测试
 public class SequenceFlow {
-    private ProcessEngine processEngine = ProcessEngines
-            .getDefaultProcessEngine();
+    private ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
 
     // 部署流程定义，资源来在bpmn格式
 
