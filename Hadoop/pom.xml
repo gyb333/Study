@@ -23,7 +23,7 @@
         <hadoop.version>3.0.3</hadoop.version>
         <!--<hadoop.version>2.7.7</hadoop.version>-->
         <flume.version>1.9.0</flume.version>
-        <fastjson.version>1.2.51</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <kafka.version>2.0.0</kafka.version>
     </properties>
 
